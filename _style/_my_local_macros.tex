@@ -47,6 +47,9 @@
 \newcommand*{\diff}{\mathop{}\!\mathrm{d}}% vedi guida GuIT, Beccari, pp. 113-114
 \newcommand*{\ddt}[1]{\frac{\textstyle\diff{#1}}{\textstyle\diff{t}}}
 
+% http://tex.stackexchange.com/questions/9466/color-underline-a-formula
+\def\mathunderline#1#2{\color{#1}\underline{{\color{black}#2}}\color{black}}
+
 % macro per la definizione della simbologia aeronautica
 
 \newcommand{\Vinf}{\ensuremath{V_{\!\infty}}\xspace} % velocità asintotica

@@ -2,38 +2,25 @@
 \usepackage{_my_document_style}
 
 \begin{document}
-%
-%\setcounter{chapter}{3}
-%
-\chapter%
-   [Reference frames]%
-   {Reference frames}
-\label{chap:Reference:Frames}
 
-\setcounter{minitocdepth}{2}% 1: chapter level; 2: section level
-\minitoc %\mtcskip \minilof \minilot
-
-\vspace{\baselineskip}
-
-\noindent
 %===============================================================================================
 %--BEGIN-EXERCISE:equivalent_airspeed_basic_1
 %
 \input{Chapter_1/equivalent_airspeed_basic_1/data.tex}
 %
-\begin{myExampleX}{Velocità vera e velocità equivalente}{\ding{46}}% \ \Keyboard\ %
+\begin{myExampleX}{True and equivalent airspeed}{\ding{46}}% \ \Keyboard\ %
 \label{example:Equivalent:Airspeed:Basic:A}
 %
 \noindent
-Una velocità equivalente 
+An equivalent airspeed
 $V_\mathrm{e}
  =\SI[round-precision=0]{\myFlightSpeedEASKMH}{km/h}
  =\SI[round-precision=1]{\myFlightSpeedEASMTSec}{m/s}$
-corrisponde a un determinato valore della velocità vera $V\equiv V_\mathrm{t}$ in quota.
-
-All'altitudine $h=\SI[round-precision=0]{\myAltitudeMT}{m}$ si ha
-una densità dell'aria $\rho=\SI[round-precision=3]{\myAirDensityKGMTcubed}{kg/m^3}$
-e la velocità vera di volo è
+corresponds to a true airspeed at altitude $V\equiv V_\mathrm{t}$.
+%
+At the altitude $h=\SI[round-precision=0]{\myAltitudeMT}{m}$ we have an air density
+$\rho=\SI[round-precision=3]{\myAirDensityKGMTcubed}{kg/m^3}$ and the
+true flight speed is
 \[
 V = 
   \frac{ V_\text{e} }{ \sqrt{\dfrac{\rho}{\rho_\mathrm{SL}}} }
@@ -53,7 +40,8 @@ V =
   \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myFlightSpeedMTSec}{\meter/\second} }
   = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myFlightSpeedKMH}{\kilo\meter/\hour} }
 \]
-che come si vede ha un valore più elevato della $V_\mathrm{e}$ corrispondente.
+%
+The above value of $V$ is, as expected, higher than $V_\mathrm{e}$.
 
 \end{myExampleX}
 %

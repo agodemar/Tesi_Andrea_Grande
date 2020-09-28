@@ -1,0 +1,58 @@
+\lstdefinelanguage{DatcomOutput}{%
+}
+
+\lstdefinelanguage{MyInputForMatlab}{%
+}
+
+\lstdefinelanguage{MyNoSpecificLanguage}{%
+    emph={},%
+    emph={[2]},%
+    emph={[3]},%
+    emph={[4]}%
+}
+
+% see: http://tex.stackexchange.com/questions/18532/listing-language-for-screen-session
+\lstnewenvironment{myCommandLine}
+    {\lstset{%
+        basicstyle=\ttfamily,
+        backgroundcolor=\color{mylightgray},% \color{hellgelb}, %
+        frame=none,%
+        columns=[l]fixed,%flexible, %
+        prebreak=\makebox[1.4ex][r]{\color{blue}\raisebox{-0.9ex}[0ex][0ex]{\scriptsize\ensuremath{\hookleftarrow}}},
+        keepspaces=true,%
+        escapechar=~,% use this for output
+        morekeywords={ls,pwd,cd,cp,mv},
+        identifierstyle=\color{colIdentifier}, %
+        keywordstyle=\color{red!60!black}\bfseries,% \color{colKeys},%\fontseries{b}\selectfont, %
+        stringstyle=\color{colString}, %
+        literate={\$}{{\textcolor{blue}{\$}}}1}% prompt symbol
+    }
+    {}
+\lstnewenvironment{myCommandLineOutput}
+    {\lstset{%
+        language=MyNoSpecificLanguage,%
+        basicstyle=\ttfamily\footnotesize,%
+        backgroundcolor=\color{mylightgray},% \color{hellgelb}, %
+        lineskip=-1pt,%
+        frame=none,%
+        columns=[l]fixed,%flexible, %
+        prebreak=\makebox[1.4ex][r]{\color{blue}\raisebox{-0.9ex}[0ex][0ex]{\scriptsize\ensuremath{\hookleftarrow}}},
+        keepspaces=true,%
+        escapechar=~% use this for output
+        }
+    }
+    {}
+\lstnewenvironment{myCommandLineOutputSmaller}
+    {\lstset{%
+        language=MyNoSpecificLanguage,%
+        basicstyle=\ttfamily\scriptsize,%
+        backgroundcolor=\color{mylightgray},% \color{hellgelb}, %
+        lineskip=-1pt,%
+        frame=none,%
+        columns=[l]fixed,%flexible, %
+        prebreak=\makebox[1.4ex][r]{\color{blue}\raisebox{-0.9ex}[0ex][0ex]{\scriptsize\ensuremath{\hookleftarrow}}},
+        keepspaces=true,%
+        escapechar=~% use this for output
+        }
+    }
+    {}

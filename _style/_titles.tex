@@ -1,0 +1,45 @@
+% http://web.slzm.de/blog/latex/schone-kapiteltitelseiten-in-latex/
+%
+%\usetikzlibrary{calc} % style 2, 3, 4
+%\usetikzlibrary{decorations,decorations.shapes,shapes} % 3
+% Style 4
+\titleformat{\chapter}[display]
+{\bfseries\Large}
+{%
+%   \hfill \tikz[remember picture] \node[] (nr) {\fontsize{120}{70}\selectfont\color{blue!50!black}\textbf{\thechapter~}};% ~
+  \hfill \makebox[0pt][l]{%
+    \rule{\marginparwidth+\marginparsep+2pt}{0pt}%
+    \makebox[0pt][r]{%
+      \tikz[remember picture] \node[] (nr) {\fontsize{120}{70}\selectfont\color{blue!50!black}\textbf{\thechapter~}};% ~
+    }%
+  }
+  \begin{tikzpicture}[overlay,remember picture]
+    \coordinate (leftborder) at ($(nr)-(100,0)$);
+    \coordinate (leftborderhigh) at ($(nr.north west)-(100,0)$);
+    \coordinate (leftborderlow) at ($(nr.south west)-(100,0)$);
+    \coordinate (left) at ($(nr.west)+(-1.5,0)$);
+    \fill[blue!20!white] (leftborderhigh) -- ($(nr.north west)+(0,0.5)$) -- (left) -- (leftborder) -- cycle;
+    \fill[blue!20!white] (leftborderlow) -- ($(nr.south west)-(0,0.5)$) -- (left) -- (leftborder) -- cycle;
+    \draw[blue!50!black,line width=0.1em,line join=round] (left) -- ($(nr.south west)+(0,-0.5)$) -- ($(nr.south east)+(0,-0.5)$) -- ($(nr.north east)+(0,0.5)$) -- ($(nr.north west)+(0,0.5)$) -- (left) -- (leftborder);
+    %
+    %\node [red,right] at ($(nr)-(0.93\textwidth,-20pt)$) {\fontsize{40}{45}\selectfont\color{blue!50!black}\textbf{\chaptername}};
+    \pgftransformshift{\pgfpointanchor{current page}{south west}}
+    \pgftransformshift{\pgfpoint{2.2cm}{24.6cm}}
+    \pgftext[left,base]{\fontsize{40}{45}\selectfont\color{blue!50!black}\textbf{\chaptername}}
+    %
+  \end{tikzpicture}%
+}
+{-2ex}
+{\filleft\fontsize{28}{32}\selectfont\vskip\baselineskip}% \fontsize{50}{70}\selectfont\scshape
+[\vspace{0ex}]
+%
+% http://tex.stackexchange.com/questions/10009/subtitle-for-a-section
+%
+\newcommand*{\mySectionPostamble}{}
+\newcommand*{\mySectionComment}[1]{%
+  \def\mySectionPostamble{#1}%
+}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+  [\normalfont\small\raggedleft\mySectionPostamble
+  \global\let\mySectionPostamble\relax]

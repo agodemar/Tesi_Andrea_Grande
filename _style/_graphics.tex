@@ -1,0 +1,31 @@
+\usepackage{graphicx}
+
+\usepackage[%
+    dvipsnames, % svgnames
+    ]%
+    {xcolor}% before tikz
+
+\definecolor{mydarkgreen}{rgb}{0.03,0.47,0.03}
+\definecolor{mydarkblue}{rgb}{0.07,0.08,0.4}
+\definecolor{mylightblue}{rgb}{.8, .8, 1}
+\definecolor{mylightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{mydarkgray}{rgb}{0.35,0.35,0.35}
+\definecolor{myblue}{rgb}{.4,.4,1}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,1}
+\definecolor{colString}{rgb}{0.6,0.1,0.1}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\pgfplotsset{
+  table/search path={% MODIFY this list accordingly...
+  Plots, Plots/aircraft_attitude},
+}
+
+\usepackage{pgfplotstable}
+
+\usepackage{tikz}
+\usetikzlibrary{calc} % style 2, 3, 4
+\usetikzlibrary{decorations,decorations.shapes,shapes} % 3

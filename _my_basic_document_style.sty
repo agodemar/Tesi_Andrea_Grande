@@ -1,0 +1,110 @@
+% AUTHOR: Agostino De Marco, agostino.demarco@unina.it
+
+% packages and related macros
+\ProvidesPackage{_my_basic_document_style}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% Mathematics and related stuff
+
+\usepackage[intlimits]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsbsy}
+\usepackage{fixmath}
+\usepackage{mathtools}
+
+% Fonts and related stuff
+
+\usepackage{relsize}
+
+\usepackage[T1]{fontenc}
+\usepackage{pifont} % for dingbats
+\usepackage{marvosym} % for \Keyboard etc
+
+%\usepackage{lmodern}
+%\usepackage{newtxtext}
+\usepackage[osf]{erewhon}% extension of Utopia, osf=old-style-figures
+\usepackage[varqu,varl]{inconsolata}% sans typewriter
+\usepackage[scaled=.95]{cabin}% sans serif
+\usepackage[utopia,vvarbb]{newtxmath}
+
+\usepackage{textcomp}% AFTER newtxtext to avoid clashes
+
+% font for Aspect Ratio by Claudio Beccari and Agostino De Marco
+% the default variant is compatible with lmodern font
+\usepackage[TM]{ar}
+
+\usepackage{graphicx}
+
+\usepackage[%
+    %dvipsnames, % svgnames
+    ]%
+    {xcolor}% before tikz
+
+\definecolor{mydarkgreen}{rgb}{0.03,0.47,0.03}
+\definecolor{mydarkblue}{rgb}{0.07,0.08,0.4}
+\definecolor{mylightblue}{rgb}{.8, .8, 1}
+\definecolor{mylightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{mydarkgray}{rgb}{0.35,0.35,0.35}
+\definecolor{myblue}{rgb}{.4,.4,1}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,1}
+\definecolor{colString}{rgb}{0.6,0.1,0.1}
+
+% Units of measure according to the SI standard
+
+\usepackage{siunitx}
+\sisetup{
+  load=derived,
+  unitsep=thin,
+  valuesep=thin,
+  decimalsymbol=comma,
+  expproduct=cdot,
+  % digitsep=thin,
+  group-separator={},% ver. 2
+  sepfour=false
+}
+\newunit{\inch}{in}
+\newunit{\foot}{ft}
+\newunit{\feet}{ft}
+\newunit{\lb}{lb}
+\newunit{\lbf}{lbf}
+\newunit{\slug}{slug}
+\newunit{\rankine}{\ensuremath{^\circ}R}
+\newunit{\fahrenheit}{\ensuremath{^\circ}F}
+\newunit{\kilopond}{kg\ensuremath{_\mathrm{f}}}
+\newunit{\knots}{kts}
+
+\usepackage{xspace}
+\usepackage{calc}
+\usepackage{ragged2e}
+\usepackage{paralist}
+\usepackage{algorithmic}
+
+% smart cross-referencing
+\usepackage[english]{varioref}
+% Si veda "Breve guida ai pacchetti più usati" di Enrico Gregorio
+% http://profs.sci.univr.it/~gregorio/breveguida.pdf
+\makeatletter
+\vref@addto\extrasitalian{\def\reftextfaraway#1{a pagina~\pageref{#1}}}
+\makeatother
+
+\usepackage{dcolumn}
+
+%------------------------------------------------------------------------------------------
+% Advanced graphics package
+
+\usepackage{tikz}
+
+\usepackage{setspace}
+%\onehalfspace
+%\renewcommand{\baselinestretch}{1.1}
+%\setstretch{1.0}
+\def\mynormalstretch{1.1}% 1.15
+\setstretch{\mynormalstretch}
+
+\usepackage[most]{tcolorbox}% after listings package to avoid clash
+
+%% EOF

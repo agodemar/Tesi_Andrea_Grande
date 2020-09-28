@@ -1,0 +1,90 @@
+\usepackage{float}
+% I got this somewhere on the net:
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+
+\usepackage[above]{placeins}
+
+\usepackage{caption}
+\captionsetup[figure]{
+    %format=hang,%
+    labelsep=space,%
+    font=small,labelfont={bf,sf,small},%
+    %justification=raggedright,%
+    singlelinecheck=true%,%
+    %width=1.1\textwidth%%
+}
+\captionsetup[table]{
+    %format=hang,%
+    labelsep=space,%
+    font=small,labelfont={bf,sf,small},%bf,%
+    justification=raggedright,%
+    singlelinecheck=true,%
+    %width=0.8\textwidth,%
+    belowskip=0.5em%
+}
+\captionsetup[lstlisting]{
+    %format=hang,%
+    labelsep=space,%
+    font=small,labelfont={bf,sf,small},%
+    %justification=raggedright,%
+    singlelinecheck=true%,%
+    %width=1.1\textwidth%%
+}
+
+\captionsetup[ctable]{
+    %format=hang,%
+    labelsep=space,%
+    font=small,labelfont={sf,bf,small},% bf
+    %justification=raggedright,%
+    singlelinecheck=true,%
+    width=0.8\textwidth,%
+    belowskip=0.5em%
+}
+
+\usepackage[innercaption,wide]{sidecap}
+
+%% see here: http://tex.stackexchange.com/questions/13625/subcaption-vs-subfig
+%\usepackage{subfig}
+\usepackage{subcaption}
+
+%% A new environment: dancingfigure
+%% See original solution by Enrico Gregorio:
+%% http://www.guit.sssup.it/phpbb/viewtopic.php?t=8077
+%
+\newcounter{dancingfigure}
+\newenvironment{dancingfigure}[2][]
+  {\refstepcounter{dancingfigure}%
+   \edef\temp{\noexpand\label{DF@\arabic{dancingfigure}}}\temp
+   \ifthenelse{\isodd{\pageref{DF@\arabic{dancingfigure}}}}
+     {\odddancingfigure}{\evendancingfigure}
+   \begin{SCfigure}[#2][#1]}
+  {\end{SCfigure}}
+\newcommand{\odddancingfigure}{\def\positioning{r}}
+\newcommand{\evendancingfigure}{\def\positioning{l}}
+\newcommand{\dancinginclude}[5]{% all mandatory parameters
+  \makebox[#1][\positioning]{%
+    \raisebox{#5}{%
+        \includegraphics[width=#2,#3]{#4}}}}
+%
+% % Example of usage:
+%
+%    \begin{dancingfigure}%
+%        [t]% position on the page
+%        {0.8}% sidecaption with, in terms of image length
+%    \dancinginclude%
+%        {0.7\textwidth}% box width
+%        {0.8\textwidth}% image width (inside box)
+%        {}% additional option in includegraphics
+%        {chapter_2/images/ac_load_factor.pdf}
+%        {2em}% raise the image of this amount
+%    \caption{\finalhyphendemerits=1000
+%                % {\bf debug: \positioning} ---
+%                This is a Long caption. Volo in richiamata. Il valore del fattore
+%                di carico normale è determinato prevalentemente dal rapporto fra la
+%                portanza e il peso, se si trascura il contributo della spinta
+%            }%
+%    \label{fig:AC:Load:Factor}%
+%    \end{dancingfigure}

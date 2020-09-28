@@ -1,0 +1,22 @@
+%
+\thispagestyle{empty}
+%
+% This is the cover artwork, made with Tikz graphic language
+%
+\begin{tikzpicture}[remember picture,overlay]
+  %% Catch some significant points on the borders of the page
+  \coordinate (p1) at (current page.south west); % lower left corner
+  \coordinate (p2) at ($(p1)+(\paperwidth,0)$); % lower right
+  \coordinate (p3) at ($(p2)+(0,\paperheight)$); % upper right
+  \coordinate (p4) at ($(p1)+(0,\paperheight)$); % upper left
+  \coordinate (m1) at ($(p1)!0.5!(p2)$); % midway of lower side
+  \coordinate (m2) at ($(p2)!0.5!(p3)$); % midway of right side
+  \coordinate (m3) at ($(p3)!0.5!(p4)$); % midway of upper side
+  \coordinate (m4) at ($(p4)!0.5!(p1)$); % midway of left side
+
+  %% Paint the two halves of the sheet in red and black
+  \fill[Aquamarine!30] (m4) rectangle (p3);
+  \fill[NavyBlue!100] (p1) rectangle (m2);
+  
+  %% TO-DO: add stuff here as appropriate
+\end{tikzpicture}

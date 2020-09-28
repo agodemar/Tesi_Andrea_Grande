@@ -1,0 +1,605 @@
+% AUTHOR: Agostino De Marco, agostino.demarco@unina.it
+
+\newcommand{\mystrutt}[2]{\makebox[0pt]{\rule[#1]{0pt}{#2}}}
+
+%
+%---------------------------------------
+% emphasize equation, needs empheq and tcolorbox
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, 
+    % math upper, 
+    tcbox raise base,
+    enhanced, colframe=gray, %blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+%---------------------------------------
+%
+
+\newcommand{\myMathSF}[1]{\mbox{\sffamily #1}}
+
+%................................ Vectors
+%\renewcommand{\vec}[1]{%
+%                \ifMathTimeProII\boldsymbol{#1}\else\vec{#1}\fi%
+%             }
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}}%
+\newcommand{\VEC}[1]{\vec{#1}}%
+
+\newcommand{\vecFT}{\ensuremath\vec{F}_{\mspace{-6mu}\text{T}}}
+\newcommand{\vecMT}{\ensuremath\vec{\mathcal{M}}_{\mspace{-3mu}\text{T}}}
+\newcommand{\vecFA}{\ensuremath\vec{F}_{\mspace{-6mu}\text{A}}}
+\newcommand{\vecMA}{\ensuremath\vec{\mathcal{M}}_{\mspace{-3mu}\text{A}}}
+
+\newcommand{\MATLAB}%
+   {\mbox{Matlab}\xspace}
+   %{\mbox{\tt MATLAB}\xspace}
+\newcommand{\Matlab}%
+   {\mbox{Matlab}\xspace}
+   %{\mbox{\tt MATLAB}\xspace}
+\newcommand{\SIMULINK}%
+   {\mbox{Simulink}\xspace}
+   %{\mbox{\tt Simulink}\xspace}
+\newcommand{\Simulink}%
+   {\mbox{Simulink}\xspace}
+   %{\mbox{\tt Simulink}\xspace}
+
+% operatori matematici
+\newcommand*{\diff}{\mathop{}\!\mathrm{d}}% vedi guida GuIT, Beccari, pp. 113-114
+\newcommand*{\ddt}[1]{\frac{\textstyle\diff{#1}}{\textstyle\diff{t}}}
+
+% macro per la definizione della simbologia aeronautica
+
+\newcommand{\Vinf}{\ensuremath{V_{\!\infty}}\xspace} % velocità asintotica
+\newcommand{\vVinf}{\ensuremath{\vec{V}_{\!\!\!\infty}}\xspace} % vettore velocità asintotica
+
+\newcommand{\Vzero}{\ensuremath{V_{\!0}}\xspace} % velocità asintotica
+\newcommand{\vVzero}{\ensuremath{\vec{V}_{\mspace{-8mu}0}}\xspace} % vettore velocità asintotica
+
+\newcommand{\Vdive}{\ensuremath{V_\text{dive}}\xspace}
+\newcommand{\Vcruise}{\ensuremath{V_\text{cruise}}\xspace}
+
+% Often used sub/superscripts
+% packages amsmath & mathtools are needed
+
+\newcommand{\Aero}{\ensuremath{\text{%
+  %\mdseries\scshape a%
+  A%
+  }}}
+\newcommand{\Thrust}{\ensuremath{\text{%
+  %\mdseries\scshape t%
+  T%
+  }}}
+\newcommand{\Grav}{\ensuremath{\text{%
+  %\mdseries\scshape g%
+  G%
+  }}}
+\newcommand{\earth}{\ensuremath{\text{%
+  %\mdseries\scshape e%
+  E%
+  }}}% \Earth is defined elsewhere
+\newcommand{\CMass}{\ensuremath{\text{%
+  %\mdseries\scshape cm
+  cm%
+  }}}
+\newcommand{\Body}{\ensuremath{\text{%
+  %\mdseries\scshape b%
+  B%
+  }}}
+\newcommand{\Fuselage}{\ensuremath{\text{%
+  %\mdseries\scshape f
+  F%
+  }}}
+\newcommand{\Wing}{\ensuremath{\text{%
+   %\mdseries\scshape w%
+   W%
+   }}}
+\newcommand{\Canard}{\ensuremath{\text{%
+  %\mdseries\scshape c
+  C%
+  }}}
+\newcommand{\Vertical}{\ensuremath{\text{%
+  %\mdseries\scshape v%
+  V%
+  }}}
+\newcommand{\VerticalI}{\ensuremath{\text{%
+  %\mdseries\scshape i%
+  I%
+  }}}
+\newcommand{\Inertial}{\ensuremath{\text{%
+  %\mdseries\scshape i%
+  I%
+  }}}
+\newcommand{\Interference}{\ensuremath{\text{%
+  %\mdseries\scshape i%
+  I%
+  }}}
+
+\newcommand{\Wind}{\ensuremath{\text{%
+  %\mdseries\scshape w%
+  wind%
+  }}}
+\newcommand{\Stability}{\ensuremath{\text{%
+  %\mdseries\scshape s%
+  S%
+  }}}
+
+\newcommand{\Stab}{\ensuremath{\mathrm{S}}}
+
+\newcommand{\Constr}{\ensuremath{\text{
+  %\mdseries\scshape c%
+  C%
+  }}}
+
+\newcommand{\SeaLevel}{\ensuremath{\text{
+  %\mdseries\scshape sl%
+  SL%
+  }}}
+\newcommand{\GroundTrack}{\ensuremath{\text{%
+  %\mdseries\scshape gt%
+  GT%
+  }}}
+\newcommand{\elev}{\mathrm{e}}
+\newcommand{\elevator}{\elev}
+
+\newcommand{\rud}{\mathrm{r}}
+\newcommand{\rudder}{\rud}
+
+\newcommand{\ail}{\mathrm{a}}
+\newcommand{\aileron}{\ail}
+
+\newcommand{\stab}{\mathrm{s}}
+\newcommand{\stabilator}{\stab}
+
+\newcommand{\Htail}{\mathrm{H}}
+\newcommand{\Vtail}{\mathrm{V}}
+
+\newcommand{\flap}{\mathrm{f}}
+\newcommand{\tab}{\mathrm{t}}
+
+% pedici per X, Y, Z, ...
+
+\newcommand{\aero}{\Aero}
+
+\newcommand{\thrust}{\Thrust}
+
+\newcommand{\grav}{\grav}
+
+\newcommand{\XA}{\ensuremath{X_\Aero}}
+\newcommand{\YA}{\ensuremath{Y_\Aero}}
+\newcommand{\ZA}{\ensuremath{Z_\Aero}}
+\newcommand{\LA}{\ensuremath{\mathcal{L}_\Aero}}
+\newcommand{\MA}{\ensuremath{\mathcal{M}_\Aero}}
+\newcommand{\NA}{\ensuremath{\mathcal{N}_\Aero}}
+
+\newcommand{\wing}{\Wing}
+\newcommand{\body}{\Body}
+\newcommand{\BVH}{\ensuremath{\mathrm{BVH}}}
+\newcommand{\WB}{\ensuremath{\mathrm{WB}}}
+\newcommand{\WiB}{\ensuremath{\mathrm{W(B)}}}
+\newcommand{\BiW}{\ensuremath{\mathrm{B(W)}}}
+\newcommand{\WBV}{\ensuremath{\mathrm{WBV}}}
+\newcommand{\WBH}{\ensuremath{\mathrm{WBH}}}
+\newcommand{\Nose}{\ensuremath{\mathrm{N}}}
+
+\newcommand{\HiB}{\ensuremath{\mathrm{H(B)}}}
+\newcommand{\BiH}{\ensuremath{\mathrm{B(H)}}}
+
+
+
+% Mach and Reynolds numbers
+\newcommand{\Mach}{\ensuremath{M}\xspace}%
+\newcommand{\Reynolds}{\ensuremath{\mathit{Re}}\xspace}
+
+
+\newcommand{\sAlpha}{\ensuremath{S_{{\alpha}}}}
+\newcommand{\cAlpha}{\ensuremath{C_{{\alpha}}}}
+\newcommand{\sBeta}{\ensuremath{S_{{\beta}}}}
+\newcommand{\cBeta}{\ensuremath{C_{{\beta}}}}
+\newcommand{\sNu}{\ensuremath{S_{{\nu}}}}
+\newcommand{\cNu}{\ensuremath{C_{{\nu}}}}
+\newcommand{\sGamma}{\ensuremath{S_{{\gamma}}}}
+\newcommand{\cGamma}{\ensuremath{C_{{\gamma}}}}
+\newcommand{\sPsi}{\ensuremath{S_{{\psi}}}}
+\newcommand{\cPsi}{\ensuremath{C_{{\psi}}}}
+\newcommand{\sTheta}{\ensuremath{S_{{\theta}}}}
+\newcommand{\cTheta}{\ensuremath{C_{{\theta}}}}
+\newcommand{\sPhi}{\ensuremath{S_{{\phi}}}}
+\newcommand{\cPhi}{\ensuremath{C_{{\phi}}}}
+
+
+%% 2010
+
+% Ixx, Ixy, etc (2013)
+\newcommand{\Ixx}{\ensuremath{I_{\text{\textit{xx}}}\xspace}}
+\newcommand{\Ixy}{\ensuremath{I_{\text{\textit{xy}}}\xspace}}
+\newcommand{\Ixz}{\ensuremath{I_{\text{\textit{xz}}}\xspace}}
+\newcommand{\Iyx}{\ensuremath{I_{\text{\textit{yx}}}\xspace}}
+\newcommand{\Iyy}{\ensuremath{I_{\text{\textit{yy}}}\xspace}}
+\newcommand{\Iyz}{\ensuremath{I_{\text{\textit{yz}}}\xspace}}
+\newcommand{\Izx}{\ensuremath{I_{\text{\textit{zx}}}\xspace}}
+\newcommand{\Izy}{\ensuremath{I_{\text{\textit{zy}}}\xspace}}
+\newcommand{\Izz}{\ensuremath{I_{\text{\textit{zz}}}\xspace}}
+\newcommand{\IxxB}{\ensuremath{I_{\text{\textit{x}}_\mathrm{B}\text{\textit{x}}_\mathrm{B}}\xspace}}
+\newcommand{\IzzB}{\ensuremath{I_{\text{\textit{z}}_\mathrm{B}\text{\textit{z}}_\mathrm{B}}\xspace}}
+\newcommand{\IxzB}{\ensuremath{I_{\text{\textit{x}}_\mathrm{B}\text{\textit{z}}_\mathrm{B}}\xspace}}
+\newcommand{\IxxS}{\ensuremath{I_{\text{\textit{x}}_\mathrm{S}\text{\textit{x}}_\mathrm{S}}\xspace}}
+\newcommand{\IzzS}{\ensuremath{I_{\text{\textit{z}}_\mathrm{S}\text{\textit{z}}_\mathrm{S}}\xspace}}
+\newcommand{\IxzS}{\ensuremath{I_{\text{\textit{x}}_\mathrm{S}\text{\textit{z}}_\mathrm{S}}\xspace}}
+
+\newcommand{\vXkin}{\vec{x}_{\mspace{-0.0mu}\textrm{k}}}
+\newcommand{\vXdyn}{\vec{x}_{\mspace{-0.0mu}\textrm{d}}}
+\newcommand{\dotvXkin}{\dot{\vec{x}}_{\mspace{-0.0mu}\textrm{k}}}
+\newcommand{\dotvXdyn}{\dot{\vec{x}}_{\mspace{-0.0mu}\textrm{d}}}
+\newcommand{\Xkin}{x_{\mspace{-0.0mu}\textrm{k}}}
+\newcommand{\Xdyn}{x_{\mspace{-0.0mu}\textrm{d}}}
+\newcommand{\dotXkin}{\dot{x}_{\mspace{-0.0mu}\textrm{k}}}
+\newcommand{\dotXdyn}{\dot{x}_{\mspace{-0mu}\textrm{d}}}
+
+% needs package "setspace" and Array macro definition (see Voss, Mathmode)
+\makeatletter
+\RequirePackage{setspace}
+\makeatother
+\newcommand*\Array[2][1]{\setstretch{#1}\array {#2}}
+\let\endArray\endarray
+
+\newcommand{\Transpose}{\ensuremath{^{\mathrm{T}}}}
+
+% Environments for enlarged figures
+
+\newcommand{\EnlargedFigure}[3]{%
+\begin{figure}[tb]%
+  \checkoddpage% needs changepage
+  \ifoddpage% needs changepage, needs two laTeX passes
+    % RHS page
+    \makebox[\textwidth][l]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+            \includegraphics%
+                [width=\linewidth]%
+                {#1}%
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{\finalhyphendemerits=1000
+           #2}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#3}%
+        \end{minipage}
+    }
+  \else%
+    % LHS page
+    \makebox[\textwidth][r]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+            \includegraphics%
+                [width=\linewidth]%
+                {#1}%
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{\finalhyphendemerits=1000
+           #2}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#3}%
+        \end{minipage}
+    }
+  \fi%
+        % Note: caption moved inside the enlarged minipage
+%
+\end{figure}%
+}
+
+
+\newcommand{\EnlargedFigureI}[4]{%
+\begin{figure}[#1]%
+  \checkoddpage% needs changepage
+  \ifoddpage% needs changepage, needs two laTeX passes
+    % RHS page
+    \makebox[\textwidth][l]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+            \includegraphics%
+                [width=\linewidth]%
+                {#2}%
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{\finalhyphendemerits=1000
+           #3}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#4}%
+        \end{minipage}
+    }
+  \else%
+    % LHS page
+    \makebox[\textwidth][r]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+            \includegraphics%
+                [width=\linewidth]%
+                {#2}%
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{\finalhyphendemerits=1000
+           #3}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#4}%
+        \end{minipage}
+    }
+  \fi%
+        % Note: caption moved inside the enlarged minipage
+%
+\end{figure}%
+}
+
+\newcommand{\EnlargedFigureII}[5]{%
+\begin{figure}[#1]%
+  \checkoddpage% needs changepage
+  \ifoddpage% needs changepage, needs two laTeX passes
+    % RHS page
+    \makebox[\textwidth][l]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+        \makebox[\linewidth][c]{%
+            \includegraphics%
+                [width=#3\linewidth]%
+                {#2}%
+        }%
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{\finalhyphendemerits=1000
+           #4}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#5}%
+        \end{minipage}
+    }
+  \else%
+    % LHS page
+    \makebox[\textwidth][r]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+        \makebox[\linewidth][c]{%
+            \includegraphics%
+                [width=#3\linewidth]%
+                {#2}%
+        }%
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{\finalhyphendemerits=1000
+           #4}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#5}%
+        \end{minipage}
+    }
+  \fi%
+        % Note: caption moved inside the enlarged minipage
+%
+\end{figure}%
+}
+
+\newcommand{\EnlargedFigureIV}[2]{%
+\begin{figure}[#1]%
+  \checkoddpage% needs changepage
+  \ifoddpage% needs changepage, needs two laTeX passes
+    % RHS page
+    \makebox[\textwidth][l]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+        %\makebox[\linewidth][c]{%
+                #2
+        %}%
+        \end{minipage}
+    }
+  \else%
+    % LHS page
+    \makebox[\textwidth][r]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+        %\makebox[\linewidth][c]{%
+                #2
+        %}%
+        \end{minipage}
+    }
+  \fi%
+\end{figure}%
+}
+
+%------------------------------------------------------------------------------------------
+%% A macro to place figues over the entire \textwidth+\marginparwidth+\marginparsep
+%% more general than \EnlargedFigure because the material inside the figure has to be coded
+%% by the user
+%
+\newcommand{\EnlargedFigureX}[4]{%
+\begin{figure}[#1]%
+  \checkoddpage% needs changepage
+  \ifoddpage% needs changepage, needs two laTeX passes
+    % RHS page
+    \makebox[\textwidth][l]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+            #2
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{%\finalhyphendemerits=1000
+           #3}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#4}%
+        \end{minipage}
+    }
+  \else%
+    % LHS page
+    \makebox[\textwidth][r]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+            #2
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{%\finalhyphendemerits=1000
+           #3}
+        %
+        % Note: caption moved inside the enlarged minipage
+        \label{#4}%
+        \end{minipage}
+    }
+  \fi%
+        % Note: caption moved inside the enlarged minipage
+%
+\end{figure}%
+}
+% % Example of usage:
+%
+% \EnlargedFigureX% needs two latex passes
+%     {<where>}% #1: t, b, p
+%     {
+%         \begin{tabular}{c}
+%             \includegraphics[<opt>]{<file 1>}\\
+%             \includegraphics[<opt>]{<file 2>}\\
+%         \end{tabular}
+%     }% #2: the image file included by \includegraphics
+%     {<caption>}% #3: the caption text
+%     {<label>}% #4: the label
+%------------------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------------------
+% same as \EnlargedFigureX
+%
+\newcommand{\EnlargedTableX}[4]{%
+\begin{table}[#1]%
+  \checkoddpage% needs changepage
+  \ifoddpage% needs changepage, needs two laTeX passes
+    % RHS page
+    \makebox[\textwidth][l]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{%\finalhyphendemerits=1000
+           #3}
+        \label{#4}%
+            #2
+        \end{minipage}
+    }
+  \else%
+    % LHS page
+    \makebox[\textwidth][r]{%
+        \begin{minipage}[b]{\textwidth+\marginparwidth+\marginparsep}
+        %
+        % Note: caption goes here to have it well centered w.r.t. the whole enlarged minipage
+        %
+        \caption{%\finalhyphendemerits=1000
+           #3}
+        \label{#4}%
+            #2
+        \end{minipage}
+    }
+  \fi%
+        % Note: caption moved inside the enlarged minipage
+%
+\end{table}%
+}
+% % Example of usage:
+%
+% \EnlargedTableX% needs two latex passes
+%     {<where>}% #1: t, b, p
+%     {
+%         \begin{tabular}{c}
+%             \includegraphics[<opt>]{<file 1>}\\
+%             \includegraphics[<opt>]{<file 2>}\\
+%         \end{tabular}
+%     }% #2: the image file included by \includegraphics
+%     {<caption>}% #3: the caption text
+%     {<label>}% #4: the label
+%------------------------------------------------------------------------------------------
+
+
+
+%%%%% TIKZ-RELATED COMMANDS
+
+\newcommand{\BgColorPage}[2][vshift=0.5mm,hshift=6.5mm]{%
+\backgroundsetup{%
+  % placement=bottom
+  % position: (0,0) -> top-left corner of *textblock*
+  %            x -> grows horizontally to right
+  %            y -> grows horizontally to top
+  anchor={below left}, position={current page.north west},
+  #1,% vshift=0.5mm, hshift=6.5mm, % default
+  % anchor to top-left corner of stock, 
+  % x->grows vertically downwards, y->grows horizontally to right
+  contents={%
+    \tikz\fill[#2] (0,0) rectangle (22cm,22cm);
+  }
+}
+\BgThispage
+}
+
+\newcommand{\PutPicture}[4]{%
+% #1 : node options
+% #2 : trim directives -> left  bottom  right  top
+% #3 : width
+% #4 : file
+%
+\begin{tikzpicture}[remember picture,overlay]
+  %% Catch some significant points on the borders of the page
+  \coordinate (p1) at (current page.south west); % lower left corner
+  \coordinate (p2) at ($(p1)+(\stockwidth,0)$); % lower right
+  \coordinate (p3) at ($(p2)+(0,\stockheight)$); % upper right
+  \coordinate (p4) at ($(p1)+(0,\stockheight)$); % upper left
+  \coordinate (m1) at ($(p1)!0.5!(p2)$); % midway of lower side
+  \coordinate (m2) at ($(p2)!0.5!(p3)$); % midway of right side
+  \coordinate (m3) at ($(p3)!0.5!(p4)$); % midway of upper side
+  \coordinate (m4) at ($(p4)!0.5!(p1)$); % midway of left side
+
+  \node[#1] at (p1) {% node options
+    \includegraphics[%
+      trim = #2,% left  bottom  right  top
+      clip,% actually cut what trim says
+      width=#3]{#4}%
+  };
+\end{tikzpicture}
+}
+
+\newcommand{\PutNode}[3]{%
+% #1 : node options
+% #2 : position, p1-4 | m1-4 or $...$ 
+% #3 : content
+%
+\begin{tikzpicture}[remember picture,overlay]
+  %% Catch some significant points on the borders of the page
+  \coordinate (p1) at (current page.south west); % lower left corner
+  \coordinate (p2) at ($(p1)+(\stockwidth,0)$); % lower right
+  \coordinate (p3) at ($(p2)+(0,\stockheight)$); % upper right
+  \coordinate (p4) at ($(p1)+(0,\stockheight)$); % upper left
+  \coordinate (m1) at ($(p1)!0.5!(p2)$); % midway of lower side
+  \coordinate (m2) at ($(p2)!0.5!(p3)$); % midway of right side
+  \coordinate (m3) at ($(p3)!0.5!(p4)$); % midway of upper side
+  \coordinate (m4) at ($(p4)!0.5!(p1)$); % midway of left side
+
+  \node[#1] % node options
+    at (#2) % position 
+    {#3};   % content
+\end{tikzpicture}
+}
+
+\newcommand{\PutStripe}[4]{%
+% #1 : node options
+% #2 : starting point
+% #3 : width
+% #4 : height
+%
+\begin{tikzpicture}[remember picture,overlay]
+  %% Catch some significant points on the borders of the page
+  \coordinate (p1) at (current page.south west); % lower left corner
+  \coordinate (p2) at ($(p1)+(\stockwidth,0)$); % lower right
+  \coordinate (p3) at ($(p2)+(0,\stockheight)$); % upper right
+  \coordinate (p4) at ($(p1)+(0,\stockheight)$); % upper left
+  \coordinate (m1) at ($(p1)!0.5!(p2)$); % midway of lower side
+  \coordinate (m2) at ($(p2)!0.5!(p3)$); % midway of right side
+  \coordinate (m3) at ($(p3)!0.5!(p4)$); % midway of upper side
+  \coordinate (m4) at ($(p4)!0.5!(p1)$); % midway of left side
+
+  %\fill[#1] #2 rectangle +(#3,#4);
+  \node[rectangle] (rect) at #2 [#1,minimum width=#3,minimum height=#4] {};
+\end{tikzpicture}
+}

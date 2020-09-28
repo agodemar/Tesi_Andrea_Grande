@@ -1,0 +1,286 @@
+\usepackage[amsmath,hyperref]%
+  {ntheorem}
+
+% definisce uno stile di teorema ad header vuoto
+% richiede ntheorem.sty
+\makeatletter
+  \newtheoremstyle{mytheoremstyle}
+    {\item[]}%
+    {\item[]}
+\makeatother
+\theoremstyle{mytheoremstyle}% <------  seleziona lo stile appena definito
+%\theoremstyle{margin}       %          ... altri stili predefiniti in ntheorem
+%\theoremstyle{nonumberplain}
+
+% nuovo theorem-like environment
+\newtheorem{myExampleT}{}[chapter]
+
+% myExample label & format
+\newcommand\myExampleLabel{Example}
+\newcommand\myExampleName{\myExampleLabel}
+\newcommand\myExampleLabelFormat{%
+    %\textbf{\bf\ding{46}\ \myExampleLabel\ \themyExampleT}
+    \textbf{\upshape\hspace{3pt}\myExampleLabel\ \themyExampleT}\hfill\textbf{\bf\ding{46}\ \raisebox{-2pt}[0pt][0pt]{\relsize{4}\Keyboard\hspace{2pt}\ComputerMouse}\ }%
+}
+\newcommand\myExampleEndMark{%
+    {\ding{118}}% \ding{111}
+}
+
+\newcommand\myExampleMarkPencilKeyboardMouse{%
+    \bf\ding{46}\ \raisebox{-2pt}[0pt][0pt]{\relsize{4}\Keyboard\hspace{2pt}\ComputerMouse}%
+}
+\newcommand\myExampleMarkKeyboardMouse{%
+    \raisebox{-2pt}[0pt][0pt]{\relsize{4}\Keyboard\hspace{2pt}\ComputerMouse}%
+}
+
+% environment per gli Esempi
+%\makeatletter
+\newenvironment{myExample}{%
+    %###########################################################
+    % ciò che viene eseguito all'inizio dell'environment
+    %###########################################################
+    \begin{myExampleT}
+    %\stepcounter{myexamplecounter}% incrementa il contatore
+    \par\vskip 8pt% a capo e skip verticale
+    \noindent
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule[-8pt]{\textwidth}{1.8em}}%
+    }%
+    % scritta
+    \makebox[1.0\textwidth][c]{%
+        {\myExampleLabelFormat}%
+    }%
+    \vskip 8pt% recupera gli 8pt di \rule[-8pt]
+    \smallskip%
+    %\noindent%
+    \upshape% testo normale
+}{%
+    %###########################################################
+    % ciò che viene eseguito alla fine dell'environment
+    %###########################################################
+    %\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+    \end{myExampleT}
+    %\par\vskip 2pt
+    %\noindent
+    \smallskip
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule%
+                            [0pt]%[-9pt]%
+                            {\textwidth}{1.8em}}%
+    }%
+    % simbolo di chiusura
+    \makebox[1.0\textwidth][c]{%
+        {\raisebox{7pt}{\myExampleEndMark}}
+    }%
+    %\par\vskip-2pt%
+    %\noindent
+    \medskip
+}%
+%\makeatother
+
+%.................................................. Matlab Tip
+% nuovo theorem-like environment
+\newtheorem{myMatlabTipT}{}[chapter]
+
+% myExample label & format
+\newcommand\myMatlabTipLabel{Matlab {\itshape tip}}
+\newcommand\myMatlabTipLabelFormat{%
+    %\textbf{\bf\ding{46}\ {\relsize{2}\Keyboard}\ \myMatlabTipLabel\ \themyMatlabTipT}
+    \textbf{\upshape\hspace{3pt}\myMatlabTipLabel\ \themyMatlabTipT}\hfill\textbf{\bf\ding{46}\ \raisebox{-2pt}[0pt][0pt]{\relsize{4}\Keyboard\hspace{2pt}\ComputerMouse}\ }%
+}
+\newcommand\myMatlabTipEndMark{%
+    {\ding{118}}% \ding{111}%
+}
+
+% environment per gli Esempi
+%\makeatletter
+\newenvironment{myMatlabTip}{%
+    %###########################################################
+    % ci? che viene eseguito all'inizio dell'environment
+    %###########################################################
+    \begin{myMatlabTipT}%
+    %\stepcounter{myexamplecounter}% incrementa il contatore
+    \par\vskip 8pt% a capo e skip verticale
+    \noindent
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule[-8pt]{\textwidth}{1.8em}}%
+    }%
+    % scritta
+    \makebox[1.0\textwidth][l]{%
+        {\myMatlabTipLabelFormat}%
+    }%
+    \vskip 8pt% recupera gli 8pt di \rule[-8pt]
+    \smallskip%
+    %\noindent
+    \upshape% testo normale
+}{%
+    %###########################################################
+    % ci? che viene eseguito alla fine dell'environment
+    %###########################################################
+    %\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+    \end{myMatlabTipT}
+    %\par\vskip 2pt
+    %\noindent
+    \smallskip
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule%
+                            [0pt]%[-9pt]%
+                            {\textwidth}{1.8em}}%
+    }%
+    % simbolo di chiusura
+    \makebox[1.0\textwidth][c]{%
+        {\raisebox{7pt}{\myExampleEndMark}}
+    }%
+    %\par\vskip-2pt%
+    %\noindent
+    \medskip
+}%
+%\makeatother
+
+% nuovo theorem-like environment
+%\newtheorem{myExampleTX}{}[chapter]
+
+% environment per gli Esempi esteso (X)
+%\makeatletter
+%
+% http://stackoverflow.com/questions/1903254/how-to-define-in-latex-a-new-counter-that-includes-the-chapter-number-too
+%\newcounter{myExampleX}
+%\def\themyExampleX{\thechapter.\arabic{myExampleX}}
+\newenvironment{myExampleX}[3][2.0em]{% 
+    % accetta tre argomenti: 
+    % [#1 (dimensione opzionale, default = 2.0em) altezza della striscia azzurra, 
+    % #2 titolo, 
+    % #3 simbolo nell'header
+    %
+    % TODO: implementare l'ambiente myExerciseX analogamente
+    %
+    %###########################################################
+    % qui codice che viene eseguito all'inizio dell'environment
+    %###########################################################
+    \begin{myExampleT}
+	%\refstepcounter{myExampleX}% incrementa il contatore
+    \par\vskip 8pt% a capo e skip verticale
+    \noindent
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule[-#1 + 1.2em]{\textwidth}{#1}}%
+    }%
+    \checkoddpage% needs changepage
+    \ifoddpage% needs changepage, needs two laTeX passes
+      % RHS page
+      % scritta
+      \makebox[1.0\textwidth][l]{%
+        %{\myExampleLabelFormat}%
+        \textbf{\upshape\hspace{3pt}\myExampleLabel\ \themyExampleT:}\rule{2ex}{0pt}\parbox[t]{0.80\textwidth}{#2}%
+        %\hfill\textbf{#2\ }%
+      }%
+      \makebox[0em][l]{\rule{1.2ex}{0pt}\textbf{#3}}    
+    \else% 
+      % LHS page
+      \makebox[0em][r]{\textbf{#3}\rule{1.2ex}{0pt}}
+      % scritta
+      \makebox[1.0\textwidth][l]{%
+        %{\myExampleLabelFormat}%
+        \textbf{\upshape\hspace{3pt}\myExampleLabel\ \themyExampleT:}\rule{2ex}{0pt}\parbox[t]{0.80\textwidth}{#2}%
+        %\hfill\textbf{#2\ }%
+      }%
+    \fi
+    %
+    \vskip 8pt% recupera gli 8pt di \rule[-8pt]
+    \smallskip%
+    %\noindent%
+    \upshape% testo normale
+}{%
+    %###########################################################
+    % ci? che viene eseguito alla fine dell'environment
+    %###########################################################
+    %\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+    \end{myExampleT}
+    %\par\vskip 2pt
+    \noindent
+    \smallskip
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule%
+                            [0pt]%[-9pt]%
+                            {\textwidth}{0.6em}}% 1.8em
+    }%
+    % simbolo di chiusura
+    \makebox[1.0\textwidth][c]{%
+        %{\raisebox{7pt}{\myExampleEndMark}}
+        {\raisebox{0.6pt}{\relsize{-2}\myExampleEndMark}}
+    }%
+    %\par\vskip-2pt%
+    %\noindent
+    \medskip
+}%
+%\makeatother
+
+% environment per gli Esercizi esteso (X)
+%\makeatletter
+
+% nuovo theorem-like environment
+\newtheorem{myExerciseT}{}[chapter]
+
+\newcommand\myExerciseEndMark{%
+    {\ding{118}}% \ding{111}
+}
+
+% myExercise label & format
+\newcommand\myExerciseLabel{Exercise}
+\newcommand\myExerciseLabelFormat{%
+    %\textbf{\bf\ding{46}\ \myExampleLabel\ \themyExampleT}
+    \textbf{\upshape\hspace{3pt}\myExampleLabel\ \themyExampleT}%
+    \hfill\textbf{\bf\ding{46}\ \raisebox{-2pt}[0pt][0pt]{\relsize{4}\Keyboard\hspace{2pt}\ComputerMouse}\ }%
+}
+
+\newenvironment{myExerciseX}[2]{% accetta due argomenti: #1 titolo, #2 simbolo nell'header
+    %###########################################################
+    % ci? che viene eseguito all'inizio dell'environment
+    %###########################################################
+    \begin{myExerciseT}
+    %\stepcounter{myexamplecounter}% incrementa il contatore
+    \par\vskip 8pt% a capo e skip verticale
+    \noindent
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule[-8pt]{\textwidth}{1.8em}}%
+    }%
+    % scritta
+    \makebox[1.0\textwidth][c]{%
+        %{\myExampleLabelFormat}%
+        \textbf{\upshape\hspace{3pt}\myExerciseLabel\ \themyExerciseT:}\quad\textit{#1}\hfill\textbf{#2\ }%
+    }%
+    \vskip 8pt% recupera gli 8pt di \rule[-8pt]
+    \smallskip%
+    %\noindent%
+    \upshape% testo normale
+}{%
+    %###########################################################
+    % ci? che viene eseguito alla fine dell'environment
+    %###########################################################
+    %\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+    \end{myExerciseT}
+    %\par\vskip 2pt
+    \noindent
+    \smallskip
+    % striscia colorata
+    \makebox[0em][l]{%
+        {\color{mylightblue!50}\rule%
+                            [0pt]%[-9pt]%
+                            {\textwidth}{0.6em}}% 1.8em
+    }%
+    % simbolo di chiusura
+    \makebox[1.0\textwidth][c]{%
+        %{\raisebox{7pt}{\myExampleEndMark}}
+        {\raisebox{0.6pt}{\relsize{-2}\myExerciseEndMark}}
+    }%
+    %\par\vskip-2pt%
+    %\noindent
+    \medskip
+}%
+%\makeatother

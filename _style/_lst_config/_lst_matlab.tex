@@ -1,0 +1,52 @@
+\lstset{%
+    float=hbp,%
+    language=Matlab,%
+    basicstyle=\ttfamily\footnotesize,% \small,%
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys},%
+    stringstyle=\color{colString},%
+    commentstyle=\color{colComments},%
+    columns=[l]fixed,% flexible,%
+    keepspaces=true,%
+    %tabsize=2,%
+    frame=none,%lines,% single,%
+    extendedchars=true,%
+    showspaces=false,%
+    showstringspaces=false,%
+    numbers=none,% left%
+    numberstyle=\tiny,%
+    breaklines=true,%
+    %lineskip=-2pt,
+    backgroundcolor=\color{mylightgray}, %
+    breakautoindent=true,%
+    numberbychapter=true,%
+    captionpos=t,%
+    belowcaptionskip=0.2\baselineskip%\medskipamount%
+}
+
+ \lstset{
+    % parole in rosso
+  emph={loadAircraftMAT, loadAircraftMAT, plotRibbon,%
+  plotBodyE, plotPoint3DHelperLines, plotTrajectoryAndBodyE, plotTrajectoryAndBody2,%
+  myfun, myfunction2x1, f_prandtl_a_b,%
+  DSVAircraft, myAC, costLongEquilibriumStaticStickFixed,%
+  myNonLinearConstraint, dummyNonLinearConstraint, eqLongDynamicStickFixed, @eqLongDynamicStickFixed,%
+  calc_CD0_k_Tmax, MassStickFree, plotEarthAxes, Croll, Cpitch, Cyaw, costLongTrimFixed, model_datcom_longit,%
+  f_CL, @FunCLlaw, @FunFZA, MyplotTrajectoryAndBody, @Fundelta_TFZA, aux_myNonLinearConstraint, aux_MassStickFree, aux_costLongTrimFixed, Trim_3DoF, @correctedTurnCLAssigned,@costLongEquilibriumStaticStickFixed, @myNonLinearConstraint, @ZeroAlpha,@longEquilibriumDynamicStickFixed, ode_eqLongDynFree, ode_eqLongDynFixed, @aux_myNonLinearConstraint, AeroCoeff },
+  emphstyle={\color{red}\ttfamily\bfseries},
+    % parole in blu
+  emph={[2]cell, interp3, interpn,%
+  fnplt, fneval, odeset,%
+  ode113, ode15s, ode23s,%
+  ode23t, ode23tb, cell2mat,%
+  quiver3,%
+  quat2dcm, convvel, convang,%
+  convforce, convlength, deg2rad,%
+  quat2angle, angle2quat, angle2dcm,%
+  atmoscoesa, atmosisa, atmosnonstd, ss,%
+  datcomimport, importdata, fieldnames,%
+  assignin, optimset, fnval,initial,%
+  csaps, fmincon, classdef,%
+  properties,methods,convangvel,lsim, xlim, convmass, alpha},
+  emphstyle={[2]\color{blue}\ttfamily}% \bfseries
+}

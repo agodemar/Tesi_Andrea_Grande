@@ -1,0 +1,31 @@
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+
+\makeatletter
+%
+%%% \g@laddto@macro adds the token list #2 in front of the
+%%% substitution text of the macro #1
+\newcommand\g@laddto@macro[2]{% #1=macro, #2=token list
+  \begingroup
+    \toks@={#2}%
+    \toks@=\expandafter{\the\expandafter\toks@#1}%
+    \xdef#1{\the\toks@}%
+  \endgroup}
+%
+%%% modify \cleardoublepage to give a really blank page
+\g@laddto@macro\cleardoublepage
+  {\afterpage{\thispagestyle{empty}}}
+%
+\long\def\indexnote#1{\def\@indexnote{\noindent #1}}
+\renewcommand\frontmatter{%
+  \cleardoublepage\@mainmatterfalse%
+  \markboth{}{}%
+  }
+\renewcommand\mainmatter{%
+  \cleardoublepage\@mainmattertrue}
+\makeatother

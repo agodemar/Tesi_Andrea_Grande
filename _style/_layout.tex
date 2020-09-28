@@ -1,0 +1,27 @@
+\usepackage{setspace}
+%\onehalfspace
+%\renewcommand{\baselinestretch}{1.1}
+%\setstretch{1.0}
+\def\mynormalstretch{1.1}% 1.15
+\setstretch{\mynormalstretch}
+
+\usepackage[strict]{changepage}% as of 2009
+\usepackage{fullwidth}
+
+\usepackage{mparhack} % marginpar hack, for two-side docs
+
+\usepackage{lscape}
+\usepackage{afterpage}
+\usepackage{fancyvrb}
+
+% page layout with geometry
+\usepackage[%
+            % chose this for a4
+            a4paper,textwidth=15.5cm,textheight=26.0cm,%
+            %
+            inner=2.3cm,% 1.5cm,% 1cm,%
+            %hcentering,%
+            vcentering,%
+            marginparwidth=2.2cm,% 2.8cm%,% 2.2cm,%
+            %showframe%
+            ]{geometry}

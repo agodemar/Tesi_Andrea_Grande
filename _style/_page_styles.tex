@@ -1,0 +1,157 @@
+\usepackage[
+            %sf,
+            %bf,
+            %compact,
+            %topmarks,
+            %calcwidth,%
+            pagestyles
+            ]{titlesec}
+
+\newcommand\mycoloredline[2]{%
+    \hhline{%
+    >{\arrayrulecolor{mylightblue}\doublerulesepcolor{myblue}}%
+    |#1:=:#2|}%
+}
+
+%\renewpagestyle{empty}[\small\sffamily]{
+\renewpagestyle{empty}[\small]{
+  \sethead{}{}{}
+  \setfoot{}{}{}
+}
+
+%\renewpagestyle{plain}[\small\sffamily]{
+\renewpagestyle{plain}[\small]{
+  \footrule
+  \setfoot{}{\usepage}{}}
+
+% needs \usepackage{calc} above
+\widenhead*{0pt}{\marginparsep + \marginparwidth} % symmetrically
+\renewpagestyle{plain}{}
+\newpagestyle{mybook}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}{\chaptername}\ \thechapter\ \ {\sffamily\mdseries\chaptertitle}}][][]
+        {}{}{\raggedleft\thesection\ \ {\sffamily\mdseries\sectiontitle}{\makebox[\marginparwidth+\marginparsep][r]{\thepage}}}
+    % NB: il footer potrà essere vuoto nella versione definitiva !!
+    \footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% A. De Marco, D. P. Coiro
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% Elementi di Dinamica e simulazione di volo
+}
+%::::::::
+\newpagestyle{myBookPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    %\myColoredHeadrule% TO DO: got to define a colored line
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+            \ifnum\value{chapter}>0%
+                {\chaptername}\ \thechapter\ \ {\sffamily\mdseries\chaptertitle}%
+            \else {\sffamily\mdseries\chaptertitle}%
+            \fi%
+        }][][]
+        {}{}{%
+            \raggedleft%
+            \ifnum\value{chapter}<1% e.g. in TOC chapter=0
+                {\sffamily\mdseries\chaptertitle}%
+            \else%
+                \thesection\ \ {\sffamily\mdseries\sectiontitle}%
+            \fi%
+            {\makebox[\marginparwidth+\marginparsep][r]{\thepage}}%
+        }
+    % NOTE: this footer might become empty
+    \footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+\newpagestyle{myIndexPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+            {\sffamily\mdseries Index}%
+        }][][]
+        {}{}{\raggedleft\thesection\ \ {\sffamily\mdseries\sectiontitle}{\makebox[\marginparwidth+\marginparsep][r]{\thepage}}}
+    % NOTE: this footer might become empty
+    %\footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+\newpagestyle{myAppendixPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+                {\chaptername}\ \thechapter\ \ {\sffamily\mdseries\chaptertitle}%
+        }][][]
+        {}{}{\raggedleft\thesection\ \ {\sffamily\mdseries\sectiontitle}{\makebox[\marginparwidth+\marginparsep][r]{\thepage}}}
+    % NOTE: this footer might become empty
+    %\footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+\newpagestyle{myBibliographyPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+            {\sffamily\mdseries Bibliography}%
+        }][][]
+        {}{}{\raggedleft{\sffamily\mdseries Bibliography}{\makebox[\marginparwidth+\marginparsep][r]{\thepage}}}
+    % NOTE: this footer might become empty
+    %\footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+\newpagestyle{myGlossaryPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+            {\sffamily\mdseries Glossary}%
+        }][][]
+        {}{}{\raggedleft\sffamily\mdseries Glossary\makebox[\marginparwidth+\marginparsep][r]{\thepage}}
+    % NOTE: this footer might become empty
+    %\footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+\newpagestyle{myAcronymsPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+            {\sffamily\mdseries Acronyms}%
+        }][][]
+        {}{}{\raggedleft\sffamily\mdseries Acronyms\makebox[\marginparwidth+\marginparsep][r]{\thepage}}
+    % NOTE: this footer might become empty
+    %\footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+\newpagestyle{myListOfSymbolsPageStyle}[\bfseries\sffamily\footnotesize]{
+    \headrule
+    \sethead%
+        [{\makebox[\marginparwidth+\marginparsep][l]{\thepage}%
+            {\sffamily\mdseries List of symbols}%
+        }][][]
+        {}{}{\raggedleft\sffamily\mdseries List of symbols\makebox[\marginparwidth+\marginparsep][r]{\thepage}}
+    % NOTE: this footer might become empty
+    %\footrule
+    \setfoot%
+        [][][\color{mydarkblue}\sf\scriptsize \myFooterLeft]% left-hand footer
+        {\color{mydarkblue}\sf\scriptsize \myFooterRight}{}{}% right-hand footer
+}
+%::::::::
+%::::::::
+%
+% Set the initial style
+%
+%\pagestyle{mybook}
+\pagestyle{myBookPageStyle}

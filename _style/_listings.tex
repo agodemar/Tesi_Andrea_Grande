@@ -1,0 +1,11 @@
+\usepackage[hyper]{listings}
+
+\renewcommand{\lstlistingname}{Listing}
+\newcommand{\lstInCaption}[1]{\lstinline[basicstyle=\ttfamily\footnotesize]|#1|}
+
+%\import{_style/_lst_config/}{_lst_reset}% to reset all settings
+\import{_style/_lst_config/}{_lst_matlab}% MATLAB as default
+\import{_style/_lst_config/}{_lst_def_datcom}
+\import{_style/_lst_config/}{_lst_def_misc}
+
+\lstloadlanguages{Matlab, Datcom, DatcomOutput, MyInputForMatlab, MyNoSpecificLanguage, xml}

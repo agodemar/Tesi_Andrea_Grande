@@ -1,0 +1,134 @@
+% AUTHOR: Agostino De Marco, agostino.demarco@unina.it
+
+% packages and related macros
+\ProvidesPackage{_my_document_style}
+
+% GLOBAL DEFINITIONS
+\def\myAuthorName{Agostino De~Marco, Danilo Ciliberti}
+\def\myAuthorNameAbbreviated{A.~De~Marco, D.~Ciliberti}
+\def\myDocName{Elements of Aircraft\\ Stability \& Control}
+\def\myDocSubTitle%
+   {A practical introduction to\\ aircraft aerodynamic modeling}
+\def\myDocVersion{ver.~2020.a}
+\def\myDocDate{September~2020}
+\def\myAuthorsList{\myAuthorName}
+\def\myFooterLeft{\myAuthorsList\ -- Aerospace Engineering, Università  degli Studi di Napoli Federico~II}
+\def\myFooterRight{Elements of Aircraft Stability \& Control -- A practical introduction to aircraft aerodynamic modeling}
+
+\usepackage[subpreambles=false]{standalone}
+\usepackage{import}
+
+\usepackage[final]{optional}% draft, etc
+
+% Language and encoding
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}% Recommended with biblatex
+
+% from guit forum: http://www.guit.sssup.it/phpBB2/viewtopic.php?t=3287
+\makeatletter
+\addto\extrasitalian{\babel@savevariable\@clubpenalty
+  \@clubpenalty3000 }
+\makeatother
+
+% Mathematics and related stuff
+\import{_style/}{_math}
+
+% Fonts and related stuff
+\import{_style/}{_fonts}
+
+% Floating objects and related stuff
+\import{_style/}{_floats}
+
+% Graphics and related stuff
+\import{_style/}{_graphics}
+
+% Units of measure according to the SI standard
+\import{_style/}{_units}
+
+% Miscellaneous stuff I
+\import{_style/}{_misc_i}
+
+% smart cross-referencing
+\import{_style/}{_cross_ref}
+
+% Advanced header and footer management
+\import{_style/}{_page_styles}
+
+% Settings for CHAPTER TITLE FORMAT, needs tikz
+\import{_style/}{_titles}
+
+% Page decorations, including chapter numbering
+\import{_style/}{_page_decorations}
+
+% Document layout and related stuff
+\import{_style/}{_layout}
+
+% Custom environments
+\import{_style/}{_environments}
+
+% Listings and related stuff
+\import{_style/}{_listings}
+
+\usepackage[most]{tcolorbox}% after listings package to avoid clash
+
+%--------- Bibliography
+
+%\usepackage{natbib}
+
+%% http://tex.stackexchange.com/questions/5091/what-to-do-to-switch-to-biblatex
+\usepackage[%
+    backend=biber,
+    citestyle=numeric-comp, % authoryear
+    bibstyle=numeric-comp, % authoryear,
+    doi=false,url=false,isbn=false,
+%   sorting=nyt,% none
+    hyperref=true,
+%   %style=apa,
+    natbib=true]{biblatex}
+
+%% see \bibliographystyle command in main file Tesi.tex
+%%
+%% iteresting links: 
+%%    http://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM
+
+% last package to be loaded in must be hyperref
+
+\usepackage[%
+            %dvipdfmx,%dvips,%
+            %pdfborder = 0 0 1,
+            baseurl= http://,
+            colorlinks=true,%
+            linkcolor=mydarkblue,%right black
+            citecolor=mydarkblue% black
+            ]{hyperref}
+
+% BIBLATEX SETTINGS POST-HYPERREF
+
+\bibliography{book_bibliography}% with biblatex
+
+\defbibheading{myBibliography}[\bibname]{\chapter*{\centering#1}
+   %\markboth{#1}{#1}
+   \markboth{}{}
+}
+
+\DeclareCiteCommand{\citetitle}{}{\printfield{title}}{;}{}
+
+% http://tex.stackexchange.com/questions/83440/inputenc-error-unicode-char-u8-not-set-up-for-use-with-latex
+%\DeclareUnicodeCharacter{00A0}{ }
+%\DeclareUnicodeCharacter{00A0}{~}
+
+% MY LOCAL, USER-DEFINED MACROS
+
+\import{_style/}{_my_local_macros}
+
+% Some additional definitions
+% Miscellaneous stuff II
+\import{_style/}{_misc_ii}
+
+%-----
+% Stuff related to package glossaries
+% loaded here after _local_macros.tex to make all custom definition
+% known by the glossary code
+\import{_style/}{_glossary}

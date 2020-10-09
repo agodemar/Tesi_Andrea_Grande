@@ -42,7 +42,12 @@ This value and the flight speed value allow the calculation of the dynamic press
 \bar{q}=\frac{1}{2} \rho V^{2} =\frac{1}{2}\cdot\ \SI[round-precision=3]{\myDensity}{kg~m^{-3}} \cdot\ (\SI[round-precision=2]{\mySpeedMs}{m/s})^{2} =~\SI[round-precision=2]{\myDynamicpressureNm}{N m^{-2}}=~\SI[round-precision=3]{\myDynamicpressureBar}{bar}
 \]
 Lastly,the dynamic viscosity of the air at the given  altitude is :
-\mu =  \SI[round-precision=3]{\myC1}{m}
+\[
+\mu =  \SI[round-precision=3]{\myCone}{\cdot\ 10^{-6}}{Kg} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot\ \frac {T^{\frac{3}{2}}}{T+\SI[round-precision=1]{\myCtwo}{K}} =
+ \SI[round-precision=3]{\myCone}{\cdot\ 10^{-6}}{Kg} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot\ \frac {(\SI[round-precision=3]{\myTemperatureK}{K})^{\frac{3}{2}}}{\SI[round-precision=3]{\myTemperatureK}{K}+\SI[round-precision=1]{\myCtwo}{K}} =\SI[round-precision=3]{\my}{K}
+
+
+\]
 \end{myExampleX}
 
 \end{document}

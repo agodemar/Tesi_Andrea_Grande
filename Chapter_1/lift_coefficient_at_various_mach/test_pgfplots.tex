@@ -1,0 +1,75 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+
+\usepackage{pgfplotstable}
+
+% set style options for annotations with pins (see bottom of tikzpicture)
+\tikzset{%
+   every pin/.style={draw=none,
+                     fill=gray!10,
+                     %rectangle,rounded corners=0pt,
+                     font=\relsize{0}}
+                 }
+
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                    label style={font=\relsize{2}},
+                    tick label style={font=\relsize{1}}  
+                    }}
+                    
+\begin{document}
+
+% The data in tabular format (csv)
+\pgfplotstableread[col sep=space,row sep=newline, precision=6]{data_xy.txt}\mytableA
+
+\begin{tikzpicture}
+  \begin{axis}[%
+    %
+    view={0}{90},
+    width=0.75\linewidth,height=0.75\linewidth,
+    %
+    xmin=0, xmax=7,
+    %xtick={0, 0.5,...,7},
+    x tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            %fixed zerofill,
+            precision=2,
+        /tikz/.cd
+    },
+    xlabel={$x$},
+    ymin=-1.1, ymax=1.1,
+    %ytick={-1, -0.9,...,1.0},
+    y tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            %fixed zerofill,
+            precision=2,
+        /tikz/.cd
+    },
+    ylabel={$y$},
+    ylabel style={at={(ticklabel cs:0.5)}},
+    ylabel shift=3pt,% horizontal shift outwards
+    grid=major, grid style={dashed, gray!30},
+    %legend entries = {$\lambda_\mathrm{W}=1.00$, $0.50$, $0.25$},
+    legend style={%
+      draw=none,%gray!30,
+      fill=gray!10,
+      at={(0.02,0.98)},
+      anchor=north west,
+      cells={anchor=east}
+    }
+  ]
+    \addplot[%
+      only marks, 
+      %mark=none, 
+      mark options={scale=1},
+      ] table [x index=0, y index=1] from \mytableA;
+      
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}

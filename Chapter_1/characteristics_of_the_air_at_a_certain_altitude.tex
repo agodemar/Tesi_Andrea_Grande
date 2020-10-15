@@ -6,7 +6,7 @@
 %
 \input{Chapter_1/characteristics_of_the_air_at_a_certain_altitude/data.tex}
 %
-\begin{myExampleX}{characteristics of the air at a certain altitude}{\ding{46}}% \ \Keyboard\ %
+\begin{myExampleX}{Characteristics of the air at a certain altitude}{\ding{46}}% \ \Keyboard\ %
 \label{example:Equivalent:Airspeed:Basic:B}
 %
 \noindent
@@ -17,40 +17,59 @@ Consequently,the temperature at the flying altitude is
 \[
  T = {T_\text{SL}- \text{LR} h   =\SI[round-precision=2]{\myTemperaturesealevelK}{K}+(\SI[round-precision=4]{\myTemperaturegradient}{K/m}) \cdot\SI[round-precision=0]{\myAltitudeM}{m} } = \SI[round-precision=1]{\myTemperatureK}{K}
  \]
-and the related speed sound  is $a={\sqrt{\gamma_\text{SL}{R_\text{SL}}{T}}}=\sqrt{\SI[round-precision=1]{\myAdiabaticindex}\cdot\ \SI[round-precision=0]{\myAirspecificconstant} {N m Kg^{-1} K^{-1} } \cdot\ \SI[round-precision=2]{\myTemperatureK} {K}} = \SI[round-precision=2]{\mySoundspeed} {m/s}$ 
-
+and the related speed sound  is
+\[
+a={\sqrt{\gamma_\text{SL}{R_\text{SL}}{T}}}=\sqrt{\SI[round-precision=1]{\myAdiabaticindex}\cdot\ \SI[round-precision=0]{\myAirspecificconstant} {N m Kg^{-1} K^{-1} } \cdot\ \SI[round-precision=2]{\myTemperatureK} {K}} = \SI[round-precision=2]{\mySoundspeed} {m/s}
+\]
 \noindent
 %
 For the given flying Mach number and altitude ,we have a flight velocity
 \[
- V = {a }~{M} =\SI[round-precision=2]{\mySoundspeed}{m/s} \cdot\ \SI[round-precision=2]{\myMachnumber}= ~\SI[round-precision=2]{\mySpeedMs}{m/s} = \SI[round-precision=2]{\mySpeedkmh}{km/h} 
+ V = {a }~{M} =\SI[round-precision=2]{\mySoundspeed}{m/s} \cdot \SI[round-precision=2]{\myMachnumber}= ~\SI[round-precision=2]{\mySpeedMs}{m/s} = \SI[round-precision=2]{\mySpeedkmh}{km/h} 
  \]
-the relative density value is \[
- \sigma = \frac{ \rho }{\rho_\text{SL} } = \biggl( \frac{T }{T_\text{SL} }  \biggr) ^ {-\Bigl( \frac{ g }{RL\cdot\ R_\text{air}} +1 \Bigr)}  
+the relative density value is 
+\[
+ \sigma = \frac{ \rho }{\rho_\text{SL} } = \biggl( \frac{T }{T_\text{SL} }  \biggr) ^ {-\Bigl( \frac{ g }{RL\cdot R_\text{air}} +1 \Bigr)}   = 
+\]
+\[
+ \biggl(
+          \frac{  
+                \SI[round-precision=2]{\myTemperatureK}{K} 
+                }{
+                \SI[round-precision=2]{\myTemperaturesealevelK}{K}
+                }
+    \biggr)
+    ^ {
+               -\left( \frac{
+               \SI[round-precision=2]{\myGravitationalacceleration}{m/s^2}
+               }{
+               \SI[round-precision=4]{\myTemperaturegradient}{K/m}~ 
+                \cdot \SI[round-precision=0]{\myAirspecificconstant}{N m kg^{-1} K^{-1}}
+                } 
+                +1
+                \right)
+        } 
+        =
+                \SI[round-precision=3]{\myRelativedensity}
  \]
- \[
- = \biggl(\frac{ \SI[round-precision=2]{\myTemperatureK}{K} }{\SI[round-precision=2]{\myTemperaturesealevelK}{k} }\biggr) ^ {-\Bigl( \frac{\SI[round-precision=2]{\myGravitationalacceleration}{m/s^2} }{\SI[round-precision=4]{\myTemperaturegradient}{K/m}~\cdot\ \SI[round-precision=0]{\myAirspecificconstant}{N m Kg^{-1} K^{-1}}} +1 \Bigr)} =\SI[round-precision=3]{\myRelativedensity}
- \]  
-
+% 
 Therefore the air density at the flight altitude is
 \[
  \rho = {\rho_\text{SL} }~{\sigma} =\SI[round-precision=3]{\myDensitysealevel}{kg~m^{-3}} \cdot\ \SI[round-precision=3]{\myRelativedensity} =~ \SI[round-precision=3]{\myDensity}{kg~m^{-3}}
 \]
-
+%
 This value and the flight speed value allow the calculation of the dynamic pressure of flight
 \[
 \bar{q}=\frac{1}{2} \rho V^{2} =\frac{1}{2}\cdot\ \SI[round-precision=3]{\myDensity}{kg~m^{-3}} \cdot\ (\SI[round-precision=2]{\mySpeedMs}{m/s})^{2} =~\SI[round-precision=2]{\myDynamicpressureNm}{N m^{-2}}=~\SI[round-precision=3]{\myDynamicpressureBar}{bar}
 \]
 Lastly,the dynamic viscosity of the air at the given  altitude is :
 \[
-\mu =  \SI[round-precision=3]{\myCone}{\cdot\ 10^{-6}}{Kg} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot\ \frac {T^{\frac{3}{2}}}{T+\SI[round-precision=1]{\myCtwo}{K}} =
- \SI[round-precision=3]{\myCone}{\cdot\ 10^{-6}}{Kg} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot\ \frac {(\SI[round-precision=3]{\myTemperatureK}{K})^{\frac{3}{2}}}{\SI[round-precision=3]{\myTemperatureK}{K}+\SI[round-precision=1]{\myCtwo}{K}} =\SI[round-precision=6]{\myDynamicviscosity }{Kg}{\biggl({m s \sqrt{K} }\biggr)^{-1}}
+\mu =  \SI[round-precision=3]{\myCone}{{kg}\cdot 10^{-6}} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot \frac {T^{\frac{3}{2}}}{T+\SI[round-precision=1]{\myCtwo}{K}} =
+ \SI[round-precision=3]{\myCone}{kg}{\cdot 10^{-6}} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot \frac {(\SI[round-precision=3]{\myTemperatureK}{K})^{\frac{3}{2}}}{\SI[round-precision=3]{\myTemperatureK}{K}+\SI[round-precision=1]{\myCtwo}{K}} =\SI[round-precision=6]{\myDynamicviscosity }{Kg}{\biggl({m s \sqrt{K} }\biggr)^{-1}}
 \]
 Which corresponds to a Reynolds number per unit of lenght
 \[
- \frac{ Re }{l_\text{rif} } =\frac{ \rho V}{\mu }=\frac{ \SI[round-precision=3]{\myDensity}{kg~m^{-3}}~ \SI[round-precision=2]{\mySpeedMs}{m/s}}{\SI[round-precision=6]{\myDynamicviscosity }{Kg} }  = \SI[round-precision=0]{\myReynoldsnumeberperunitoflenght}{m^{-1}}
-
-
+ \frac{ Re }{l_\text{rif} } =\frac{ \rho V}{\mu }=\frac{ \SI[round-precision=3]{\myDensity}{kg~m^{-3}}~ \SI[round-precision=2]{\mySpeedMs}{m/s}}{\SI[round-precision=6]{\myDynamicviscosity }{kg} }  = \SI[round-precision=0]{\myReynoldsnumeberperunitoflenght}{m^{-1}}
 \]
 
 \end{myExampleX}

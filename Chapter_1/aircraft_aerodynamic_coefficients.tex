@@ -15,45 +15,45 @@ In this numerical example, we carry out the calculation of an aerodynamic coeffi
 from a force and subsequently the calculation of an aerodynamic force known the coefficient.
 
 An aircraft with characteristics similar to those of a Boeing ~ 777-300ER has mass
-$m=\SI[round-precision=0]{\myMassKG}{\kilogram}=\SI[round-precision=0]{\myMassLB}{\lbm}$
+$m=\SI[round-precision=0]{\myMassKg}{\kilogram}=\SI[round-precision=0]{\myMassLb}{\lbm}$
 (that is a weight equal to about 80 \% of the maximum take-off weight, \emph{Maximum Take-Off Weight}, MTOW)
 and a wing surface
-$S=\SI[round-precision=1]{\myAreaWingMTsquared}{\meter^2}=\SI[round-precision=1]{\myAreaWingFTsquared}{\feet^2}$.
+$S=\SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2}=\SI[round-precision=1]{\myWingSurfaceFTSD}{\feet^2}$.
 For a flight at speed
-$V=\SI[round-precision=2]{\myFlightSpeedKTS}{kts}=\SI[round-precision=1]{\myFlightSpeedKMH}{\kilo\meter/\hour}$,
+$V=\SI[round-precision=2]{\mySpeedKts}{kts}=\SI[round-precision=1]{\mySpeedKmH}{\kilo\meter/\hour}$,
 at the altitude of
-$h=\SI[round-precision=3]{\myAltitudeMT}{\meter}$,
+$h=\SI[round-precision=3]{\myAltitudeM}{\meter}$,
 for which
-$\rho=\SI[round-precision=3]{\myAirDensityKGMTcubed}{\kilogram\,\meter^{-3}}$,
+$\rho=\SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}$,
 %(cfr.~esempio~\ref{example:Atmosphere:Basic:A}),
 we  have a dynamic flight pressure
 \[
 \begin{split}
 \bar{q} = \frac{1}{2} \rho V^2 
   & {}=
-  \num{0.5} \cdot \SI[round-precision=3]{\myAirDensityKGMTcubed}{\kilogram\,\meter^{-3}}
-    \, (\SI[round-precision=2]{\myFlightSpeedMTSec}{\meter/\second}\big)^2
+  \num{0.5} \cdot \SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}
+    \, (\SI[round-precision=2]{\mySpeedMS}{\meter/\second}\big)^2
 \\
   & {}=
     \mathunderline{mydarkblue}{ 
-      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePA}{\newton\,\meter^{-2}} 
+      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}} 
     }
     = \mathunderline{mydarkblue}{ 
-      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressureBAR}{ bar } 
+      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressureBar}{ bar } 
     }
 \end{split}
 \]
-corresponding to a Mach number $M=\SI[round-precision=2]{\myMachNumber}{}$.
+corresponding to a Mach number $M=\SI[round-precision=2]{\myMach}{}$.
 If we take a balanced flight, in which lift $L$ equals weight
  $W=mg$, we have a lift coefficient
 $C_L$ equal to
 \[
 C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
   = \frac{
-      \SI[round-precision=0]{\myMassKG}{\kilogram} \cdot \SI{9.81}{\meter\,\second^{-2}}
+      \SI[round-precision=0]{\myMassKg}{\kilogram} \cdot \SI{9.81}{\meter\,\second^{-2}}
     }{
-      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePA}{\newton\,\meter^{-2}}
-      \cdot \SI[round-precision=1]{\myAreaWingMTsquared}{\meter^2} 
+      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}}
+      \cdot \SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2} 
     }
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myLiftCoefficient}{} }
 \]
@@ -61,17 +61,17 @@ C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
 For a similar aircraft, under the given conditions, a polar given by the following law can be assumed:
 %############################
 \ExplSyntaxOn
-\def\myKPolar{\calcnum[round-precision=4]{\myAspectRatioWing * \myInducedDragFactorWing}}
+\def\myKpolar{\calcnum[round-precision=4]{\myAspectRatio * \myOswaldFactor}}
 \ExplSyntaxOff
 %############################
 \[
 C_D = C_{D0} + \frac{C_L^2}{\pi \AR_\Wing e} = C_{D0} + K\,C_L^2
   = \SI[round-precision=4]{\myDragCoefficientZero}{}
-    + \calcSI[round-precision=4]{\myAspectRatioWing * \myInducedDragFactorWing}{} \, C_L^2
+    + \calcSI[round-precision=4]{\myAspectRatio * \myOswaldFactor}{} \, C_L^2
 \]
 where $\AR_\Wing=\SI[round-precision=2]{\myAspectRatioWing}{}$,
-$e=\SI[round-precision=2]{\myInducedDragFactorWing}{}$,
-% $K=1/(\AR_\Wing \, e , pi ) = \SI[round-precision=4]{\myKPolar}{}$.
+$e=\SI[round-precision=2]{\myOswaldFactor}{}$,
+% $K=1/(\AR_\Wing \, e , pi ) = \SI[round-precision=4]{\myKpolar}{}$.
 $K=1/(\AR_\Wing \, e)=\myKPolar$.
 
 Therefore, the flight drag coefficient
@@ -80,8 +80,8 @@ is
 C_D
   = \SI[round-precision=4]{\myDragCoefficientZero}{}
     + 
-      % \SI[round-precision=4]{\myKPolar}{} 
-      \myKPolar
+      % \SI[round-precision=4]{\myKpolar}{} 
+      \myKpolar
       \cdot \big( \SI[round-precision=3]{\myLiftCoefficient}{} \big)^2
   =\SI[round-precision=4]{\myDragCoefficient}{}
 \]
@@ -94,12 +94,12 @@ the propulsive force necessary for balanced flight is
 T & {}= D = C_D \, \bar{q} S
 \\
   & {}= \SI[round-precision=4]{\myDragCoefficient}{}
-    \cdot \SI[round-precision=3,scientific-notation=true]{\myDynamicPressureBAR}{\newton\,\meter^{-2}}
-    \cdot \SI[round-precision=1]{\myAreaWingMTsquared}{\meter^2}
+    \cdot \SI[round-precision=3,scientific-notation=true]{\myDynamicPressureBar}{\newton\,\meter^{-2}}
+    \cdot \SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragN}{\newton} }
 \\
-  & {}= \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragKGF}{\kilopond} }
-  = \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragLBF}{\lbf} }
+  & {}= \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragKgf}{\kilopond} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragLbf}{\lbf} }
 \end{split}
 \]
 \end{myExampleX}

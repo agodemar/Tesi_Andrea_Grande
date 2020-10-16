@@ -23,7 +23,7 @@
 \begin{document}
 
 % The data in tabular format (csv)
-\pgfplotstableread[col sep=space,row sep=newline, precision=6]{data_xy.txt}\mytableA
+\pgfplotstableread[col sep=space,row sep=newline, precision=6]{data_M_CL.txt}\mytableA
 
 \begin{tikzpicture}
   \begin{axis}[%
@@ -31,8 +31,8 @@
     view={0}{90},
     width=0.75\linewidth,height=0.75\linewidth,
     %
-    xmin=0, xmax=7,
-    %xtick={0, 0.5,...,7},
+    xmin=0, xmax=1,
+    %xtick={0, 0.1,...,1},
     x tick label style={
         /pgf/number format/.cd,
             fixed,
@@ -40,8 +40,8 @@
             precision=2,
         /tikz/.cd
     },
-    xlabel={$x$},
-    ymin=-1.1, ymax=1.1,
+    xlabel={$M$},
+    ymin=0, ymax=1.7,
     %ytick={-1, -0.9,...,1.0},
     y tick label style={
         /pgf/number format/.cd,
@@ -50,7 +50,7 @@
             precision=2,
         /tikz/.cd
     },
-    ylabel={$y$},
+    ylabel={$CL$},
     ylabel style={at={(ticklabel cs:0.5)}},
     ylabel shift=3pt,% horizontal shift outwards
     grid=major, grid style={dashed, gray!30},

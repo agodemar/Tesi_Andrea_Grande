@@ -4,15 +4,29 @@
 \begin{document}
 
 %
-\input{Chapter_1/aircraft_aerodynamic_coefficients/data.tex}
+\input{Chapter_1/lift_coefficient_at_various_mach/data.tex}
 %
-\begin{myExampleX}{Aircraft aerodynamic coefficients } {\ding{46}}% \ \Keyboard\ % 
+\begin{myExampleX}{Lift coefficient at various mach } {\ding{46}}% \ \Keyboard\ % 
 \label{example:Equivalent:Airspeed:Basic:B}
 %
 
 \noindent
-Based on the data of the previous example, at an altitude of $h=\SI[round-precision=2]{\myAltitudeM}{m} calculate the lift coefficients for different flight Mach numbers, M= {0.3;0.4;0.5;0.6;0.7;0.8}
-
+Based on the data of the previous example, at an altitude of h=\SI[round-precision=0]{\myAltitudeM}{m} calculate the lift coefficients for different flight Mach numbers M= {0.3 ; 0.4  ; 0.5 ; 0.6 ; 0.7 ; 0.8 }
+we  have a dynamic flight pressure
+\[
+\begin{split}
+\bar{q} = \frac{1}{2} \rho V^2 
+  & {}=
+  \num{0.5} \cdot \SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}
+    \, (\SI[round-precision=2]{\mySpeedMS}{\meter/\second}\big)^2
+\\
+  & {}=
+    { 
+      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}} 
+    }
+    
+\end{split}
+\]
 
 
 

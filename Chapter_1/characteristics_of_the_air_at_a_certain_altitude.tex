@@ -64,8 +64,13 @@ This value and the flight speed value allow the calculation of the dynamic press
 \]
 Lastly,the dynamic viscosity of the air at the given  altitude is :
 \[
-\mu =  \SI[round-precision=3]{\myCone}{{kg}\cdot 10^{-6}} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot \frac {T^{\frac{3}{2}}}{T+\SI[round-precision=1]{\myCtwo}{K}} =
- \SI[round-precision=3]{\myCone}{kg}{\cdot 10^{-6}} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot \frac {(\SI[round-precision=3]{\myTemperatureK}{K})^{\frac{3}{2}}}{\SI[round-precision=3]{\myTemperatureK}{K}+\SI[round-precision=1]{\myCtwo}{K}} =\SI[round-precision=6]{\myDynamicviscosity }{Kg}{\biggl({m s \sqrt{K} }\biggr)^{-1}}
+\begin{split}
+ \mu =  \SI[round-precision=3]{\myCone}{{kg}\cdot 10^{-6}} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot \frac {T^{\frac{3}{2}}}{T+\SI[round-precision=1]{\myCtwo}{K}}     
+& {}=
+ \SI[round-precision=3]{\myCone}{kg}{\cdot 10^{-6}} \biggl({m s \sqrt{K} }\biggr)^{-1} \cdot \frac {(\SI[round-precision=2]{\myTemperatureK}{K})^{\frac{3}{2}}}{\SI[round-precision=2]{\myTemperatureK}{K}+\SI[round-precision=1]{\myCtwo}{K}} 
+ & {}=
+ \SI[round-precision=6]{\myDynamicviscosity }{Kg}{\biggl({m s \sqrt{K} }\biggr)^{-1}}
+ \end{split}
 \]
 Which corresponds to a Reynolds number per unit of lenght
 \[

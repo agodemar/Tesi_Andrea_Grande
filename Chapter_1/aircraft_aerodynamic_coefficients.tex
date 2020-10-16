@@ -6,23 +6,22 @@
 %
 \input{Chapter_1/aircraft_aerodynamic_coefficients/data.tex}
 %
-\begin{myExampleX}{Aircraft aerodynamic  coefficients } {\ding{46}}% \ \Keyboard\ % 
+\begin{myExampleX}{Aircraft aerodynamic coefficients } {\ding{46}}% \ \Keyboard\ % 
 \label{example:Equivalent:Airspeed:Basic:B}
 %
 
 \noindent
 In this numerical example, we carry out the calculation of an aerodynamic coefficient starting
 from a force and subsequently the calculation of an aerodynamic force known the coefficient.
-
-An aircraft with characteristics similar to those of a Boeing ~ 777-300ER has mass
-$m=\SI[round-precision=0]{\myMassKg}{\kilogram}=\SI[round-precision=0]{\myMassLb}{\lbm}$
-(that is a weight equal to about 80 \% of the maximum take-off weight, \emph{Maximum Take-Off Weight}, MTOW)
+An aircraft with characteristics similar to those of a Boeing ~ 777-300 ER has mass
+$m=\SI[round-precision=0]{\myMassKg}{kg}=\SI[round-precision=0]{\myMassLb}{lb}$
+(that is a weight equal to about 80 \% of the, \emph{Maximum Take-Off Weight}, MTOW)
 and a wing surface
 $S=\SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2}=\SI[round-precision=1]{\myWingSurfaceFTSD}{\feet^2}$.
-For a flight at speed
+For a flight speed of
 $V=\SI[round-precision=2]{\mySpeedKts}{kts}=\SI[round-precision=1]{\mySpeedKmH}{\kilo\meter/\hour}$,
 at the altitude of
-$h=\SI[round-precision=3]{\myAltitudeM}{\meter}$,
+$h=\SI[round-precision=0]{\myAltitudeM}{\meter}$,
 for which
 $\rho=\SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}$,
 %(cfr.~esempio~\ref{example:Atmosphere:Basic:A}),
@@ -35,10 +34,11 @@ we  have a dynamic flight pressure
     \, (\SI[round-precision=2]{\mySpeedMS}{\meter/\second}\big)^2
 \\
   & {}=
-    \mathunderline{mydarkblue}{ 
+    { 
       \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}} 
     }
-    = \mathunderline{mydarkblue}{ 
+    = 
+    { 
       \SI[round-precision=3,scientific-notation=true]{\myDynamicPressureBar}{ bar } 
     }
 \end{split}
@@ -46,7 +46,7 @@ we  have a dynamic flight pressure
 corresponding to a Mach number $M=\SI[round-precision=2]{\myMach}{}$.
 If we take a balanced flight, in which lift $L$ equals weight
  $W=mg$, we have a lift coefficient
-$C_L$ equal to
+$C_L$ that is
 \[
 C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
   = \frac{
@@ -55,38 +55,34 @@ C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
       \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}}
       \cdot \SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2} 
     }
-  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myLiftCoefficient}{} }
+  = { \SI[round-precision=3]{\myLiftCoefficient}{} }
 \]
-
+%
 For a similar aircraft, under the given conditions, a polar given by the following law can be assumed:
 %############################
-\ExplSyntaxOn
-\def\myKpolar{\calcnum[round-precision=4]{\myAspectRatio * \myOswaldFactor}}
-\ExplSyntaxOff
-%############################
+
 \[
 C_D = C_{D0} + \frac{C_L^2}{\pi \AR_\Wing e} = C_{D0} + K\,C_L^2
   = \SI[round-precision=4]{\myDragCoefficientZero}{}
-    + \calcSI[round-precision=4]{\myAspectRatio * \myOswaldFactor}{} \, C_L^2
+    + \SI[round-precision=4]{\myKpolar}\, C_L^2
 \]
-where $\AR_\Wing=\SI[round-precision=2]{\myAspectRatioWing}{}$,
+ where $\AR_\Wing=\SI[round-precision=2]{\myAspectRatio}$,
 $e=\SI[round-precision=2]{\myOswaldFactor}{}$,
-% $K=1/(\AR_\Wing \, e , pi ) = \SI[round-precision=4]{\myKpolar}{}$.
-$K=1/(\AR_\Wing \, e)=\myKPolar$.
+K=1/(\AR_\Wing \, e  \pi)=\SI[round-precision=4]{\myKpolar}.
 
+%
+\noindent
 Therefore, the flight drag coefficient
 is
 \[
 C_D
   = \SI[round-precision=4]{\myDragCoefficientZero}{}
     + 
-      % \SI[round-precision=4]{\myKpolar}{} 
-      \myKpolar
-      \cdot \big( \SI[round-precision=3]{\myLiftCoefficient}{} \big)^2
+      \SI[round-precision=4]{\myKpolar} 
+        \cdot \big( \SI[round-precision=3]{\myLiftCoefficient}{} \big)^2
   =\SI[round-precision=4]{\myDragCoefficient}{}
-\]
-
-
+ \]
+%
 If it is assumed that resistance is equal to thrust,
 the propulsive force necessary for balanced flight is
 \[
@@ -96,10 +92,10 @@ T & {}= D = C_D \, \bar{q} S
   & {}= \SI[round-precision=4]{\myDragCoefficient}{}
     \cdot \SI[round-precision=3,scientific-notation=true]{\myDynamicPressureBar}{\newton\,\meter^{-2}}
     \cdot \SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2}
-  = \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragN}{\newton} }
+  = { \SI[round-precision=3,scientific-notation=true]{\myDragN}{\newton} }
 \\
-  & {}= \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragKgf}{\kilopond} }
-  = \mathunderline{mydarkblue}{ \SI[round-precision=3,scientific-notation=true]{\myDragLbf}{\lbf} }
+  & {}= { \SI[round-precision=3,scientific-notation=true]{\myDragKgf}{\kilopond} }
+  = { \SI[round-precision=3,scientific-notation=true]{\myDragLbf}{\lbf} }
 \end{split}
 \]
 \end{myExampleX}

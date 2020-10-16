@@ -1,0 +1,132 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+
+\begin{document}
+
+%
+\input{Chapter_2/geometric_characteristics_of_a_straight_wing/data.tex}
+%
+
+
+\begin{myExampleX}{Geometric characteristics of a straight wing}{\ding{46}}% \ \Keyboard\ %
+\label{example:Wing:Basic:AA}
+%
+\noindent
+Let's consider a wing with a finite wingspan equal to $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+with straight inlet and outlet edges and
+null arrow angle, that is $\Lambda_{c/4}=\SI[round-precision=1]{\myLambdaCQuarter}{\degree}$.
+In addition, the wing sections at the various stations $Y$ along the opening have constant chord
+equal to $\SI[round-precision=2]{\myChordRootWingMT}{\metre}$
+and they all have the same profile, ie the aerodynamic characteristics of the section are constant.
+We want to calculate the following quantities:
+
+\noindent
+\adjustbox{center=\textwidth}{%
+$S$\,, $\AR$\,, $\bar{c}$\,, $X_{\mathrm{le},\bar{c}}$\,, $Y_{\bar{c}}$
+}% \,, $Y_{\bar{c}}$
+
+\medskip
+\noindent
+Not being tapered, the wing has a root chord
+$c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+a tip chord $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
+and a taper ratio $\lambda=\SI[round-precision=0]{\myTaperRatioWing}{}$.
+The leading edge arrow is
+ $\Lambda_\mathrm{le}=\SI[round-precision=0]{\myLambdaCQuarter}{\degree}$.
+\noindent
+The wing surface is calculated as follows:
+\[
+\begin{split}
+S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) = b\,c_\mathrm{r}\\
+  & {}=
+    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingMT}{\metre}
+      \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
+      \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWing}{} \big) 
+    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
+\end{split}
+\]
+In this case it is simply the area of a rectangle.
+
+The elongation is therefore
+\[
+\AR 
+  = \frac{b^2}{S}
+  = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
+  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWing} }
+\]
+This value is greater than $\num[round-precision=0]{10}$ allows us to say that we are in
+presence of a wing of high aspect ratio.
+
+The mean aerodynamic chord is given by
+ 
+\[
+\begin{split}
+\bar{c} & {}= \frac{2}{3} \, c_\mathrm{r} \, \frac{1+\lambda + \lambda^2}{1+\lambda} \\
+  & {}=
+    \num{0.667} \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
+      \cdot 
+        \frac{
+          1 + \SI[round-precision=2]{\myTaperRatioWing}{} + \SI[round-precision=2]{\myTaperRatioWing}{}^2
+        }{
+          1 + \SI[round-precision=2]{\myTaperRatioWing}{}
+        }
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingMT}{\metre} }
+\end{split}
+\]
+Note that for wings of this type the value of $ \ bar {c} $ is nothing other than that of the chord
+of any wing section.
+
+The longitudinal distance of the leading edge of the mean aerodynamic chord from the
+leading edge of the root chord is given by
+\[
+\begin{split}
+X_{\mathrm{le},\bar{c}} 
+  & {}=
+    \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda} \tan\Lambda_\mathrm{le} \\[3pt]
+  & {}=
+    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+      \cdot 
+      \frac{
+        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}
+      }{
+        1 + \SI[round-precision=2]{\myTaperRatioWing}{}
+      }
+      \cdot \tan \big( \SI[round-precision=3]{\myLambdaLERad}{\radian} \big)
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXLEMACWingMT}{\metre} }% \myXLEMACWingMT
+\end{split}
+\]
+The null value confirms that the aerodynamic average chord, projected on the center plane
+of the wing, overlaps the root chord.
+
+For the assigned wing, all the stations $ Y $ along the opening have a chord equal to $ \ bar {c} $.
+Formally, the station $ Y _ {\ bar {c}} $ corresponding to the mean aerodynamic chord
+is calculated as follows:
+\[
+\begin{split}
+Y_{\bar{c}} 
+  & {}=
+    \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda} = \\[3pt]
+  & {}=
+    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+      \cdot 
+      \frac{
+        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}
+      }{
+        1 + \SI[round-precision=2]{\myTaperRatioWing}{}
+      }
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myYMACWingMT}{\metre} }
+    = \frac{b}{2} \, \frac{1}{2}
+\end{split}
+\]
+The value obtained corresponds to the station along the wingspan halfway between the
+the root cord and the end cord.
+We will see later that for this type of straight wing with constant section, when twisting
+geometric $ \ epsilon_ \ mathrm {g} (Y) $ is identically null,
+the basic aerodynamic characteristics of the section profile are transferred to the finished wing.
+For example, the zero lift angle $ \ alpha_ {0L} $ coincides with the angle $ \ alpha_ {0 \ ell} $
+of zero lift of the profile; just as $ C_L \ big | _ {\ alpha = 0} $ coincides with the profile $ C _ {\ ell 0} $.
+The gradient \ smash {$ C_ {L_ \ mathlarger {\ alpha}} $} relative to the wing must instead be corrected with respect to
+\ smash {$ C _ {\ ell_ \ mathlarger {\ alpha}} $} value relative to the profile for the finite elongation effect.
+
+\end{myExampleX}
+\end{document}

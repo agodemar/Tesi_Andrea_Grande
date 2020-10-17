@@ -7,30 +7,56 @@
 \input{Chapter_1/lift_coefficient_at_various_mach/data.tex}
 %
 \begin{myExampleX}{Lift coefficient at various mach } {\ding{46}}% \ \Keyboard\ % 
-\label{example:Equivalent:Airspeed:Basic:B}
+\label{example:Lift:Coefficient:At:Various:Mach}
 %
 
 \noindent
 Based on the data of the previous example, at an altitude of h=\SI[round-precision=0]{\myAltitudeM}{m} calculate the lift coefficients for different flight Mach numbers M= {0.3 ; 0.4  ; 0.5 ; 0.6 ; 0.7 ; 0.8 }
 we  have a dynamic flight pressure
-\[
-\begin{split}
-\bar{q} = \frac{1}{2} \rho V^2 
-  & {}=
-  \num{0.5} \cdot \SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}
-    \, (\SI[round-precision=2]{\mySpeedMS}{\meter/\second}\big)^2
-\\
-  & {}=
-    { 
-      \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}} 
-    }
+% \[
+% \begin{split}
+% \bar{q} = \frac{1}{2} \rho V^2 
+%   & {}=
+%   \num{0.5} \cdot \SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}
+%     \, (\SI[round-precision=2]{\mySpeedMS}{\meter/\second}\big)^2
+% \\
+%   & {}=
+%     { 
+%       \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}} 
+%     }
     
-\end{split}
-\]
+% \end{split}
+% \]
+\pgfplotstableread[%
+  header=false, col sep=space, row sep=newline, precision=6
+  ]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
 
+\pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}\pgfplotsretval
 
-
-
+\begin{table}[H]
+    \centering
+    \caption{Insert caption here.}
+    \label{tab:Lift:Coefficient:At:Various:Mach}
+    \pgfplotstabletypeset[ % local config, applies only for this table
+      1000 sep={},
+      columns/0/.style={
+        fixed,
+        fixed zerofill,
+        precision=1,
+        %showpos,
+        column type=r,
+        column name=$M$},
+      columns/1/.style={
+        fixed,
+        fixed zerofill,
+        precision=2,
+        %showpos,
+        column type=r,
+        column name=$C_L$},
+        every head row/.style={before row=\toprule, after row=\midrule},
+        every last row/.style={after row=\bottomrule},
+      ]{\myTableDataset}
+\end{table}
 
 
 

@@ -41,22 +41,25 @@ S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) = b\,c_\mathrm{r}
   & {}=
     \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingMT}{\metre}
       \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
-      \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWing}{} \big) 
-    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
+      \cdot \big( 1 + \SI[round-precision=0]{\myTaperRatioWing}{} \big) 
+    = { \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
 \end{split}
 \]
 In this case it is simply the area of a rectangle.
 
+\noindent
 The elongation is therefore
 \[
 \AR 
   = \frac{b^2}{S}
   = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
-  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWing} }
+  ={ \num[round-precision=2]{\myAspectRatioWing} }
 \]
 This value is greater than $\num[round-precision=0]{10}$ allows us to say that we are in
 presence of a wing of high aspect ratio.
 
+
+\noindent
 The mean aerodynamic chord is given by
  
 \[
@@ -66,16 +69,17 @@ The mean aerodynamic chord is given by
     \num{0.667} \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
       \cdot 
         \frac{
-          1 + \SI[round-precision=2]{\myTaperRatioWing}{} + \SI[round-precision=2]{\myTaperRatioWing}{}^2
+          1 + \SI[round-precision=0]{\myTaperRatioWing}{} + \SI[round-precision=0]{\myTaperRatioWing}{}^2
         }{
-          1 + \SI[round-precision=2]{\myTaperRatioWing}{}
+          1 + \SI[round-precision=0]{\myTaperRatioWing}{}
         }
     = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingMT}{\metre} }
 \end{split}
 \]
-Note that for wings of this type the value of $ \ bar {c} $ is nothing other than that of the chord
+Note that for wings of this type the value of $\bar{c} $ is nothing other than that of the chord
 of any wing section.
 
+\noindent
 The longitudinal distance of the leading edge of the mean aerodynamic chord from the
 leading edge of the root chord is given by
 \[
@@ -87,19 +91,20 @@ X_{\mathrm{le},\bar{c}}
     \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
       \cdot 
       \frac{
-        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}
+        1 + 2\cdot\SI[round-precision=0]{\myTaperRatioWing}{}
       }{
-        1 + \SI[round-precision=2]{\myTaperRatioWing}{}
+        1 + \SI[round-precision=0]{\myTaperRatioWing}{}
       }
-      \cdot \tan \big( \SI[round-precision=3]{\myLambdaLERad}{\radian} \big)
-    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXLEMACWingMT}{\metre} }% \myXLEMACWingMT
+      \cdot \tan \big( \SI[round-precision=0]{\myLambdaLERad}{\radian} \big)
+    = { \SI[round-precision=0]{\myXLEMACWingMT}{\metre} }% \myXLEMACWingMT
 \end{split}
 \]
 The null value confirms that the aerodynamic average chord, projected on the center plane
 of the wing, overlaps the root chord.
 
-For the assigned wing, all the stations $ Y $ along the opening have a chord equal to $ \ bar {c} $.
-Formally, the station $ Y _ {\ bar {c}} $ corresponding to the mean aerodynamic chord
+\noindent
+For the assigned wing, all the stations $ Y $ along the opening have a chord equal to $ \bar{c} $.
+Formally, the station $ Y _ {\bar{c}} $ corresponding to the mean aerodynamic chord
 is calculated as follows:
 \[
 \begin{split}
@@ -114,19 +119,19 @@ Y_{\bar{c}}
       }{
         1 + \SI[round-precision=2]{\myTaperRatioWing}{}
       }
-    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myYMACWingMT}{\metre} }
+    = { \SI[round-precision=2]{\myYMACWingMT}{\metre} }
     = \frac{b}{2} \, \frac{1}{2}
 \end{split}
 \]
 The value obtained corresponds to the station along the wingspan halfway between the
 the root cord and the end cord.
 We will see later that for this type of straight wing with constant section, when twisting
-geometric $ \ epsilon_ \ mathrm {g} (Y) $ is identically null,
+geometric $ \epsilon_\mathrm {g} (Y) $ is identically null,
 the basic aerodynamic characteristics of the section profile are transferred to the finished wing.
-For example, the zero lift angle $ \ alpha_ {0L} $ coincides with the angle $ \ alpha_ {0 \ ell} $
-of zero lift of the profile; just as $ C_L \ big | _ {\ alpha = 0} $ coincides with the profile $ C _ {\ ell 0} $.
-The gradient \ smash {$ C_ {L_ \ mathlarger {\ alpha}} $} relative to the wing must instead be corrected with respect to
-\ smash {$ C _ {\ ell_ \ mathlarger {\ alpha}} $} value relative to the profile for the finite elongation effect.
+For example, the zero lift angle $\alpha_ {0L} $ coincides with the angle $ \alpha_ {0 \ell} $
+of zero lift of the profile; just as $ C_L \big | _ {\alpha = 0} $ coincides with the profile $ C _ {\ell 0} $.
+The gradient \ smash {$ C_ {L_ \mathlarger {\alpha}} $} relative to the wing must instead be corrected with respect to
+\ smash {$ C _ {\ell_ \mathlarger {\alpha}} $} value relative to the profile for the finite elongation effect.
 
 \end{myExampleX}
 \end{document}

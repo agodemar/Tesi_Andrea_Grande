@@ -11,31 +11,19 @@
 %
 
 \noindent
-Based on the data of the previous example, at an altitude of h=\SI[round-precision=0]{\myAltitudeM}{m} calculate the lift coefficients for different flight Mach numbers M= {0.3 ; 0.4  ; 0.5 ; 0.6 ; 0.7 ; 0.8 }
-we  have a dynamic flight pressure
-% \[
-% \begin{split}
-% \bar{q} = \frac{1}{2} \rho V^2 
-%   & {}=
-%   \num{0.5} \cdot \SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}
-%     \, (\SI[round-precision=2]{\mySpeedMS}{\meter/\second}\big)^2
-% \\
-%   & {}=
-%     { 
-%       \SI[round-precision=3,scientific-notation=true]{\myDynamicPressurePa}{\newton\,\meter^{-2}} 
-%     }
-    
-% \end{split}
-% \]
+Based on the data of the previous example, at an altitude of h=\SI[round-precision=0]{\myAltitudeM}{m} we can calculate the lift coefficients for different flight Mach numbers M = {0.3 ; 0.4  ; 0.5 ; 0.6 ; 0.7 ; 0.8 } and graphically observe the trend of the lift coefficient as a function of Mach.
+
 \pgfplotstableread[%
   header=false, col sep=space, row sep=newline, precision=6
   ]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
 
-\pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}\pgfplotsretval
+\pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}
+\pgfmathsetmacro{\valueinoneone}{\pgfplotsretval}
+\num[round-precision=2]{\valueinoneone}
 
 \begin{table}[H]
     \centering
-    \caption{Insert caption here.}
+    \caption{Main values obtained at the given altitude.}
     \label{tab:Lift:Coefficient:At:Various:Mach}
     \pgfplotstabletypeset[ % local config, applies only for this table
       1000 sep={},
@@ -53,6 +41,27 @@ we  have a dynamic flight pressure
         %showpos,
         column type=r,
         column name=$C_L$},
+        columns/2/.style={
+        fixed,
+        fixed zerofill,
+        precision=2,
+        %showpos,
+        column type=r,
+        column name=$V (m/s)$},
+        columns/3/.style={
+        fixed,
+        fixed zerofill,
+        precision=2,
+        %showpos,
+        column type=r,
+        column name=$V (km/h)$},
+        columns/4/.style={
+        fixed,
+        fixed zerofill,
+        precision=2,
+        %showpos,
+        column type=r,
+        column name=$ \bar{q}(Pa)$},
         every head row/.style={before row=\toprule, after row=\midrule},
         every last row/.style={after row=\bottomrule},
       ]{\myTableDataset}
@@ -61,7 +70,74 @@ we  have a dynamic flight pressure
 
 
 
+\pgfplotsset{width=7cm,compat=1.8}
 
+% set style options for annotations with pins (see bottom of tikzpicture)
+\tikzset{%
+   every pin/.style={draw=none,
+                     fill=gray!10,
+                     %rectangle,rounded corners=0pt,
+                     font=\relsize{0}}
+                 }
+
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                    label style={font=\relsize{2}},
+                    tick label style={font=\relsize{1}}  
+                    }}
+                    
+
+
+% The data in tabular format (csv)
+\pgfplotstableread[col sep=space,row sep=newline, precision=6]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
+
+\begin{tikzpicture}
+  \begin{axis}[%
+    %
+    view={0}{90},
+    width=0.75\linewidth,height=0.75\linewidth,
+    %
+    xmin=0, xmax=1,
+    %xtick={0, 0.1,...,1},
+    x tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            %fixed zerofill,
+            precision=2,
+        /tikz/.cd
+    },
+    xlabel={$M$},
+    ymin=0, ymax=1.7,
+    %ytick={-1, -0.9,...,1.0},
+    y tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            %fixed zerofill,
+            precision=2,
+        /tikz/.cd
+    },
+    ylabel={$C_L$},
+    ylabel style={at={(ticklabel cs:0.5)}},
+    ylabel shift=3pt,% horizontal shift outwards
+    grid=major, grid style={dashed, gray!30},
+    %legend entries = {$\lambda_\mathrm{W}=1.00$, $0.50$, $0.25$},
+    legend style={%
+      draw=none,%gray!30,
+      fill=gray!10,
+      at={(0.02,0.98)},
+      anchor=north west,
+      cells={anchor=east}
+    }
+  ]
+    \addplot[%
+      only marks, 
+      %mark=none, 
+      mark options={scale=1},
+      ] table [x index=0, y index=1] from \myTableDataset
+;
+      
+  \end{axis}
+\end{tikzpicture}
 
 
 

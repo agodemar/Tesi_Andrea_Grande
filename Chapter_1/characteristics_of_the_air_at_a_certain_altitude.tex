@@ -70,7 +70,7 @@ Lastly,the dynamic viscosity of the air at the given  altitude is:
 % https://www.cfd-online.com/Wiki/Sutherland%27s_law
 \[
 \begin{split}
-\mu & {}= \frac{\mu_0}{T_0^{\frac{3}{2}}} \left( T_\text{ref} + \SI{110.4}{K}\right)
+\mu & {}= \mu_0 \, \frac{T}{T_0}^{\frac{3}{2}} \,                 \frac {T_0 + \SI{110.4}{K}}{T + \SI{110.4}{K}}
     \\
     & {}= \ldots \quad\text{AGGIUSTAMI!}
 %     & {}= \SI[round-precision=3]{\myCone}{kg}\cdot 10^{-6}

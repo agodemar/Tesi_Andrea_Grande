@@ -6,7 +6,7 @@
 %
 \input{Chapter_1/lift_coefficient_at_various_mach/data.tex}
 %
-\begin{myExampleX}{Lift coefficient at various mach } {\ding{46}}% \ \Keyboard\ % 
+\begin{myExampleX}{Lift coefficient at various Mach numbers}{\ding{46}}% \ \Keyboard\ % 
 \label{example:Lift:Coefficient:At:Various:Mach}
 %
 
@@ -18,8 +18,8 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
   ]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
 
 \pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}
-\pgfmathsetmacro{\valueinoneone}{\pgfplotsretval}
-\num[round-precision=2]{\valueinoneone}
+\pgfmathsetmacro{\valueOneOne}{\pgfplotsretval}
+\num[round-precision=2]{\valueOneOne}
 
 \begin{table}[H]
     \centering
@@ -47,31 +47,37 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
         precision=2,
         %showpos,
         column type=r,
-        column name=$V (m/s)$},
+        column name=$V$ (\si{m/s})},
         columns/3/.style={
         fixed,
         fixed zerofill,
         precision=2,
         %showpos,
         column type=r,
-        column name=$V (km/h)$},
+        column name=$V$ (\si{km/h})},
         columns/4/.style={
         fixed,
         fixed zerofill,
         precision=2,
         %showpos,
         column type=r,
-        column name=$ \bar{q}(Pa)$},
+        column name=$ \bar{q}$ (\si{Pa})},
         every head row/.style={before row=\toprule, after row=\midrule},
         every last row/.style={after row=\bottomrule},
       ]{\myTableDataset}
 \end{table}
 
+\medskip
 
-
-
+\begin{figure}
+    \centering
+%
+%
+%====================================== code-for-tikzpicture
+%
+\resizebox{0.7\textwidth}{!}{%
+%
 \pgfplotsset{width=7cm,compat=1.8}
-
 % set style options for annotations with pins (see bottom of tikzpicture)
 \tikzset{%
    every pin/.style={draw=none,
@@ -79,18 +85,15 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
                      %rectangle,rounded corners=0pt,
                      font=\relsize{0}}
                  }
-
+%
 % axis style, ticks, etc
 \pgfplotsset{every axis/.append style={
-                    label style={font=\relsize{2}},
-                    tick label style={font=\relsize{1}}  
+                    label style={font=\relsize{1}},
+                    tick label style={font=\relsize{0}}  
                     }}
-                    
-
-
+%
 % The data in tabular format (csv)
 \pgfplotstableread[col sep=space,row sep=newline, precision=6]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
-
 \begin{tikzpicture}
   \begin{axis}[%
     %
@@ -135,15 +138,15 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
       mark options={scale=1},
       ] table [x index=0, y index=1] from \myTableDataset
 ;
-      
   \end{axis}
 \end{tikzpicture}
-
-
-
-
-
-
+%
+}% end-of-resizebox
+%
+%====================================== end-code-for-tikzpicture
+    \caption{Insert caption here}
+    \label{fig:my_label}
+\end{figure}
 
 
 

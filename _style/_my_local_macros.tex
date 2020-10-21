@@ -1,5 +1,20 @@
 % AUTHOR: Agostino De Marco, agostino.demarco@unina.it
 
+% LaTeX3 stuff
+
+% see http://www.guitex.org/home/images/meeting2012/slides/presentazione_demarco_guitmeeting_2012.pdf
+
+% similar to siuntix macros, but able 
+% to manage expressions
+\ExplSyntaxOn
+
+\NewDocumentCommand{ \calcnum }{ o m }
+  {\num[#1]{ \fp_to_scientific:n {#2} } }
+\NewDocumentCommand{ \calcSI }{ o m m }
+  {\SI[#1]{ \fp_to_scientific:n {#2} }{#3} }
+
+\ExplSyntaxOff
+
 \newcommand{\mystrutt}[2]{\makebox[0pt]{\rule[#1]{0pt}{#2}}}
 
 %

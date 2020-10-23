@@ -70,26 +70,15 @@ Lastly,the dynamic viscosity of the air at the given  altitude is:
 % https://www.cfd-online.com/Wiki/Sutherland%27s_law
 \[
 \begin{split}
-\mu & {}= \mu_0 \, \frac{T}{T_0}^{\frac{3}{2}} \,                 \frac {T_0 + \SI{110.4}{K}}{T + \SI{110.4}{K}}
+\mu & {}= \mu_0 \, \left(\frac{T}{T_0}\right)^{\frac{3}{2}} \,                 \frac {T_0 + \SI{110.4}{K}}{T + \SI{110.4}{K}}
     \\
-    & {}= \ldots \quad\text{AGGIUSTAMI!}
-%     & {}= \SI[round-precision=3]{\myCone}{kg}\cdot 10^{-6}
-%         \biggl( \si{m s \sqrt{K} } \biggr)^{-1} \cdot 
-%         \frac{T^{\frac{3}{2}}}{T + \SI[round-precision=1]{\myCtwo}{K}}
-%     \\
-%     & {}= \SI[round-precision=3]{\myCone}{kg} \cdot 10^{-6}
-%       \biggl(\si{m s \sqrt{K}}\biggr)^{-1} \cdot 
-%       \frac{
-%          (\SI[round-precision=2]{\myTemperatureK}{K})^{\frac{3}{2}}
-%          }{
-%           \SI[round-precision=2]{\myTemperatureK}{K} 
-%              + \SI[round-precision=1]{\myCtwo}{K}} 
-%     \\
-%     & {}= \SI[round-precision=2,scientific-notation=true]{
-%       \myDynamicviscosity }{kg \biggl(m\,s \sqrt{K}\biggr)^{-1}}
+     & {}=\SI[round-precision=1,scientific-notation=true]{\myCone}  {\si {\frac{kg}{m\,s}}}\, \left(\frac{\SI[round-precision=2]{\myTemperatureK}{K}}  {\SI[round-precision=2]{\myTemperaturesealevelK}{K}}
+     \right)^{\frac{3}{2}} \,  \frac{\SI[round-precision=2]{\myTemperaturesealevelK}{K} + \SI{110.4}{K}}{\SI[round-precision=2]{\myTemperatureK}{K} + \SI{110.4}{K}}
+     \\
+     & {}= \SI[round-precision=1,scientific-notation=true]{
+     \myDynamicviscosity } {\si {\frac{kg}{m\,s}}}
 \end{split}
 \]
-($\mu_0=\SI[scientific-notation=true]{1.716e-5}{kg/(ms)}$, $T_0=\SI{273.15}{K}$)
 The above value of $\mu$ corresponds to a Reynolds number per unit of length
 \[
  \frac{\text{\itshape{Re}}}{l_\text{ref}} 

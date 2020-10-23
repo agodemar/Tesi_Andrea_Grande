@@ -1,17 +1,14 @@
 \documentclass[[12pt,twoside]{book}
 \usepackage{_my_document_style}
-
 \begin{document}
-
 %
 \input{Chapter_1/lift_coefficient_at_various_mach/data.tex}
 %
 \begin{myExampleX}{Lift coefficient at various Mach numbers}{\ding{46}}% \ \Keyboard\ % 
 \label{example:Lift:Coefficient:At:Various:Mach}
 %
-
 \noindent
-Based on the data of the previous example, at an altitude of h=\SI[round-precision=0]{\myAltitudeM}{m} we can calculate the lift coefficients for different flight Mach numbers M = {0.3 ; 0.4  ; 0.5 ; 0.6 ; 0.7 ; 0.8 } and graphically observe the trend of the lift coefficient as a function of Mach.
+Based on the data of the previous example, at an altitude of h=\SI[round-precision=0]{\myAltitudeM}{m} we want to calculate the lift coefficients for different flight Mach numbers M = {0.3 ; 0.4  ; 0.5 ; 0.6 ; 0.7 ; 0.8 } and graphically observe the trend of the lift coefficient as a function of Mach.
 
 \pgfplotstableread[%
   header=false, col sep=space, row sep=newline, precision=6
@@ -66,11 +63,9 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
         every last row/.style={after row=\bottomrule},
       ]{\myTableDataset}
 \end{table}
-
 \medskip
-
 \begin{figure}
-    \centering
+\centering
 %
 %
 %====================================== code-for-tikzpicture

@@ -2,38 +2,31 @@
 \usepackage{_my_document_style}
 \begin{document}
 \begin{figure}[t]%[H]%[!htbp]
-  \centering
-  %\checkoddpage
-  %\centering
-    \includegraphics[width=0.78\textwidth]{Chapter_2/geometric_characteristics_of_a_wing_with_arrow_not_null/wing_planform_basic_1_drawing.pdf}%
+\centering
+%\checkoddpage
+%\centering
+   \includegraphics[width=0.78\textwidth]{Chapter_2/geometric_characteristics_of_a_wing_with_arrow_not_null/wing_planform_basic_1_drawing.pdf}%
   \caption{\finalhyphendemerits=1000
-           Forma in pianta dell'ala assegnata nell'esempio~\ref{example:Geometric:Characteristics:Of:A:Wing:With:Arrow:Not:Null}.}
-  \label{fig:Wing:Planform:Results:A}%
+           Forma in pianta dell'ala assegnata nell'esempio~\ref{example:Geometric:Characteristics:Of:A:Wing:With:Sweep:Angle:Not:Null}.}
+\label{fig:Wing:Planform:Results:A}%
 \end{figure}
 %
 \input{Chapter_2/geometric_characteristics_of_a_wing_with_arrow_not_null/data.tex}
 %
-\begin{myExampleX}{geometric characteristics of a wing with arrow not null}{\ding{46}}% \ \Keyboard\ %
-\label{example:Geometric:Characteristics:Of:A:Wing:With:Arrow:Not:Null}
-
+\begin{myExampleX}{Geometric characteristics of a wing with sweep angle not null}{\ding{46}}% \ \Keyboard\ %
+\label{example:Geometric:Characteristics:Of:A:Wing:With:Sweep:Angle:Not:Null}
 \noindent
-The wing of an aircraft has straight leading and trailing edges,
-wingspan $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
-root chord $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
-tip chord $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
-and leading edge arrow
-$\Lambda_\mathrm{le}=\SI[round-precision=1]{\myLambdaLEDeg}{\degree}$.
-
+The wing of an aircraft has straight leading and trailing edges, wingspan $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+root chord $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$, tip chord $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
+and leading edge sweep angle $\Lambda_\mathrm{le}=\SI[round-precision=1]{\myLambdaLEDeg}{\degree}$.
 We want to calculate the following quantities:
-
 \noindent
 \adjustbox{center=\textwidth}{%
 $S$\,, $\AR$\,, $\Lambda_{c/4}$\,, $\Lambda_{c/2}$\,, $\Lambda_\mathrm{te}$\,, 
 $\bar{c}$\,, $X_{\mathrm{le},\bar{c}}$\,, $Y_{\bar{c}}$
 }% \,, $Y_{\bar{c}}$
-
 \medskip
-The linear law applies to section cords
+The linear law applied to section chords is:
 $c \big( Y \big) = A_c \, Y + B_c$ 
 where
 \[
@@ -58,7 +51,6 @@ c \big( Y \big) = A_c \, Y + B_c
   = \SI[round-precision=3]{\myCoefficientA}{} \, Y
     + \SI[round-precision=2]{\myCoefficientB}{\metre}
 \]
-
 The taper ratio is
 \[
 \lambda
@@ -84,14 +76,11 @@ so we have a wing aspect ratio
   = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
   = \num[round-precision=2]{\myAspectRatioWing} 
 \]
-
 For the relationship
 \[
 \tan\Lambda_{c/n} = \tan\Lambda_\mathrm{le}-\dfrac{(4/n)(1-\lambda)}{\AR(1+\lambda)}
 \]
-which binds the arrow angle of the leading edge $\Lambda_\mathrm{le}$  to the arrow angle
-$\Lambda_{c/n}$ of the line joining the points along the single chords $c(Y)$ distant $c(Y)/n$ 
-from the local leading edge, we have
+which connects the sweep angle of the leading edge $\Lambda_\mathrm{le}$  to the sweep angle $\Lambda_{c/n}$ of the line joining the points along the single chords $c(Y)$ distant $c(Y)/n$ from the local leading edge, we have
 \[
 \tan
 \Lambda_{c/4}
@@ -109,7 +98,7 @@ from the local leading edge, we have
       =\SI[round-precision=3]{\myLambdaCQuarterRad}{\radian} 
       =\SI[round-precision=1]{\myLambdaCQuarterDeg}{\deg}
 \]
-
+%
 \[
 \tan
 \Lambda_{c/2}
@@ -127,7 +116,7 @@ from the local leading edge, we have
       =\SI[round-precision=3]{\myLambdaCHalfRad}{\radian} 
       =\SI[round-precision=1]{\myLambdaCHalfDeg}{\deg} 
 \]
-
+%
 \[
 \tan
 \Lambda_\mathrm{te}
@@ -145,12 +134,10 @@ from the local leading edge, we have
       =\SI[round-precision=3]{\myLambdaTERad}{\radian}
       =\SI[round-precision=1]{\myLambdaTEDeg}{\deg} 
 \]
-It is observed that the characteristic arrow angles of the shape in plan go progressively
-to decrease passing from the leading edge ($\Lambda_\mathrm{le}$), 
+It is observed that the characteristic sweep angles of the shape in plan go progressively to decrease passing from the leading edge ($\Lambda_\mathrm{le}$), 
 to the quarter chord line ($\Lambda_{c/4}$),
 to the midline ($\Lambda_{c/2}$),
 to the trailing edge ($\Lambda_\mathrm{te}$).
-
 The value of the mean aerodynamic chord is as follows:
 \[
 \begin{split}
@@ -166,9 +153,7 @@ The value of the mean aerodynamic chord is as follows:
     = \SI[round-precision=2]{\myMACWingMT}{\metre} 
 \end{split}
 \]
-
-The longitudinal distance of the leading edge of the mean aerodynamic chord from the
-leading edge of the root chord is
+The longitudinal distance of the mean aerodynamic chord's leading edge from the leading edge of the root chord is:
 \[
 \begin{split}
 X_{\mathrm{le},\bar{c}} 
@@ -186,14 +171,11 @@ X_{\mathrm{le},\bar{c}}
     = \SI[round-precision=2]{\myXLEMACWingMT}{\metre} 
 \end{split}
 \]
-It is observed that for a tapered wing with arrow not null, there is a
-$X_{\mathrm{le},\bar{c}}$ not null. This means that the projection of the wing section having
-chord equal to $\bar{c}$ in the middle plane it is further back than the root chord.
+It is observed that for a tapered wing with sweep angle not null, there is a
+$X_{\mathrm{le},\bar{c}}$ not null. This means that the projection of the wing section having chord equal to $\bar{c}$ in the middle plane is further back than the root chord.
 Also, given the value of $\bar{c}$ previously calculated, this projection
-it is not entirely internal to the root chord but has an abscissa of trailing edge
-$X_{\mathrm{le},\bar{c}}+\bar{c}>c_\mathrm{r}$.
-
-The station $Y_{\bar{c}}$ to which the law of the strings $c(Y)$ assumes value$\bar{c}$ è
+is not entirely internal to the root chord but has an abscissa of trailing edge $X_{\mathrm{le},\bar{c}}+\bar{c}>c_\mathrm{r}$.
+The station $Y_{\bar{c}}$ to which the law of the chords $c(Y)$ assumes value$\bar{c}$ is:
 \[
 \begin{split}
 Y_{\bar{c}} 
@@ -210,7 +192,6 @@ Y_{\bar{c}}
     =  \SI[round-precision=2]{\myYMACWingMT}{\metre} 
 \end{split}
 \]
-
 % \begin{figure}[t]
 %     \centering
 %     \includegraphics[width=0.8\textwidth]{Chapter_2/temp/wing_ac_1_drawing.pdf}
@@ -218,17 +199,8 @@ Y_{\bar{c}}
 %     \caption{Insert caption here}
 %     \label{fig:my:label}
 % \end{figure}
-
-The point of coordinates $(X_{\mathrm{le},\bar{c}},0)$It is of extreme importance in the formulation
-of the pitch equilibrium equations and of the static stability condition at
-aircraft pitching. This point is taken as a reference by the designers for
-evaluate the position of the center of gravity and the characteristic aerodynamic centers of the aircraft
-(of the isolated wing, of the wing-fuselage configuration, of the complete aircraft).
-For example, if a given characteristic point $P$ has a longitudinal distance 
-$a\bar{c}$ from the leading edge of mean aerodynamic chord with $a$ dimensionless), 
-a coordinate is introduced $x$ such that $x_P = X_P - X_{\mathrm{le},\bar{c}} = a\bar{c}$.
-It is also said that the dimensionless position of $P$ compared to the leading edge of the mean
+The point of coordinates $(X_{\mathrm{le},\bar{c}},0)$ is of extreme importance in the formulation of the pitch equilibrium equations and of the static stability condition at aircraft pitching. This point is taken as a reference by the designers for evaluate the position of the center of gravity and the characteristic aerodynamic centers of the aircraft
+(of the isolated wing, of the wing-fuselage configuration, of the complete aircraft). For example, if a given characteristic point $P$ has a longitudinal distance $a\bar{c}$ from the leading edge of mean aerodynamic chord with $a$ dimensionless), a coordinate is introduced $x$ such that $x_P = X_P - X_{\mathrm{le},\bar{c}} = a\bar{c}$. It is also said that the dimensionless position of $P$ compared to the leading edge of the mean
 aerodynamic chord is $\bar{x}_P=a$.
-
 \end{myExampleX}
 \end{document} 

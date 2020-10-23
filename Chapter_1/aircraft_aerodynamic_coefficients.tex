@@ -11,8 +11,8 @@
 %
 
 \noindent
-In this numerical example, we carry out the calculation of an aerodynamic coefficient starting
-from a force and subsequently the calculation of an aerodynamic force known the coefficient.
+In this numerical example, we want to calculate the aerodynamic coefficients starting
+from the knowledge of a force and and vice versa, i.e. calculate an aerodynamic force knowing the aerodynamic coefficients.
 An aircraft with characteristics similar to those of a Boeing ~ 777-300 ER has mass
 $m=\SI[round-precision=0]{\myMassKg}{kg}=\SI[round-precision=0]{\myMassLb}{lb}$
 (that is a weight equal to about 80 \% of the, \emph{Maximum Take-Off Weight}, MTOW)
@@ -25,7 +25,7 @@ $h=\SI[round-precision=0]{\myAltitudeM}{\meter}$,
 for which
 $\rho=\SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}$,
 %(cfr.~esempio~\ref{example:Atmosphere:Basic:A}),
-we  have a dynamic flight pressure
+we have a dynamic flight pressure
 \[
 \begin{split}
 \bar{q} = \frac{1}{2} \rho V^2 
@@ -45,7 +45,7 @@ we  have a dynamic flight pressure
 \]
 corresponding to a Mach number $M=\SI[round-precision=2]{\myMach}{}$.
 If we take a balanced flight, in which lift $L$ equals weight
- $W=mg$, we have a lift coefficient
+$W=mg$, we have a lift coefficient
 $C_L$ that is
 \[
 C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
@@ -58,9 +58,8 @@ C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
   = { \SI[round-precision=3]{\myLiftCoefficient}{} }
 \]
 %
-For a similar aircraft, under the given conditions, a polar given by the following law can be assumed:
-%############################
-
+For a similar aircraft, under the given conditions,we can assume a polar given by the following law:
+%
 \[
 C_D = C_{D0} + \frac{C_L^2}{\pi \AR_\Wing e} = C_{D0} + K\,C_L^2
   = \SI[round-precision=4]{\myDragCoefficientZero}{}
@@ -69,11 +68,9 @@ C_D = C_{D0} + \frac{C_L^2}{\pi \AR_\Wing e} = C_{D0} + K\,C_L^2
 where $\AR_\Wing=\SI[round-precision=2]{\myAspectRatio}{}$,
 $e=\SI[round-precision=2]{\myOswaldFactor}{}$,
 $K=1/(\AR_\Wing \, e\pi)=\SI[round-precision=4]{\myKpolar}{}.$
-
 %
 \noindent
-Therefore, the flight drag coefficient
-is
+Therefore, the flight drag coefficient is
 \[
 C_D
   = \SI[round-precision=4]{\myDragCoefficientZero}{}

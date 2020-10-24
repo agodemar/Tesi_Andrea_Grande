@@ -1,0 +1,317 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\begin{myExampleX}{Zero lift angle of a finite wing (graphic method)}{\ding{46}\ \myIconGraph\ }% \ \Keyboard\ %
+\label{example:Wing:Alpha:Zero:Lift:B}
+%
+\noindent
+Si consideri ancora l'ala dell'esempio~\ref{example:Geometric:Characteristics:Of:A:Straight:And:Tapered:Wing}
+avente bordi d'attacco e d'uscita rettilinei,
+apertura $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+corda di radice $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+corda d'estremità $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
+e freccia del bordo d'attacco
+$\Lambda_\mathrm{le}=\SI[round-precision=1]{\mySweepLEWingDEG}{\deg}$.
+Inoltre, il profilo di radice ha un angolo di portanza nulla
+$\alpha_{0\ell,\mathrm{r}}=\SI[round-precision=1]{\myAlphaZeroLiftRootWingDEG}{\deg}$
+mentre il profilo d'estremità ha un angolo di portanza nulla
+$\alpha_{0\ell,\mathrm{t}}=\SI[round-precision=1]{\myAlphaZeroLiftTipWingDEG}{\deg}$,
+con svergolamento geometrico
+$\epsilon_{\mathrm{g,t}}=\SI[round-precision=1]{\myTwistWingDEG}{\deg}$.
+Infine, il numero di Mach di volo è $\Mach=\SI[round-precision=2]{\myMach}{}$.
+
+Si vuole calcolare l'angolo di portanza nulla dell'ala $\alpha_{0L}$ 
+secondo la formula semiempirica
+\begin{equation}
+\label{eq:Wing:Alpha:Zero:Lift:Roskam:Datcom}
+\alpha_{0L} =
+  \Big(
+    \bar{\alpha}_{0\ell} + K_{\alpha,1} \, \epsilon_{\mathrm{g,t}}
+  \Big) 
+  \, K_{\alpha,2}
+\end{equation}
+In questa modellazione
+\[
+\bar{\alpha}_{0\ell} = \frac{2}{S} \int_0^{b/2} \alpha_{0\ell}(Y)\, c(Y) \diff{Y}
+\]
+è il valor medio dell'angolo di portanza nulla di sezione.
+Il coefficiente
+$K_{\alpha,1}$ è concettualmente il rapporto
+$\upDelta\alpha_{0L}/\epsilon_{\mathrm{g,t}}$ che si legge dalla
+figura~\ref{fig:Wing:DalphaZeroLift:Roskam:Plots},
+funzione dell'angolo di freccia $\Lambda_{c/4}$, dell'allungamento alare $\AR$
+e del rapporto di rastremazione $\lambda$.
+Il coefficiente
+$K_{\alpha,2}$ è un fattore di correzione dovuto agli eventuali
+effetti della comprimibilità, si legge dalla figura~\ref{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}
+ed è funzione del numero di Mach di volo, ovvero del prodotto $\Mach\cos\Lambda_{c/4}$,
+e del valor medio dello spessore percentuale dei profili $\overline{(t/c)}$.
+%\[
+%\overline{(t/c)}
+%  = \frac{2}{S} \int_0^{b/2} \left(\frac{t}{c}\right)(Y)\, c(Y) \diff{Y}
+%\]
+
+\medskip
+
+Vanno ricostruite le leggi di variazione lungo l'apertura:%
+\begin{inparaenum}[(\itshape i\normalfont)]
+\item
+della corda,
+\item
+dell'angolo di portanza nulla di sezione, 
+\item
+dello spessore percentuale di sezione.
+\end{inparaenum}
+In mancanza di specifiche indicazioni, si può assumere
+che le ultime due leggi siano lineari.
+
+Nell'esempio~\ref{example:Wing:Basic:A}, per quanto riguarda le corde, si è ricavato che
+\[
+A_c
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffAChordWing}{} }
+\;,\quad
+B_c
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre} }
+\]
+e
+\[
+c \big( Y \big) = A_c \, Y + B_c
+  = \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
+    + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
+\]
+
+Per gli angoli di portanza nulla di sezione vale la legge lineare
+$\alpha_{0\ell} \big( Y \big) = A_{\alpha} \, Y + B_{\alpha}$ 
+con
+\[
+A_{\alpha}
+  = \frac{\alpha_{0\ell,\mathrm{t}} - \alpha_{0\ell\mathrm{r}}}{b/2}
+  = 
+    2 \frac{
+      \SI[round-precision=4]{\myAlphaZeroLiftTipWingRAD}{\radian} 
+        - ( \SI[round-precision=4]{\myAlphaZeroLiftRootWingRAD}{\radian} )
+    }{
+      \SI[round-precision=2]{\mySpanWingMT}{\metre}
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=5]{\myCoeffAAeroTwistWingRADMT}{\radian/\metre} }
+\]
+\[
+B_{\alpha}
+  = \alpha_{0\ell,\mathrm{r}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myAlphaZeroLiftRootWingRAD}{\radian} }
+\]
+dunque
+\[
+\alpha_{0\ell} \big( Y \big) = A_{\alpha} \, Y + B_{\alpha}
+  = (\SI[round-precision=5]{\myCoeffAAeroTwistWingRADMT}{\radian/\metre}) \, Y
+    \SI[round-precision=4]{\myAlphaZeroLiftRootWingRAD}{\radian}
+\]
+
+La legge dello spessore percentuale dei profili si ricava analogamente,
+ponendo
+$(t/c)\,\big( Y \big) = A_{t/c} \, Y + B_{t/c}$ 
+con
+\[
+A_{t/c}
+  = \frac{(t/c)_{\mathrm{t}} - (t/c)_{\mathrm{r}}}{b/2}
+  = 
+    2 \frac{
+      \SI[round-precision=2]{\myThicknessOverChordTipWing}{} 
+        - \SI[round-precision=4]{\myThicknessOverChordRootWing}{}
+    }{
+      \SI[round-precision=2]{\mySpanWingMT}{\metre}
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=5]{\myCoeffAPercThicknessWingMT}{\metre^{-1}} }
+\]
+\[
+B_{t/c}
+  = (t/c)_{\mathrm{r}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBPercThicknessWing}{} }
+\]
+dunque
+\[
+(t/c)\,\big( Y \big) = A_{t/c} \, Y + B_{t/c}
+  = (\SI[round-precision=5]{\myCoeffAPercThicknessWingMT}{\metre^{-1}}) \, Y
+    + \SI[round-precision=2]{\myCoeffBPercThicknessWing}{}
+\]
+
+L'ala assegnata ha un rapporto di rastremazione
+\[
+\lambda
+  =\frac{c_\mathrm{t}}{c_\mathrm{r}}
+  =\frac{\SI[round-precision=2]{\myChordTipWingMT}{\metre}}{\SI[round-precision=2]{\myChordRootWingMT}{\metre}}
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myTaperRatioWing}{} }
+\]
+una superficie alare
+\[
+\begin{split}
+S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) \\
+  & {}=
+    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingMT}{\metre}
+      \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
+      \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWing}{} \big) 
+    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
+\end{split}
+\]
+un allungamento
+\[
+\AR
+  = \frac{b^2}{S}
+  = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
+  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWing} }
+\]
+e un angolo di freccia
+\[
+\tan
+\Lambda_{c/4}
+   = \tan (\SI[round-precision=3]{\mySweepLEWingRAD}{\radian})
+      - \dfrac{
+         \num[round-precision=2]{1.0}
+         \cdot (1-\SI[round-precision=2]{\myTaperRatioWing}{})
+      }{
+         \num[round-precision=2]{\myAspectRatioWing}
+         \cdot (1+\SI[round-precision=2]{\myTaperRatioWing}{})} 
+   \quad
+   \Rightarrow
+   \quad
+   \Lambda_{c/4}
+      = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\mySweepQuarterChordWingRAD}{\radian} }
+      = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\mySweepQuarterChordWingDEG}{\deg} }
+\]
+
+A questo punto è possibile calcolare i valori medi
+\[
+\begin{split}
+\bar{\alpha}_{0\ell} 
+  & {}= \frac{2}{S} \int_0^{b/2} \alpha_{0\ell}(Y)\, c(Y) \diff{Y}
+    = \frac{2}{S} \int_0^{b/2} 
+      \Big( A_{\alpha} \, Y + B_{\alpha} \Big)\, \Big( A_c Y + B_c \Big)
+        \diff{Y}
+\\[2pt]
+  & ={}
+    \frac{2}{ \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
+    \int_{\SI{0}{m}}^{
+      \calcSI[round-precision=1,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingMT}{\metre}
+    }
+    \Big( 
+      \SI[round-precision=5]{\myCoeffAAeroTwistWingRADMT}{\radian/\metre} \; Y
+        \SI[round-precision=4]{\myAlphaZeroLiftRootWingRAD}{\radian}
+    \Big) 
+    \Big( 
+      \SI[round-precision=3]{\myCoeffAChordWing}{} \; Y
+        + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
+    \Big) \diff{Y}
+\\[4pt]
+  & {}= \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myAlphaZeroLiftMeanWingRAD}{\radian} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myAlphaZeroLiftMeanWingDEG}{\deg} }
+\end{split}
+\]
+
+\[
+\begin{split}
+\overline{(t/c)} & {}= \frac{2}{S} \int_0^{b/2} (t/c)\big(Y\big)\, c\big(Y\big) \diff{Y}
+  = \frac{2}{S} \int_0^{b/2} 
+    \Big( A_{t/c} \, Y + B_{t/c} \Big)\, \Big( A_c Y + B_c \Big)
+      \diff{Y}
+\\[2pt]
+  & ={}
+    \frac{2}{ \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
+    \int_{\SI{0}{m}}^{
+      \calcSI[round-precision=1,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingMT}{\metre}
+    }
+    \Big( 
+      \SI[round-precision=5]{\myCoeffAPercThicknessWingMT}{\metre^{-1}} \; Y
+        + \SI[round-precision=3]{\myCoeffBPercThicknessWing}{}
+    \Big) 
+    \Big( 
+      \SI[round-precision=3]{\myCoeffAChordWing}{} \; Y
+        + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
+    \Big) \diff{Y}
+\\[4pt]
+  & {}= \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myThicknessOverChordMeanWing}{} }
+\end{split}
+\]
+
+Con i valori su calcolati dalla figura~\ref{fig:Wing:DalphaZeroLift:Roskam:Plots}
+si legge
+\[
+\Lambda_{c/4}=\SI[round-precision=1]{\mySweepQuarterChordWingDEG}{\deg}\;,\;\,
+\AR=\num[round-precision=2]{\myAspectRatioWing}\;,\;\,
+\lambda=\SI[round-precision=2]{\myTaperRatioWing}{}
+%
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+K_{\alpha,1} =
+  \frac{\upDelta\alpha_{0L}}{\epsilon_{\mathrm{g,t}}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myDeltaAlphaZeroLiftOverTwistWing}{} }
+\]
+e
+dalla figura~\ref{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}
+si legge
+\[
+\Mach \cos \Lambda_{c/4}=
+  \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{
+    \myMach * cos(\mySweepQuarterChordWingRAD)
+  }{}\;,\;\,
+\overline{(t/c)} =
+  \SI[round-precision=3]{\myThicknessOverChordMeanWing}{}
+%
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+K_{\alpha,2} =
+  \frac{\alpha_{0L}}{\alpha_{0L}\big|_{\Mach=\num{0.3}}} 
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myPrandtlGlauertCorrectionAlphaZeroLiftWing}{} }
+\]
+
+Pertanto, l'ala assegnata, al numero di Mach specificato, ha un angolo di portanza nulla
+\[
+\begin{split}
+\label{eq:Wing:Alpha:Zero:Lift:Roskam:Datcom}
+\alpha_{0L} 
+  & {}=
+    \Big(
+      \bar{\alpha}_{0\ell} + K_{\alpha,1} \, \epsilon_{\mathrm{g,t}}
+    \Big) \, K_{\alpha,2}
+\\
+  & {}= 
+    \Big(
+      \SI[round-precision=4]{\myAlphaZeroLiftMeanWingRAD}{\radian}
+        + ( \SI[round-precision=3]{\myDeltaAlphaZeroLiftOverTwistWing}{} )
+          ( \SI[round-precision=4]{\myTwistWingRAD}{\radian} )
+    \Big)
+      \cdot \SI[round-precision=2]{\myPrandtlGlauertCorrectionAlphaZeroLiftWing}{}
+\\[4pt]
+  & {}= \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myAlphaZeroLiftDatcomWingRAD}{\radian} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myAlphaZeroLiftDatcomWingDEG}{\deg} }
+\end{split}
+\]
+Secondo la modellazione qui introdotta
+questo valore dell'angolo di portanza nulla dell'ala è legato al particolare valore del numero di 
+Mach di volo. Per un prodotto $\Mach \cos\Lambda_{c/4}$ sufficientemente elevato
+$\alpha_{0L}$ varierà al variare del numero di Mach per effetto del fattore di correzione per 
+comprimibilità $K_{\alpha,2}$.
+
+Verificare che l'angolo di portanza nulla calcolato con la formula 
+dell'esempio~\ref{example:Wing:Alpha:Zero:Lift:A}
+è
+\[
+\alpha_{0L} 
+  = \frac{2}{S} \int_0^{b/2} 
+    \Big[ 
+      \alpha_{0\ell}\big(Y\big) - \epsilon_\mathrm{g}\big(Y\big) 
+    \Big] \, c(Y) \diff{Y}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myAlphaZeroLiftWingRAD}{\radian} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myAlphaZeroLiftWingDEG}{\deg} }
+\]
+
+\end{myExampleX}
+\end{document}

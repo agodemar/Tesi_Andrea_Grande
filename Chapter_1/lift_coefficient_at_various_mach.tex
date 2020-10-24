@@ -14,9 +14,9 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
   header=false, col sep=space, row sep=newline, precision=6
   ]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
 
-\pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}
-\pgfmathsetmacro{\valueOneOne}{\pgfplotsretval}
-\num[round-precision=2]{\valueOneOne}
+% \pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}
+% \pgfmathsetmacro{\valueOneOne}{\pgfplotsretval}
+% \num[round-precision=2]{\valueOneOne}
 
 \begin{table}[H]
     \centering
@@ -139,7 +139,7 @@ Based on the data of the previous example, at an altitude of h=\SI[round-precisi
 }% end-of-resizebox
 %
 %====================================== end-code-for-tikzpicture
-    \caption{Insert caption here}
+    \caption{Diagram of $C_L$ at different Mach numbers }
     \label{fig:my_label}
 \end{figure}
 

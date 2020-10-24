@@ -15,10 +15,11 @@ Furthermore, the root profile has a zero lift angle $\alpha_{0\ell,\mathrm{r}}=\
 while the tip profile has a zero lift angle
 $\alpha_{0\ell,\mathrm{t}}=\SI[round-precision=1]{\myAlphaZeroLiftTipWingDEG}{\deg}$,
 with geometric twist
-$\epsilon_{\mathrm{g,t}}=\SI[round-precision=1]{\myTwistWingDEG}{\deg}$.
-We want to calculate the zero lift angle of the wing: $\alpha_{0L}$.
+$\epsilon_{\mathrm{g,t}}=\SI[round-precision=1]{\myTwistWingDEG}{\deg}$. We want to calculate the zero lift angle of the wing: $\alpha_{0L}$.
+
 \medskip
 As is known, the zero lift angle of a finite wing is the mean of the difference $\alpha_{0\ell}(Y)-\epsilon_\mathrm{g}(Y)$ (effective aerodynamic twist) weighed with the portion of the local surface $\diff{S}=c(Y)\diff{Y}$. Therefore, to calculate the integral
+
 \[
 \begin{split}
 \alpha_{0L} 
@@ -28,7 +29,7 @@ As is known, the zero lift angle of a finite wing is the mean of the difference 
     \Big] \, c(Y) \diff{Y}
 \end{split}
 \]
-the laws of variation along the opening must be reconstructed:%
+the laws of variation along the wingspan must be reconstructed:%
 \begin{inparaenum}[(\itshape i\normalfont)]
 \item
 of the chord,
@@ -37,7 +38,7 @@ of section zero lift angle,
 \item
 of the geometric section keying.
 \end{inparaenum}
-In the absence of specific indications, it can be assumed that the last two laws are linear. The linear law applies to section cords
+In the absence of specific indications, it can be assumed that the last two laws are linear. The linear law applies to section chords
 $c \big( Y \big) = A_c \, Y + B_c$ 
 with
 \[
@@ -287,5 +288,22 @@ and the difference
 \]
 between the angle of zero lift of the tip and the geometric twist angle of the tip. The value of $\alpha_{0L}$ is closer to that of
 $\alpha_{0\ell,\mathrm{r}}$ due to the tapering.
+%
+\begin{figure}[t]%[H]%[!htbp]
+  \centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.78\textwidth]{Chapter_2/zero_lift_angle_of_a_finished_wing/wing_alpha_zero_lift_basic_1_drawing.pdf}
+  \caption{\finalhyphendemerits=1000
+    Planform of the cranked wing
+ assigned in the example~\ref{example:Zero:Lift:Angle:Of:A:Finished:Wing}.
+    The linear laws of geometric twist angle $\epsilon_\mathrm{g}$, and zero lift angle of section $\alpha_{0\ell}$ are represented.
+   On the left there is the diagram of the root profile with its zero lift line e its chord. This is the reference line for the angles $\epsilon_\mathrm{g}(Y)$. 
+    The tip profile is drawn on the right, splined by an angle
+    $\epsilon_{\mathrm{g,t}}=\epsilon_\mathrm{g}(\frac{1}{2}b)$.%  
+    }
+  \label{fig:Zero:Lift:Basic:1}%
+\end{figure}
+%
 \end{myExampleX}
 \end{document}

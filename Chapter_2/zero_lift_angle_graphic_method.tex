@@ -8,22 +8,21 @@
 \input{Chapter_2/zero_lift_angle_graphic_method/data.tex}
 %
 \noindent
-Si consideri ancora l'ala dell'esempio~\ref{example:Geometric:Characteristics:Of:A:Straight:And:Tapered:Wing} avente bordi d'attacco e d'uscita rettilinei,
-apertura $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
-corda di radice $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
-corda d'estremità $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
-e freccia del bordo d'attacco
+Let us consider again the wing of the example~\ref{example:Geometric:Characteristics:Of:A:Straight:And:Tapered:Wing} having straight leading and trailing edges, wingspan $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+root chord $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+tip chord $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
+and leading edge sweep angle
 $\Lambda_\mathrm{le}=\SI[round-precision=1]{\mySweepLEWingDEG}{\deg}$.
-Inoltre, il profilo di radice ha un angolo di portanza nulla
+Furthermore, the root profile has a zero lift angle
 $\alpha_{0\ell,\mathrm{r}}=\SI[round-precision=1]{\myAlphaZeroLiftRootWingDEG}{\deg}$
-mentre il profilo d'estremità ha un angolo di portanza nulla
+while the tip profile has a zero lift angle
 $\alpha_{0\ell,\mathrm{t}}=\SI[round-precision=1]{\myAlphaZeroLiftTipWingDEG}{\deg}$,
-con svergolamento geometrico
+with twist angle
 $\epsilon_{\mathrm{g,t}}=\SI[round-precision=1]{\myTwistWingDEG}{\deg}$.
-Infine, il numero di Mach di volo è $\Mach=\SI[round-precision=2]{\myMach}{}$.
+Lastly, the flight Mach number is $\Mach=\SI[round-precision=2]{\myMach}{}$.
 
-Si vuole calcolare l'angolo di portanza nulla dell'ala $\alpha_{0L}$ 
-secondo la formula semiempirica
+We want to calculate the zero lift angle of the wing $\alpha_{0L}$ 
+according to the semiempirical formula
 \begin{equation}
 \label{eq:Wing:Alpha:Zero:Lift:Roskam:Datcom}
 \alpha_{0L} =
@@ -32,22 +31,22 @@ secondo la formula semiempirica
   \Big) 
   \, K_{\alpha,2}
 \end{equation}
-In questa modellazione
+In this modeling
 \[
 \bar{\alpha}_{0\ell} = \frac{2}{S} \int_0^{b/2} \alpha_{0\ell}(Y)\, c(Y) \diff{Y}
 \]
-è il valor medio dell'angolo di portanza nulla di sezione.
-Il coefficiente
-$K_{\alpha,1}$ è concettualmente il rapporto
-$\upDelta\alpha_{0L}/\epsilon_{\mathrm{g,t}}$ che si legge dalla
-figura~\ref{fig:Wing:DalphaZeroLift:Roskam:Plots},
-funzione dell'angolo di freccia $\Lambda_{c/4}$, dell'allungamento alare $\AR$
-e del rapporto di rastremazione $\lambda$.
-Il coefficiente
-$K_{\alpha,2}$ è un fattore di correzione dovuto agli eventuali
-effetti della comprimibilità, si legge dalla figura~\ref{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}
-ed è funzione del numero di Mach di volo, ovvero del prodotto $\Mach\cos\Lambda_{c/4}$,
-e del valor medio dello spessore percentuale dei profili $\overline{(t/c)}$.
+is the mean value of the section zero lift angle.
+The coefficient
+$K_{\alpha,1}$ is the ratio
+$\upDelta\alpha_{0L}/\epsilon_{\mathrm{g,t}}$ which we can read from
+figure~\ref{fig:Wing:DalphaZeroLift:Roskam:Plots},
+function of the sweep angle $\Lambda_{c/4}$, of the aspect ratio $\AR$
+and of the taper ratio $\lambda$.
+The coefficient
+$K_{\alpha,2}$ is a correction factor due to any
+effects of compressibility, it can be read from figure~\ref{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}
+and it is a function of the flight Mach number, i.e. of the product $\Mach\cos\Lambda_{c/4}$,
+and the average value of the per cent thickness of the profiles $\overline{(t/c)}$.
 %\[
 %\overline{(t/c)}
 %  = \frac{2}{S} \int_0^{b/2} \left(\frac{t}{c}\right)(Y)\, c(Y) \diff{Y}
@@ -55,10 +54,10 @@ e del valor medio dello spessore percentuale dei profili $\overline{(t/c)}$.
 
 \medskip
 
-Vanno ricostruite le leggi di variazione lungo l'apertura:%
+The laws of variation along the wingspan must be reconstructed:%
 \begin{inparaenum}[(\itshape i\normalfont)]
 \item
-della corda,
+of the chord,
 \item
 dell'angolo di portanza nulla di sezione, 
 \item

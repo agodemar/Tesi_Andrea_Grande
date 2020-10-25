@@ -1,0 +1,172 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\begin{myExampleX}{Gradiente di portanza di un'ala finita}{\ding{46}}% \ \Keyboard\ %
+\label{example:Lift:Gradient:Of:A:Finite:Wing}
+%
+
+\input{Chapter_2/lift_gradient_of_a_finite_wing/data.tex}
+%
+\noindent
+È assegnata un'ala finita a bordi dritti e a freccia nulla, cioè con angolo di freccia della linea 
+dei fuochi $\Lambda_{c/4}=\SI[round-precision=0]{\mySweepQuarterChordWingDEG}{\degree}$.
+Le rimanenti caratteristiche della superficie portante sono le seguenti:
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{corde}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+    $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$,
+    $\lambda = \SI[round-precision=2]{\myTaperRatioWing}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{apertura e superficie}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $b=\SI[round-precision=2]{\mySpanWingMT}{\metre}$,
+    $S=\SI[round-precision=2]{\myAreaWingMTsquared}{\meter^2}$,
+    $\AR = \SI[round-precision=2]{\myAspectRatioWing}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{gradienti $C_{\ell_\mathlarger{\alpha}}$ di profilo}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $C_{\ell_\mathlarger{\alpha},\mathrm{r}}=\SI[round-precision=2]{\myCLAlphaRootWingRAD}{\radian^{-1}}$,
+    $C_{\ell_\mathlarger{\alpha},\mathrm{t}}=\SI[round-precision=2]{\myCLAlphaTipWingRAD}{\radian^{-1}}$,
+  }%
+}
+
+\smallskip
+Per l'ala assegnata si vuole calcolare il gradiente \smash{$C_{L_\mathlarger{\alpha}}$}.
+
+\medskip
+Se si assumono le seguenti leggi lineari
+\[
+c \big( Y \big) = A_c \, Y + B_c 
+\qquad
+C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}
+\]
+si ha, per quanto riguarda la legge delle corde di sezione
+\[
+A_c
+  = \frac{c_\mathrm{t} - c_\mathrm{r}}{b/2}
+  = 
+    2 \frac{
+      \SI[round-precision=2]{\myChordTipWingMT}{\metre} - \SI[round-precision=2]{\myChordRootWingMT}{\metre}
+    }{
+      \SI[round-precision=2]{\mySpanWingMT}{\metre}
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffAChordWing}{} }
+\]
+\[
+B_c
+  = c_\mathrm{r}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre} }
+\]
+dunque
+\[
+c \big( Y \big) = A_c \, Y + B_c
+  = \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
+    + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
+\]
+Analogamente, per la legge dei gradienti del coefficiente di portanza di sezione
+\[
+\begin{split}
+A_{C_{\ell_\alpha}}
+  & {}= \frac{C_{\ell_\mathlarger{\alpha},\mathrm{t}} - C_{\ell_\mathlarger{\alpha},\mathrm{r}}}{b/2}
+  = 
+    2 \frac{
+      \SI[round-precision=2]{\myCLAlphaTipWingRAD}{\radian^{-1}} 
+      - \SI[round-precision=2]{\myCLAlphaRootWingRAD}{\radian^{-1}}
+    }{
+      \SI[round-precision=2]{\mySpanWingMT}{\metre}
+    }
+\\
+  & {}= 
+    \mathunderline{mydarkblue}{ 
+      \SI[round-precision=5]{\myCoeffAClalphaWingRADMT}{\big(\radian\,\metre\big)^{-1}} 
+    }
+  = 
+    \mathunderline{mydarkblue}{ 
+      \SI[round-precision=7]{\myCoeffAClalphaWingDEGMT}{\big(\deg\,\metre\big)^{-1}} 
+    }
+\end{split}
+\]
+\[
+B_{C_{\ell_\alpha}}
+  = C_{\ell_\mathlarger{\alpha},\mathrm{r}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}} }
+\]
+cioè
+\[
+C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}
+  = \SI[round-precision=5]{\myCoeffAClalphaWingRADMT}{\big(\radian\,\metre\big)^{-1}} \, Y
+    + \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}}
+\]
+
+Le leggi ricavate sopra permettono di calcolare il gradiente medio
+\begin{multline}
+\nonumber
+\bar{C}_{\ell_\mathlarger{\alpha}}
+  = \frac{2}{S} \int_0^{b/2} 
+      c\big(Y\big) \, C_{\ell_\mathlarger{\alpha}} \big(Y\big) \diff{Y}
+\\
+  = \frac{2}{ \SI[round-precision=2]{\myAreaWingMTsquared}{\metre^{2}} } 
+    \int_0^{ \calcSI[round-precision=1,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingMT}{\metre} } 
+    \big[
+      \SI[round-precision=5]{\myCoeffAClalphaWingRADMT}{\big(\radian\,\metre\big)^{-1}} \, Y
+      + \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}}
+    \big]
+    \rule{5em}{0pt}% <-- SPACER
+\\
+    \rule{5em}{0pt}% <-- SPACER
+    \cdot \big[
+      \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
+      + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
+    \big]
+    \diff{Y}
+\\
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCLAlphaMeanWingDEG}{\deg^{-1}} }
+\end{multline}
+Esso può essere utilizzato per il calcolo del gradiente di portanza dell'ala finita
+\[
+C_{L_\mathlarger{\alpha}}
+  = 
+    \frac{
+      \bar{C}_{\ell_\mathlarger{\alpha}}
+    }{
+      1 + \dfrac{\bar{C}_{\ell_\mathlarger{\alpha}}}{\pi \AR \, e_\Wing}
+    }
+  =
+    \frac{
+      \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}}
+    }{
+      1 + 
+        \dfrac{ \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}} }{
+          \num[round-precision=2]{3.14} 
+          \cdot \SI[round-precision=2]{\myAspectRatioWing}{}
+          \cdot \SI[round-precision=2]{\myInducedDragFactorWing}{}
+        }
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingRAD}{\radian^{-1}} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCLAlphaWingDEG}{\deg^{-1}} }
+\]
+
+\end{myExampleX}
+\end{document}

@@ -1,0 +1,121 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\input{chapter_2/lif}
+%
+\begin{myExampleX}{Gradiente di portanza di un'ala finita, formula di Polhamus}{\ding{46}}% \ \Keyboard\ %
+\label{example:Wing:CLAlpha:C}
+%
+\noindent
+Si vuole calcolare il gradiente \smash{$C_{L_\mathlarger{\alpha}}$} di un'ala finita
+a freccia con una formula nota con il nome di \emph{formula di Polhamus}:
+\begin{equation}\label{eq:Aero:Polhamus:Formula}
+C_{L_{\mathlarger{\alpha}}} = 
+   \frac{ 2\pi\AR
+   }{
+      2 + \SQRT{ 4+ \frac{\AR^2 \big(1-M^2\big)}{k_\mathrm{P}^2}\LEFTRIGHT(){1+\frac{\tan^2\Lambda_{c/2}}{1-M^2}} }
+   }
+\end{equation}
+con
+\begin{equation}\label{eq:Aero:K:Polhamus:Formula}
+k_\mathrm{P}=\LEFTRIGHT\lcbrace.{
+   \begin{array}{ll}
+      1+\AR\dfrac{\num[round-precision=2]{1.87}-\num[round-precision=6]{0.000233}\Lambda_\mathrm{le}}{\num[round-precision=0]{100}}
+      & \text{se}\, \AR<4
+      \\[1em]
+      1+\dfrac{
+         \big(\num[round-precision=1]{8.2}-\num[round-precision=1]{2.3}\Lambda_\mathrm{le}\big)
+         - \AR\big(\num[round-precision=2]{0.22}-\num[round-precision=3]{0.153}\Lambda_\mathrm{le}\big)
+         }{\num[round-precision=0]{100}}
+      & \text{se}\, \AR \ge 4
+   \end{array}
+}
+\end{equation}
+e $\Lambda_\text{le}$ in radianti.
+La (\ref{eq:Aero:Polhamus:Formula}) è da ritenersi applicabile per ali finite
+aventi
+\begin{equation}\label{eq:Aero:Limitations:Polhamus:Formula}
+\Lambda_\mathrm{le} < \SI[round-precision=0]{32}{\degree}
+\,,\quad
+\SI[round-precision=1]{0.4}{} < \lambda \le 1
+\,,\quad
+3 \le \AR \le 8
+\end{equation}
+e per un numero di Mach di volo $\Mach < \Mach_\mathrm{cr}$.
+
+Si consideri un'ala con bordi d'attacco e d'uscita rettilinei,
+%simile a quella dell'esempio~\ref{example:Wing:Basic:A},
+di apertura $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+corda di radice $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+corda d'estremità $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
+e freccia del bordo d'attacco
+$\Lambda_\mathrm{le}=\SI[round-precision=1]{\mySweepLEWingDEG}{\deg}$.
+Si assuma un numero di Mach di volo $\Mach=\SI[round-precision=1]{\myMach}{}$
+e un $\Mach_\mathrm{cr}\simeq\SI[round-precision=2]{\myCriticalMachNumberMACWing}{}$.
+
+Si lascia per esercizio al lettore il compito di verificare che
+la forma in pianta assegnata ha
+un rapporto di rastremazione
+$\lambda=\SI[round-precision=2]{\myTaperRatioWing}{}$,
+una superficie alare
+$S=\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}$,
+un allungamento alare
+$\AR=\num[round-precision=2]{\myAspectRatioWing}$
+e un angolo
+$\Lambda_{c/2}=\SI[round-precision=3]{\mySweepHalfChordWingRAD}{\radian}=\SI[round-precision=1]{\mySweepHalfChordWingDEG}{\deg}$.
+
+I dati dell'ala sono tali da soddisfare le condizioni (\ref{eq:Aero:Limitations:Polhamus:Formula})
+e, sostituiti nelle (\ref{eq:Aero:Polhamus:Formula})-(\ref{eq:Aero:K:Polhamus:Formula}), 
+permettono di ricavare
+\[
+k_\mathrm{P} 
+  =
+    1+\dfrac{
+      \big(
+        \num[round-precision=1]{8.2}
+        -\num[round-precision=1]{2.3}
+        \cdot \SI[round-precision=3]{\mySweepLEWingRAD}{\radian}
+      \big)
+      - \num[round-precision=2]{\myAspectRatioWing}\,
+      \big(
+        \num[round-precision=2]{0.22}-\num[round-precision=3]{0.153}
+        \cdot \SI[round-precision=3]{\mySweepLEWingRAD}{\radian}
+      \big)
+    }{\num[round-precision=0]{100}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myKPolhamus}{} }
+\]
+e
+\[
+\begin{split}
+C_{L_{\mathlarger{\alpha}}} 
+  & {}= 
+   \frac{ 2\pi\AR
+   }{
+      2 + \SQRT{ 4+ \frac{\AR^2 \big(1-M^2\big)}{k_\mathrm{P}^2}\LEFTRIGHT(){1+\frac{\tan^2\Lambda_{c/2}}{1-M^2}} }
+   }
+\\[10pt]
+  & {}= 
+  \frac{ \num[round-precision=3]{6.28} \cdot \num[round-precision=2]{\myAspectRatioWing}
+   }{
+      2 + \SQRT{ 4+ 
+      \frac{
+        \num[round-precision=2]{\myAspectRatioWing}^2 \big( 1-\num[round-precision=2]{\myMach}^2 \big)
+      }{
+        \SI[round-precision=2]{\myKPolhamus}{}^2}
+        \LEFTRIGHT(){ 1 +
+          \frac{
+            \tan^2 \SI[round-precision=3]{\mySweepHalfChordWingRAD}{\radian}
+          }{
+            1-\num[round-precision=2]{\myMach}^2
+          }
+        } 
+      }
+   }
+    =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCLAlphaWingRAD}{\radian^{-1}} }
+    =\mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingDEG}{\deg^{-1}} }
+\end{split}
+\]
+
+\end{myExampleX}
+\end{document}

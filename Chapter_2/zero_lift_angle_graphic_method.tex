@@ -8,11 +8,9 @@
 \input{Chapter_2/zero_lift_angle_graphic_method/data.tex}
 %
 \noindent
-Let us consider again the wing of the example~\ref{example:Geometric:Characteristics:Of:A:Straight:And:Tapered:Wing} having straight leading and trailing edges, wingspan $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
-root chord $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+Let us consider again the wing of the example~\ref{example:Geometric:Characteristics:Of:A:Straight:And:Tapered:Wing} having straight leading and trailing edges, wingspan $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,root chord $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
 tip chord $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
-and leading edge sweep angle
-$\Lambda_\mathrm{le}=\SI[round-precision=1]{\mySweepLEWingDEG}{\deg}$.
+and leading edge sweep angle $\Lambda_\mathrm{le}=\SI[round-precision=1]{\mySweepLEWingDEG}{\deg}$.
 Furthermore, the root profile has a zero lift angle
 $\alpha_{0\ell,\mathrm{r}}=\SI[round-precision=1]{\myAlphaZeroLiftRootWingDEG}{\deg}$
 while the tip profile has a zero lift angle
@@ -59,14 +57,14 @@ The laws of variation along the wingspan must be reconstructed:%
 \item
 of the chord,
 \item
-dell'angolo di portanza nulla di sezione, 
+of the zero lift angle of section,
 \item
-dello spessore percentuale di sezione.
+of the percentage of section thickness.
 \end{inparaenum}
-In mancanza di specifiche indicazioni, si può assumere
-che le ultime due leggi siano lineari.
+In the absence of specific indications, it can be assumed
+that the last two laws are linear.
 
-Nell'esempio~\ref{example:Wing:Basic:A}, per quanto riguarda le corde, si è ricavato che
+In the example~\ref{example:Geometric:Characteristics:Of:A:Wing:With:Sweep:Angle:Not:Null}, as regards the chords, it was found that
 \[
 A_c
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffAChordWing}{} }
@@ -74,16 +72,15 @@ A_c
 B_c
   = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre} }
 \]
-e
+and
 \[
 c \big( Y \big) = A_c \, Y + B_c
   = \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
     + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
 \]
 
-Per gli angoli di portanza nulla di sezione vale la legge lineare
-$\alpha_{0\ell} \big( Y \big) = A_{\alpha} \, Y + B_{\alpha}$ 
-con
+The linear law holds for the  zero lift angles of section $\alpha_{0\ell} \big( Y \big) = A_{\alpha} \, Y + B_{\alpha}$ 
+with
 \[
 A_{\alpha}
   = \frac{\alpha_{0\ell,\mathrm{t}} - \alpha_{0\ell\mathrm{r}}}{b/2}
@@ -101,17 +98,17 @@ B_{\alpha}
   = \alpha_{0\ell,\mathrm{r}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myAlphaZeroLiftRootWingRAD}{\radian} }
 \]
-dunque
+therefore
 \[
 \alpha_{0\ell} \big( Y \big) = A_{\alpha} \, Y + B_{\alpha}
   = (\SI[round-precision=5]{\myCoeffAAeroTwistWingRADMT}{\radian/\metre}) \, Y
     \SI[round-precision=4]{\myAlphaZeroLiftRootWingRAD}{\radian}
 \]
 
-La legge dello spessore percentuale dei profili si ricava analogamente,
-ponendo
+The law of the percentage thickness of the profiles is obtained similarly,
+imposing
 $(t/c)\,\big( Y \big) = A_{t/c} \, Y + B_{t/c}$ 
-con
+wiht
 \[
 A_{t/c}
   = \frac{(t/c)_{\mathrm{t}} - (t/c)_{\mathrm{r}}}{b/2}
@@ -129,21 +126,21 @@ B_{t/c}
   = (t/c)_{\mathrm{r}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBPercThicknessWing}{} }
 \]
-dunque
+therefore
 \[
 (t/c)\,\big( Y \big) = A_{t/c} \, Y + B_{t/c}
   = (\SI[round-precision=5]{\myCoeffAPercThicknessWingMT}{\metre^{-1}}) \, Y
     + \SI[round-precision=2]{\myCoeffBPercThicknessWing}{}
 \]
 
-L'ala assegnata ha un rapporto di rastremazione
+The assigned wing has a taper ratio
 \[
 \lambda
   =\frac{c_\mathrm{t}}{c_\mathrm{r}}
   =\frac{\SI[round-precision=2]{\myChordTipWingMT}{\metre}}{\SI[round-precision=2]{\myChordRootWingMT}{\metre}}
   =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myTaperRatioWing}{} }
 \]
-una superficie alare
+a wing surface
 \[
 \begin{split}
 S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) \\
@@ -154,14 +151,14 @@ S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) \\
     = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
 \end{split}
 \]
-un allungamento
+an aspect ratio
 \[
 \AR
   = \frac{b^2}{S}
   = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
   = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWing} }
 \]
-e un angolo di freccia
+and a sweep angle
 \[
 \tan
 \Lambda_{c/4}
@@ -180,7 +177,7 @@ e un angolo di freccia
       = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\mySweepQuarterChordWingDEG}{\deg} }
 \]
 
-A questo punto è possibile calcolare i valori medi
+At this point it is possible to calculate the average values
 \[
 \begin{split}
 \bar{\alpha}_{0\ell} 
@@ -233,8 +230,8 @@ A questo punto è possibile calcolare i valori medi
 \end{split}
 \]
 
-Con i valori su calcolati dalla figura~\ref{fig:Wing:DalphaZeroLift:Roskam:Plots}
-si legge
+With the values thus obtained, from figure~\ref{fig:Wing:DalphaZeroLift:Roskam:Plots}
+we can derive
 \[
 \Lambda_{c/4}=\SI[round-precision=1]{\mySweepQuarterChordWingDEG}{\deg}\;,\;\,
 \AR=\num[round-precision=2]{\myAspectRatioWing}\;,\;\,
@@ -250,9 +247,9 @@ K_{\alpha,1} =
   \frac{\upDelta\alpha_{0L}}{\epsilon_{\mathrm{g,t}}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myDeltaAlphaZeroLiftOverTwistWing}{} }
 \]
-e
-dalla figura~\ref{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}
-si legge
+and
+from figure~\ref{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}
+we can obtain
 \[
 \Mach \cos \Lambda_{c/4}=
   \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{
@@ -272,7 +269,7 @@ K_{\alpha,2} =
   = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myPrandtlGlauertCorrectionAlphaZeroLiftWing}{} }
 \]
 
-Pertanto, l'ala assegnata, al numero di Mach specificato, ha un angolo di portanza nulla
+Therefore, the wing assigned, at the specified Mach number, has a zero lift angle
 \[
 \begin{split}
 \label{eq:Wing:Alpha:Zero:Lift:Roskam:Datcom}
@@ -294,15 +291,13 @@ Pertanto, l'ala assegnata, al numero di Mach specificato, ha un angolo di portan
   = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myAlphaZeroLiftDatcomWingDEG}{\deg} }
 \end{split}
 \]
-Secondo la modellazione qui introdotta
-questo valore dell'angolo di portanza nulla dell'ala è legato al particolare valore del numero di 
-Mach di volo. Per un prodotto $\Mach \cos\Lambda_{c/4}$ sufficientemente elevato
-$\alpha_{0L}$ varierà al variare del numero di Mach per effetto del fattore di correzione per 
-comprimibilità $K_{\alpha,2}$.
+According to the modeling introduced here
+this value of the zero lift angle of the wing is linked to the particular value of the flight Mach number. For a product $\Mach \cos\Lambda_{c/4}$ sufficiently high
+$\alpha_{0L}$ it will vary as the Mach number changes due to the compressibility correction factor $K_{\alpha,2}$.
 
-Verificare che l'angolo di portanza nulla calcolato con la formula 
-dell'esempio~\ref{example:Wing:Alpha:Zero:Lift:A}
-è
+The zero lift angle calculated with the formula
+of the example~\ref{example:zero_lift_angle_of_a_finite_wing}
+is
 \[
 \alpha_{0L} 
   = \frac{2}{S} \int_0^{b/2} 

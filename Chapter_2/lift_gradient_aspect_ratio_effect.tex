@@ -1,0 +1,134 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\begin{myExampleX}{Gradiente di portanza di un'ala finita. Effetto dell'allungamento}{\ding{46}}% \ \Keyboard\ %
+\label{example:Wing:CLAlpha:B}
+%
+\noindent
+Si vuole calcolare il gradiente \smash{$C_{L_\mathlarger{\alpha}}$}
+di un'ala simile a quella dell'esempio~\ref{example:Lift:Gradient:Of:A:Finite:Wing}
+verificando l'effetto della variazione di allungamento
+alare.
+
+%-------------------------------------------------
+\input{Chapter_2/lift_gradient_of_a_finite_wing/data.tex}
+\let\mySpanWingAMT\mySpanWingMT
+\let\myAreaWingAMTsquared\myAreaWingMTsquared
+\let\myAspectRatioWingA\myAspectRatioWing
+\let\myCLAlphaMeanWingARAD\myCLAlphaMeanWingRAD
+\let\myCLAlphaMeanWingADEG\myCLAlphaMeanWingDEG
+\let\myCLAlphaWingARAD\myCLAlphaWingRAD
+\let\myCLAlphaWingADEG\myCLAlphaWingDEG
+%-------------------------------------------------
+Per l'ala di riferimento si ha:
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+$b=\SI[round-precision=2]{\mySpanWingAMT}{\meter}$,
+$\AR=\SI[round-precision=2]{\myAspectRatioWingA}{}$,
+$S=\SI[round-precision=2]{\myAreaWingAMTsquared}{\metre^2}$,
+\smash{$\bar{C}_{\ell_\mathlarger{\alpha}}=\SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}}$}
+}
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+$C_{L_\mathlarger{\alpha}}
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCLAlphaWingARAD}{\radian^{-1}} }
+  =\mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingADEG}{\deg^{-1}} }
+$
+}
+
+\smallskip
+%-------------------------------------------------
+\input{Chapter_2/lift_gradient_aspect_ratio_effect/data_b.tex}
+\let\mySpanWingBMT\mySpanWingMT
+\let\myAreaWingBMTsquared\myAreaWingMTsquared
+\let\myAspectRatioWingB\myAspectRatioWing
+\let\myCLAlphaMeanWingBRAD\myCLAlphaMeanWingRAD
+\let\myCLAlphaMeanWingBDEG\myCLAlphaMeanWingDEG
+\let\myCLAlphaWingBRAD\myCLAlphaWingRAD
+\let\myCLAlphaWingBDEG\myCLAlphaWingDEG
+%-------------------------------------------------
+Per un'ala di pari corda di radice e rapporto di rastremazione,
+ma di apertura $b'$ diminuita del $20\%$ rispetto alla $b$ si ha:
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+$b'=\SI[round-precision=2]{\mySpanWingBMT}{\meter}$,
+$\AR'=\SI[round-precision=2]{\myAspectRatioWingB}{}$,
+$S'=\SI[round-precision=2]{\myAreaWingBMTsquared}{\metre^2}$,
+\smash{$\bar{C}_{\ell_\mathlarger{\alpha}}'=\SI[round-precision=4]{\myCLAlphaMeanWingRAD}{\radian^{-1}}$}
+}
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+$C_{L_\mathlarger{\alpha}}'
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCLAlphaWingBRAD}{\radian^{-1}} }
+  =\mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingBDEG}{\deg^{-1}} }
+$
+}
+
+\smallskip
+%-------------------------------------------------
+\input{Chapter_2/lift_gradient_aspect_ratio_effect/data_c.tex}
+\let\mySpanWingCMT\mySpanWingMT
+\let\myAreaWingCMTsquared\myAreaWingMTsquared
+\let\myAspectRatioWingC\myAspectRatioWing
+\let\myCLAlphaMeanWingCRAD\myCLAlphaMeanWingRAD
+\let\myCLAlphaMeanWingCDEG\myCLAlphaMeanWingDEG
+\let\myCLAlphaWingCRAD\myCLAlphaWingRAD
+\let\myCLAlphaWingCDEG\myCLAlphaWingDEG
+%-------------------------------------------------
+Analogamente, per un'ala di apertura $b''$ aumentata del $20\%$ rispetto alla $b$ si ha:
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+$b''=\SI[round-precision=2]{\mySpanWingCMT}{\meter}$,
+$\AR''=\SI[round-precision=2]{\myAspectRatioWingC}{}$,
+$S''=\SI[round-precision=2]{\myAreaWingCMTsquared}{\metre^2}$,
+\smash{$\bar{C}_{\ell_\mathlarger{\alpha}}''=\SI[round-precision=4]{\myCLAlphaMeanWingRAD}{\radian^{-1}}$}
+}
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+$C_{L_\mathlarger{\alpha}}''
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCLAlphaWingCRAD}{\radian^{-1}} }
+  =\mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingCDEG}{\deg^{-1}} }
+$
+}
+
+\medskip
+I valori dei gradienti $C_{L_\mathlarger{\alpha}}'$ e $C_{L_\mathlarger{\alpha}}''$
+sono calcolati applicando il procedimento dell'esempio~\ref{example:Wing:CLAlpha:A}.
+Si osserva che per un allungamento via via crescente
+($\AR' < \AR < \AR''$) cresce il gradiente della retta di portanza dell'ala
+($C_{L_\mathlarger{\alpha}}' < C_{L_\mathlarger{\alpha}} < C_{L_\mathlarger{\alpha}}''$).
+
+Si veda la figura~\ref{fig:CLAlpha:Wing:Planforms:B} per una conferma grafica dei risultati precedenti.
+
+\end{myExampleX}
+%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

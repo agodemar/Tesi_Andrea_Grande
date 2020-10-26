@@ -2,21 +2,20 @@
 \usepackage{_my_document_style}
 \begin{document}
 %
-\begin{myExampleX}{Gradiente di portanza di un'ala finita}{\ding{46}}% \ \Keyboard\ %
+\begin{myExampleX}{Lift gradient of a finite wing}{\ding{46}}% \ \Keyboard\ %
 \label{example:Lift:Gradient:Of:A:Finite:Wing}
 %
 \input{Chapter_2/lift_gradient_of_a_finite_wing/data.tex}
 %
 \noindent
-È assegnata un'ala finita a bordi dritti e a freccia nulla, cioè con angolo di freccia della linea 
-dei fuochi $\Lambda_{c/4}=\SI[round-precision=0]{\mySweepQuarterChordWingDEG}{\degree}$.
-Le rimanenti caratteristiche della superficie portante sono le seguenti:
+A finite wing with straight edges and zero sweep angle is assigned, i.e. with the sweep  angle of the focus line $\Lambda_{c/4}=\SI[round-precision=0]{\mySweepQuarterChordWingDEG}{\degree}$.
+The remaining characteristics of the lifting surface are as follows:
 
 \smallskip
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{corde}:
+    \emph{chords}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
@@ -29,7 +28,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{apertura e superficie}:
+    \emph{wingspan and surface}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $b=\SI[round-precision=2]{\mySpanWingMT}{\metre}$,
@@ -42,7 +41,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{gradienti $C_{\ell_\mathlarger{\alpha}}$ di profilo}:
+    \emph{gradients $C_{\ell_\mathlarger{\alpha}}$ of profile}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $C_{\ell_\mathlarger{\alpha},\mathrm{r}}=\SI[round-precision=2]{\myCLAlphaRootWingRAD}{\radian^{-1}}$,
@@ -51,16 +50,16 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 }
 
 \smallskip
-Per l'ala assegnata si vuole calcolare il gradiente \smash{$C_{L_\mathlarger{\alpha}}$}.
+For the assigned wing we want to calculate the gradient \smash{$C_{L_\mathlarger{\alpha}}$}.
 
 \medskip
-Se si assumono le seguenti leggi lineari
+If we assume the following linear laws
 \[
 c \big( Y \big) = A_c \, Y + B_c 
 \qquad
 C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}
 \]
-si ha, per quanto riguarda la legge delle corde di sezione
+we have, as regards the law of the section chords
 \[
 A_c
   = \frac{c_\mathrm{t} - c_\mathrm{r}}{b/2}
@@ -77,13 +76,13 @@ B_c
   = c_\mathrm{r}
   = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre} }
 \]
-dunque
+therefore
 \[
 c \big( Y \big) = A_c \, Y + B_c
   = \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
     + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
 \]
-Analogamente, per la legge dei gradienti del coefficiente di portanza di sezione
+Similarly, for the law of gradients of the section lift coefficient
 \[
 \begin{split}
 A_{C_{\ell_\alpha}}
@@ -111,14 +110,14 @@ B_{C_{\ell_\alpha}}
   = C_{\ell_\mathlarger{\alpha},\mathrm{r}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}} }
 \]
-cioè
+i.e.
 \[
 C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}
   = \SI[round-precision=5]{\myCoeffAClalphaWingRADMT}{\big(\radian\,\metre\big)^{-1}} \, Y
     + \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}}
 \]
 
-Le leggi ricavate sopra permettono di calcolare il gradiente medio
+The laws obtained above allow to calculate the average gradient
 \begin{multline}
 \nonumber
 \bar{C}_{\ell_\mathlarger{\alpha}}
@@ -143,7 +142,7 @@ Le leggi ricavate sopra permettono di calcolare il gradiente medio
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}} }
   = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCLAlphaMeanWingDEG}{\deg^{-1}} }
 \end{multline}
-Esso può essere utilizzato per il calcolo del gradiente di portanza dell'ala finita
+It can be used for the calculation of the lift gradient of the finite wing
 \[
 C_{L_\mathlarger{\alpha}}
   = 
@@ -166,6 +165,5 @@ C_{L_\mathlarger{\alpha}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingRAD}{\radian^{-1}} }
   = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCLAlphaWingDEG}{\deg^{-1}} }
 \]
-
 \end{myExampleX}
 \end{document}

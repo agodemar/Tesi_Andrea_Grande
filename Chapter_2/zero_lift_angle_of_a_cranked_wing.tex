@@ -46,9 +46,9 @@ c(Y)=
 \begin{cases}
 %\left\{
 %\begin{array}{cl}
-c_1(Y) = A_{c,1} \, Y + B_{c,1} & \text{per }\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
+c_1(Y) = A_{c,1} \, Y + B_{c,1} & \text{for }\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
 \\[4pt]
-c_2(Y) = A_{c,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{c,2} & \text{per }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
+c_2(Y) = A_{c,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{c,2} & \text{for }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
 %\end{array}
 %\right.
 \end{cases}
@@ -229,7 +229,7 @@ A_{\epsilon,1}
   = \frac{\epsilon_{\mathrm{g,t},1}}{b_1/2}
   = 
     2 \frac{
-      \SI[round-precision=2]{\myTwistWingIRAD}{\radian}
+      \SI[round-precision=0]{\myTwistWingIRAD}{\radian}
     }{
       \SI[round-precision=2]{\mySpanWingIMT}{\metre}
     }
@@ -245,7 +245,7 @@ A_{\epsilon,2}
   = \frac{\epsilon_{\mathrm{g,t},2} - \epsilon_{\mathrm{g,r},2}}{b_2/2}
   = 
     2 \frac{
-      \SI[round-precision=4]{\myTwistWingIIRAD}{\metre} - ( \SI[round-precision=4]{\myTwistWingIRAD}{\metre} )
+      \SI[round-precision=4]{\myTwistWingIIRAD}{\metre} - ( \SI[round-precision=0]{\myTwistWingIRAD}{\metre} )
     }{
       \SI[round-precision=2]{\mySpanWingIIMT}{\metre}
     }
@@ -266,7 +266,7 @@ therefore
   %% ZERO -> \SI[round-precision=3]{\myCoeffAAeroTwistWingIRADMT}{\radian/\metre} \, Y 
     % + 
     \SI[round-precision=0]{\myCoeffBTwistWingIRAD}{\radian} 
-  & \text{per }
+  & \text{for }
     \makebox[3.5em][r]{$\SI[round-precision=0]{0}{\metre}$} 
       \le Y \le 
       \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
@@ -284,7 +284,7 @@ therefore
 %    \hfill
 %    \SI[round-precision=4]{\myCoeffBTwistWingIIRAD}{\radian}
 %
-  & \text{per }
+  & \text{for }
     \makebox[3.5em][r]{%
       $\calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}$
     }% end-of-makebox

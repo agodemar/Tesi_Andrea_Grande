@@ -296,7 +296,7 @@ this value of the zero lift angle of the wing is linked to the particular value 
 $\alpha_{0L}$ it will vary as the Mach number changes due to the compressibility correction factor $K_{\alpha,2}$.
 
 The zero lift angle calculated with the formula
-of the example~\ref{example:zero_lift_angle_of_a_finite_wing}
+of the example~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
 is
 \[
 \alpha_{0L} 
@@ -307,5 +307,61 @@ is
   = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myAlphaZeroLiftWingRAD}{\radian} }
   = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myAlphaZeroLiftWingDEG}{\deg} }
 \]
+\begin{figure}[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+  \includegraphics[width=0.65\textwidth]{Chapter_2/zero_lift_angle_graphic_method/plot_alpha0_PrandtlGlauert_scale.pdf}%
+  \caption{\finalhyphendemerits=1000
+           Correction factor 
+           \smash{$\big(\alpha_{0L}\mathlarger{/}\alpha_{0L}|_{\Mach=\num[round-precision=1]{0.3}}\big)$}
+           which incorporates the effects of compressibility for the calculation of the zero lift angle
+          of a finite wing $\alpha_{0L}$.}
+  \label{fig:Alpha:Zero:Lift:PrandtlGlauert:Scale:Plots}%
+\end{figure}
 \end{myExampleX}
+
+\EnlargedFigureX% needs two latex passes
+  {p}% #1: t, b, p
+  {%
+    \centering
+    \begin{tabular} {@{}c@{}}
+      \subfloat%\subfigure
+          [%
+          ]%
+          {\label{fig:Wing:DalphaZeroLift:Roskam:Plots:A}%
+		      \includegraphics%
+		        %[width=0.52\textwidth]%
+		        % [height=5.5cm]%
+		        [width=0.52\textwidth]%
+		        {Chapter_2/zero_lift_angle_graphic_method/plot_Dalpha0_over_epsT_lam0.pdf}%
+          }%
+      \\
+      \subfloat%\subfigure
+          [%
+          ]%
+          {\label{fig:Wing:DalphaZeroLift:Roskam:Plots:B}%
+		      \includegraphics%
+		        %[width=0.52\textwidth]%
+		        % [height=5.5cm]%
+		        [width=0.52\textwidth]%
+		       {Chapter_2/zero_lift_angle_graphic_method/plot_Dalpha0_over_epsT_lam05.pdf}%
+          }%
+      \\
+      \subfloat%\subfigure
+          [%            
+          ]%
+          {\label{fig:Wing:DalphaZeroLift:Roskam:Plots:C}%
+		      \includegraphics%
+		        %[width=0.52\textwidth]%
+		        % [height=5.5cm]%
+		        [width=0.52\textwidth]%
+		       {Chapter_2/zero_lift_angle_graphic_method/plot_Dalpha0_over_epsT_lam1.pdf}%
+          }%
+    \end{tabular}
+  }
+  {\finalhyphendemerits=1000
+      Correction factor \smash{$\big(\upDelta\alpha_{0L}/\epsilon_\mathrm{t}\big)$} for the calculation of the zero lift angle of a finite wing $\alpha_{0L}$.%
+   }  
+   {fig:Wing:DalphaZeroLift:Roskam:Plots}%% #4: the label
 \end{document}

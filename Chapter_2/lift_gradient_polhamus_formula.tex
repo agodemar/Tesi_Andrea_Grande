@@ -2,39 +2,38 @@
 \usepackage{_my_document_style}
 \begin{document}
 %
-\input{chapter_2/lif}
+\input{Chapter_2/lift_gradient_polhamus_formula/data}
 %
-\begin{myExampleX}{Gradiente di portanza di un'ala finita, formula di Polhamus}{\ding{46}}% \ \Keyboard\ %
-\label{example:Wing:CLAlpha:C}
+\begin{myExampleX}{Lift gradient of a finite wing, Polhamus formula}{\ding{46}}% \ \Keyboard\ %
+\label{example:Lift:Gradient:Polhamus:Formula}
 %
 \noindent
-Si vuole calcolare il gradiente \smash{$C_{L_\mathlarger{\alpha}}$} di un'ala finita
-a freccia con una formula nota con il nome di \emph{formula di Polhamus}:
+We want to calculate the gradient \smash{$C_{L_\mathlarger{\alpha}}$} of a finite wing
+with sweep angle not null using a formula known as \emph{Polhamus formula }:
 \begin{equation}\label{eq:Aero:Polhamus:Formula}
 C_{L_{\mathlarger{\alpha}}} = 
    \frac{ 2\pi\AR
    }{
-      2 + \SQRT{ 4+ \frac{\AR^2 \big(1-M^2\big)}{k_\mathrm{P}^2}\LEFTRIGHT(){1+\frac{\tan^2\Lambda_{c/2}}{1-M^2}} }
+      2 + \sqrt{ 4+ \frac{\AR^2 \big(1-M^2\big)}{k_\mathrm{P}^2}\left({1+\frac{\tan^2\Lambda_{c/2}}{1-M^2}} \right) }
    }
 \end{equation}
-con
+with
 \begin{equation}\label{eq:Aero:K:Polhamus:Formula}
-k_\mathrm{P}=\LEFTRIGHT\lcbrace.{
-   \begin{array}{ll}
-      1+\AR\dfrac{\num[round-precision=2]{1.87}-\num[round-precision=6]{0.000233}\Lambda_\mathrm{le}}{\num[round-precision=0]{100}}
-      & \text{se}\, \AR<4
+k_\mathrm{P}={
+   \begin{cases}      1+\AR\dfrac{\num[round-precision=2]{1.87}-\num[round-precision=6]{0.000233}\Lambda_\mathrm{le}}{\num[round-precision=0]{100}}
+      & \text{if}\, \AR<4
       \\[1em]
       1+\dfrac{
          \big(\num[round-precision=1]{8.2}-\num[round-precision=1]{2.3}\Lambda_\mathrm{le}\big)
          - \AR\big(\num[round-precision=2]{0.22}-\num[round-precision=3]{0.153}\Lambda_\mathrm{le}\big)
          }{\num[round-precision=0]{100}}
-      & \text{se}\, \AR \ge 4
-   \end{array}
+      & \text{if}\, \AR \ge 4
+   \end{cases}
 }
 \end{equation}
-e $\Lambda_\text{le}$ in radianti.
-La (\ref{eq:Aero:Polhamus:Formula}) è da ritenersi applicabile per ali finite
-aventi
+and $\Lambda_\text{le}$ in radians.
+the (\ref{eq:Aero:Polhamus:Formula}) it's to be considered applicable for finite wings
+having
 \begin{equation}\label{eq:Aero:Limitations:Polhamus:Formula}
 \Lambda_\mathrm{le} < \SI[round-precision=0]{32}{\degree}
 \,,\quad
@@ -42,32 +41,31 @@ aventi
 \,,\quad
 3 \le \AR \le 8
 \end{equation}
-e per un numero di Mach di volo $\Mach < \Mach_\mathrm{cr}$.
+and for a flight Mach number $\Mach < \Mach_\mathrm{cr}$.
 
-Si consideri un'ala con bordi d'attacco e d'uscita rettilinei,
+Consider a wing with straight leading and trailing edges,
 %simile a quella dell'esempio~\ref{example:Wing:Basic:A},
-di apertura $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
-corda di radice $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
-corda d'estremità $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
-e freccia del bordo d'attacco
+with wingspan $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+root chord $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
+tip chord $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$
+and leading edge sweep angle
 $\Lambda_\mathrm{le}=\SI[round-precision=1]{\mySweepLEWingDEG}{\deg}$.
-Si assuma un numero di Mach di volo $\Mach=\SI[round-precision=1]{\myMach}{}$
-e un $\Mach_\mathrm{cr}\simeq\SI[round-precision=2]{\myCriticalMachNumberMACWing}{}$.
+Assume a flight Mach number $\Mach=\SI[round-precision=1]{\myMach}{}$
+and a $\Mach_\mathrm{cr}\simeq\SI[round-precision=2]{\myCriticalMachNumberMACWing}{}$.
 
-Si lascia per esercizio al lettore il compito di verificare che
-la forma in pianta assegnata ha
-un rapporto di rastremazione
+The assigned planform has
+a taper ratio
 $\lambda=\SI[round-precision=2]{\myTaperRatioWing}{}$,
-una superficie alare
+a wing surface
 $S=\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}$,
-un allungamento alare
+an aspect ratio
 $\AR=\num[round-precision=2]{\myAspectRatioWing}$
-e un angolo
+and a sweep angle
 $\Lambda_{c/2}=\SI[round-precision=3]{\mySweepHalfChordWingRAD}{\radian}=\SI[round-precision=1]{\mySweepHalfChordWingDEG}{\deg}$.
 
-I dati dell'ala sono tali da soddisfare le condizioni (\ref{eq:Aero:Limitations:Polhamus:Formula})
-e, sostituiti nelle (\ref{eq:Aero:Polhamus:Formula})-(\ref{eq:Aero:K:Polhamus:Formula}), 
-permettono di ricavare
+The data of the wing are such as to satisfy the conditions (\ref{eq:Aero:Limitations:Polhamus:Formula})
+and, replaced in (\ref{eq:Aero:Polhamus:Formula})-(\ref{eq:Aero:K:Polhamus:Formula}), 
+allow to derive
 \[
 k_\mathrm{P} 
   =
@@ -92,30 +90,77 @@ C_{L_{\mathlarger{\alpha}}}
   & {}= 
    \frac{ 2\pi\AR
    }{
-      2 + \SQRT{ 4+ \frac{\AR^2 \big(1-M^2\big)}{k_\mathrm{P}^2}\LEFTRIGHT(){1+\frac{\tan^2\Lambda_{c/2}}{1-M^2}} }
+      2 + \sqrt{ 4+ \frac{\AR^2 \big(1-M^2\big)}{k_\mathrm{P}^2}\left({1+\frac{\tan^2\Lambda_{c/2}}{1-M^2}}\right)}
    }
 \\[10pt]
   & {}= 
   \frac{ \num[round-precision=3]{6.28} \cdot \num[round-precision=2]{\myAspectRatioWing}
    }{
-      2 + \SQRT{ 4+ 
+      2 + \sqrt{ 4+ 
       \frac{
         \num[round-precision=2]{\myAspectRatioWing}^2 \big( 1-\num[round-precision=2]{\myMach}^2 \big)
       }{
         \SI[round-precision=2]{\myKPolhamus}{}^2}
-        \LEFTRIGHT(){ 1 +
+        \left({ 1 +
           \frac{
             \tan^2 \SI[round-precision=3]{\mySweepHalfChordWingRAD}{\radian}
           }{
             1-\num[round-precision=2]{\myMach}^2
           }
-        } 
+        }\right)
       }
    }
     =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCLAlphaWingRAD}{\radian^{-1}} }
     =\mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingDEG}{\deg^{-1}} }
 \end{split}
 \]
-
 \end{myExampleX}
+
+\EnlargedFigureX% needs two latex passes
+  {p}% #1: t, b, p
+  {%
+    \centering
+    \begin{tabular}{@{}c@{}}
+      \subfloat%\subfigure
+          [%
+            \smash{$C_{L_\mathlarger{\alpha}}$} as $\Mach$ changes, for different values of parameter $\AR$.
+          ]%
+          {\label{fig:Wing:CLAlpha:Polhamus:Formula:Plots:A}%
+		      \includegraphics%
+		        %[width=0.52\textwidth]%
+		        % [height=5.5cm]%
+		        [width=0.45\textwidth]%
+		        {Chapter_2/lift_gradient_polhamus_formula/plot_wing_CLalpha_LamLE15_lam05.pdf}%
+          }%
+      \\
+      \subfloat%\subfigure
+          [%
+            \smash{$C_{L_\mathlarger{\alpha}}$} as $\Mach$ changes, for different values of parameter $\Lambda_\text{le}$.
+          ]%
+          {\label{fig:Wing:CLAlpha:Polhamus:Formula:Plots:B}%
+		      \includegraphics%
+		        %[width=0.52\textwidth]%
+		        % [height=5.5cm]%
+		        [width=0.45\textwidth]%
+		        {Chapter_2/lift_gradient_polhamus_formula/plot_wing_CLalpha_lam05_AR5.pdf}%
+          }%
+      \\
+      \subfloat%\subfigure
+          [%
+            \smash{$C_{L_\mathlarger{\alpha}}$} as $\Mach$ changes, for different values of parameter $\lambda$.
+          ]%
+          {\label{fig:Wing:CLAlpha:Polhamus:Formula:Plots:C}%
+		      \includegraphics%
+		        %[width=0.52\textwidth]%
+		        % [height=5.5cm]%
+		        [width=0.45\textwidth]%
+		        {Chapter_2/lift_gradient_polhamus_formula/plot_wing_CLalpha_LamLE15_AR5.pdf}%
+          }%
+    \end{tabular}
+  }% #2: the image file included by \includegraphics
+  {\finalhyphendemerits=1000
+    Graphical representations of the Polhamus formula for the calculation of the gradient \smash{$C_{L_\mathlarger{\alpha}}$}.%
+  }% #3: the caption text
+  {fig:Wing:CLAlpha:Polhamus:Formula:Plots}%% #4: the label
+%
 \end{document}

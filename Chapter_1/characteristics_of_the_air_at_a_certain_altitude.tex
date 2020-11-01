@@ -4,11 +4,11 @@
 %
 \input{Chapter_1/characteristics_of_the_air_at_a_certain_altitude/data.tex}
 %
-\begin{myExampleX}{Characteristics of the air at a certain altitude}{\ding{46}}% \ \Keyboard\ %
+\begin{myExampleX}{Characteristics of the air at given altitude}{\ding{46}}% \ \Keyboard\ %
 \label{example:Characteristics:Of:The:Air:At:A:Certain:Altitude}
 %
 \noindent
-Let us calculate air characteristics,based on the ISA model, at a flying altitude of $h=\SI[round-precision=0]{\myAltitudeM}{m}$.
+Let us calculate air characteristics, based on the ISA model, at a flying altitude of $h=\SI[round-precision=0]{\myAltitudeM}{m}$.
 % 
 Moreover, it is demanded to determine the true airspeed at a Mach $M=\SI[round-precision=2]{\myMachnumber}{m}$ and the Reynolds number per unit of length $\frac{\text{\itshape Re} }{l_\text{ref}}$. The given altitude is inside the stratosphere, therefore, as the ISA model requires, we have a temperature gradient (known as Lapse Rate) $\text{\itshape LR}=\SI[round-precision=4]{\myTemperaturegradient}{K/m}$.
 Consequently, the temperature at the flying altitude is:
@@ -90,12 +90,13 @@ The above value of $\mu$ corresponds to a Reynolds number per unit of length:
  \frac{\text{\itshape{Re}}}{l_\text{ref}} 
    = \frac{\rho V}{\mu}
    = \frac{
-     \SI[round-precision=3]{\myDensity}{kg\,m^{-3}}
+     \SI[round-precision=3]{\myDensity}{kg\,m^{-3}}\,
        \SI[round-precision=2]{\mySpeedMs}{m/s}
        }{
          \SI[round-precision=2,scientific-notation=true]{\myDynamicviscosity}{kg/(m\,s)}
        }
  = \SI[round-precision=0]{\myReynoldsnumeberperunitoflenght}{m^{-1}}
+ \approx \SI[scientific-notation=engineering,round-precision=2]{\myReynoldsnumeberperunitoflenght}{m^{-1}}
 \]
 \end{myExampleX}
 \end{document}

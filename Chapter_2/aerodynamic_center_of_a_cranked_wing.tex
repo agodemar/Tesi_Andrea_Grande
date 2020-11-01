@@ -1,0 +1,960 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\input{Chapter_2/aerodynamic_center_of_a_cranked_wing/data}
+%
+% \begin{figure}[t]%[H]%[!htbp]
+%   \centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.72\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Ala \emph{cranked} proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+%           Sono evidenziati il pannello interno $ABB'A'$, il pannello esterno $BCC'B'$ e il pannello esterno esteso $DCC'D'$ 
+%           (\emph{constructed panel}) utilizzato per il calcolo del centro aerodinamico dell'ala.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels}%
+% \end{figure}
+% %
+% \begin{figure}[t]%[H]%[!htbp]
+%   %\centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_mac.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Corda media aerodinamica dell'ala proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:MAC}%
+% \end{figure}
+%
+\begin{myExampleX}{Centro aerodinamico di un'ala cranked}{\ding{46}\ \myIconGraph\ }% \ \Keyboard\ %
+\label{example:Wing:Aerodynamic:Center:Cranked}
+%
+\noindent
+In this example the position of the aerodynamic center will be calculated
+of a wing similar to that of a Boeing~787.
+The wing considered is of type \emph{cranked}, as can be seen from the planform shown in
+figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels},and has the following characteristics:
+
+\smallskip
+\noindent
+\adjustbox{center=\textwidth}{%
+ \underline{\emph{Pannello 1} (inner panel)}
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{chords}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $c_{\mathrm{r},1}=\SI[round-precision=2]{\myChordRootWingIMT}{\metre}$,
+    $c_{\mathrm{t},1}=\SI[round-precision=2]{\myChordTipWingIMT}{\metre}$,
+    $\lambda_1 = \SI[round-precision=2]{\myTaperRatioWingI}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{wingspan and wing surface}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $b_1=\SI[round-precision=2]{\mySpanWingIMT}{\metre}$,
+    $S_1=\SI[round-precision=2]{\myAreaWingIMTsquared}{\meter^2}$,
+    $\AR_1 = \SI[round-precision=2]{\myAspectRatioWingI}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{sweep angles}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
+    $\Lambda_\mathrm{le,1}=\SI[round-precision=4]{\mySweepLEWingIRAD}{\radian}=\SI[round-precision=1]{\mySweepLEWingIDEG}{\deg}$,
+    \\
+    $\Lambda_\mathrm{te,1}=\SI[round-precision=4]{\mySweepTEWingIRAD}{\radian}=\SI[round-precision=1]{\mySweepTEWingIDEG}{\deg}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{gradient $C_{\ell_\mathlarger{\alpha}}$ of profile}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
+    $C_{\ell_\mathlarger{\alpha},\mathrm{r},1}=\SI[round-precision=2]{\myCLAlphaRootWingIRAD}{\radian^{-1}}=\SI[round-precision=4]{\myCLAlphaRootWingIDEG}{\deg^{-1}}$,
+    \\
+    $C_{\ell_\mathlarger{\alpha},\mathrm{t},1}=\SI[round-precision=2]{\myCLAlphaTipWingIRAD}{\radian^{-1}}=\SI[round-precision=4]{\myCLAlphaTipWingIDEG}{\deg^{-1}}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{twist}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
+    $\alpha_{0\ell,\mathrm{r},1}=\SI[round-precision=3]{\myAlphaZeroLiftRootWingIRAD}{\radian}
+      =\SI[round-precision=1]{\myAlphaZeroLiftRootWingIDEG}{\deg}$,\\
+    $\alpha_{0\ell,\mathrm{t},1}=\SI[round-precision=3]{\myAlphaZeroLiftTipWingIRAD}{\radian}
+      =\SI[round-precision=1]{\myAlphaZeroLiftTipWingIDEG}{\deg}$,\\
+    $\epsilon_{\mathrm{g,t},1}=\SI[round-precision=3]{\myTwistWingIRAD}{\radian}
+      =\SI[round-precision=1]{\myTwistWingIDEG}{\deg}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{aerodynamic profile centers}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $\bar{x}_{\mathrm{ac,2D,1},\mathrm{r}}=\SI[round-precision=2]{\myXsiacRootWingI}{}$,
+    $\bar{x}_{\mathrm{ac,2D,1},\mathrm{t}}=\SI[round-precision=2]{\myXsiacTipWingI}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{coefficients $C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}$ of profile}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{r},1}=\SI[round-precision=3]{\myCmZeroRootWingI}{}$,
+    $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{t},1}=\SI[round-precision=3]{\myCmZeroTipWingI}{}$,
+  }%
+}
+
+\medskip
+\noindent
+\adjustbox{center=\textwidth}{%
+ \underline{\emph{Pannello 2} (outer pannel)}
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{chords}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $c_{\mathrm{r},2}=\SI[round-precision=2]{\myChordRootWingIIMT}{\metre}$,
+    $c_{\mathrm{t},2}=\SI[round-precision=2]{\myChordTipWingIIMT}{\metre}$,
+    $\lambda_2 = \SI[round-precision=2]{\myTaperRatioWingII}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{wingspan and wing surface}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $b_2=\SI[round-precision=2]{\mySpanWingIIMT}{\metre}$,
+    $S_2=\SI[round-precision=2]{\myAreaWingIIMTsquared}{\meter^2}$,
+    $\AR_2 = \SI[round-precision=2]{\myAspectRatioWingII}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{sweep angles}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
+    $\Lambda_\mathrm{le,2}=\SI[round-precision=4]{\mySweepLEWingIIRAD}{\radian}=\SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}$,
+    \\
+    $\Lambda_\mathrm{te,2}=\SI[round-precision=4]{\mySweepTEWingIIRAD}{\radian}=\SI[round-precision=1]{\mySweepTEWingIIDEG}{\deg}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{gradients $C_{\ell_\mathlarger{\alpha}}$ of profile}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
+    $C_{\ell_\mathlarger{\alpha},\mathrm{r},2}=\SI[round-precision=2]{\myCLAlphaRootWingIIRAD}{\radian^{-1}}=\SI[round-precision=4]{\myCLAlphaRootWingIIDEG}{\deg^{-1}}$,
+    \\
+    $C_{\ell_\mathlarger{\alpha},\mathrm{t},2}=\SI[round-precision=2]{\myCLAlphaTipWingIIRAD}{\radian^{-1}}=\SI[round-precision=4]{\myCLAlphaTipWingIIDEG}{\deg^{-1}}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{twist}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
+    $\alpha_{0\ell,\mathrm{r},2}=\SI[round-precision=3]{\myAlphaZeroLiftRootWingIIRAD}{\radian}
+      =\SI[round-precision=1]{\myAlphaZeroLiftRootWingIIDEG}{\deg}$,\\
+    $\alpha_{0\ell,\mathrm{t},2}=\SI[round-precision=3]{\myAlphaZeroLiftTipWingIIRAD}{\radian}
+      =\SI[round-precision=1]{\myAlphaZeroLiftTipWingIIDEG}{\deg}$,\\
+    $\epsilon_{\mathrm{g,t},2}=\SI[round-precision=3]{\myTwistWingIIRAD}{\radian}
+      =\SI[round-precision=1]{\myTwistWingIIDEG}{\deg}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{aerodynamic profile centers}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $\bar{x}_{\mathrm{ac,2D,2},\mathrm{r}}=\SI[round-precision=2]{\myXsiacRootWingII}{}$,
+    $\bar{x}_{\mathrm{ac,2D,2},\mathrm{t}}=\SI[round-precision=2]{\myXsiacTipWingII}{}$,
+  }%
+}
+
+\smallskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{coefficients $C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}$ of profile}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{r},2}=\SI[round-precision=3]{\myCmZeroRootWingII}{}$,
+    $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{t},2}=\SI[round-precision=3]{\myCmZeroTipWingII}{}$,
+  }%
+}
+
+\medskip
+\noindent
+\adjustbox{left=\textwidth}{%
+  \adjustbox{right=0.39\textwidth}{%
+    \emph{flight condition}:
+  }\rule{0.5em}{0pt}% --> SPACER
+  \adjustbox{left=0.59\textwidth}{%
+    $\Mach = \SI[round-precision=2]{\myMach}{}$.
+  }%
+}
+
+%-----------------------------------------------------------------------------------------------
+% \begin{figure}%
+%   [t]%[H]%[!htbp]
+%   %\centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.72\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Ala \emph{cranked} proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+%           Sono evidenziati il pannello interno $ABB'A'$, il pannello esterno $BCC'B'$ e il pannello esterno esteso $DCC'D'$ 
+%           (\emph{constructed panel}) utilizzato per il calcolo del centro aerodinamico dell'ala.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels}%
+% \end{figure}%
+%-----------------------------------------------------------------------------------------------
+
+\bigskip
+From the data it is easy to obtain the law of the chords:
+\[
+c(Y)=
+\begin{cases}
+%\left\{
+%\begin{array}{cl}
+c_1(Y) = A_{c,1} \, Y + B_{c,1} & \text{for }\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
+\\[4pt]
+c_2(Y) = A_{c,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{c,2} & \text{for }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
+\end{cases}
+%\right.
+\]
+with
+\[
+A_{c,1}
+  = \frac{c_{\mathrm{t},1} - c_{\mathrm{r},1}}{b_1/2}
+  = 
+    2 \frac{
+      \SI[round-precision=2]{\myChordTipWingIMT}{\metre} - \SI[round-precision=2]{\myChordRootWingIMT}{\metre}
+    }{
+      \SI[round-precision=2]{\mySpanWingIMT}{\metre}
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffAChordWingI}{} }
+\]
+\[
+B_{c,1}
+  = c_{\mathrm{r},1}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBChordWingIMT}{\metre} }
+\]
+\[
+A_{c,2}
+  = \frac{c_{\mathrm{t},2} - c_{\mathrm{r},2}}{b_2/2}
+  = 
+    2 \frac{
+      \SI[round-precision=2]{\myChordTipWingIIMT}{\metre} - \SI[round-precision=2]{\myChordRootWingIIMT}{\metre}
+    }{
+      \SI[round-precision=2]{\mySpanWingIIMT}{\metre}
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffAChordWingII}{} }
+\]
+\[
+B_{c,2}
+  = c_{\mathrm{r},2}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} }
+\]
+Therefore, we get
+\[
+c(Y)=
+\begin{cases}
+%\left\{
+%\begin{array}{cl}
+c_1(Y) = 
+  \SI[round-precision=3]{\myCoeffAChordWingI}{} \, Y 
+    + \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} 
+  & \text{per }
+    \makebox[3.5em][r]{$\SI[round-precision=0]{0}{\metre}$} 
+      \le Y \le 
+      \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
+\\[4pt]
+c_2(Y) 
+  = \SI[round-precision=3]{\myCoeffAChordWingII}{} \, 
+    \big(
+      Y
+      - \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
+    \big)
+    + \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} 
+  & \text{per }
+    \makebox[3.5em][r]{%
+      $\calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}$
+    }% end-of-makebox
+      < Y 
+      \le \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingMT}{\metre}
+\end{cases}
+%\right.
+\]
+
+From the figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels} are observed
+the points $A$, $B$, $B'$ and $A'$ which define the inner portion of the wing.
+The inner panel has a taper ratio
+\[
+\lambda_1
+  =\frac{c_{\mathrm{t},1}}{c_{\mathrm{r},1}}
+  =\frac{\SI[round-precision=2]{\myChordTipWingIMT}{\metre}}{\SI[round-precision=2]{\myChordRootWingIMT}{\metre}}
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myTaperRatioWingI}{} }
+\]
+a wing surface
+\[
+S_1 = \frac{b_1}{2} \, c_{\mathrm{r},1} \, \big( 1 + \lambda_1 \big)
+  =
+    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingIMT}{\metre}
+      \cdot \SI[round-precision=2]{\myChordRootWingIMT}{\metre}
+      \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWingI}{} \big) 
+    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2} }
+\]
+an aspect ratio
+\[
+\AR_1 
+  = \frac{b_1^2}{S_1}
+  = \frac{\big(\SI[round-precision=1]{\mySpanWingIMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2}}
+  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWingI} }
+\]
+From these values a mean aerodynamic chord is obtained
+\[
+\begin{split}
+\bar{c}_1 & {}= \frac{2}{3} \, c_{\mathrm{r},1} \, \frac{1+\lambda_1 + \lambda_1^2}{1+\lambda_1} \\
+  & {}=
+    \num{0.667} \cdot \SI[round-precision=2]{\myChordRootWingIMT}{\metre}
+      \cdot 
+        \frac{
+          1 + \SI[round-precision=2]{\myTaperRatioWingI}{} + \SI[round-precision=2]{\myTaperRatioWingI}{}^2
+        }{
+          1 + \SI[round-precision=2]{\myTaperRatioWingI}{}
+        }
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingIMT}{\metre} }
+\end{split}
+\]
+The wing section of the inner panel having a chord $\bar{c}_1$ has a leading edge
+abscissa
+\[
+\begin{split}
+X_{\mathrm{le},\bar{c}_1} 
+  & {}=
+    \frac{b_1}{6} \, \frac{1+2\lambda_1}{1+\lambda_1} \tan\Lambda_\mathrm{le,1} \\[3pt]
+  & {}=
+    \frac{\SI[round-precision=1]{\mySpanWingIMT}{\metre}}{6}
+      \cdot 
+      \frac{
+        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWingI}{}
+      }{
+        1 + \SI[round-precision=2]{\myTaperRatioWingI}{}
+      }
+      \cdot \tan \big( \SI[round-precision=3]{\mySweepLEWingIRAD}{\radian} \big)
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXMACLEToApexWingIMT}{\metre} }
+\end{split}
+\]
+corresponding to the station
+\[
+\begin{split}
+Y_{\bar{c}_1} 
+  & {}=
+    \frac{b_1}{6} \, \frac{1+2\lambda_1}{1+\lambda_1} \\[3pt]
+  & {}=
+    \frac{\SI[round-precision=1]{\mySpanWingIMT}{\metre}}{6}
+      \cdot 
+      \frac{
+        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWingI}{}
+      }{
+        1 + \SI[round-precision=2]{\myTaperRatioWingI}{}
+      }
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myYMACWingIMT}{\metre} }
+\end{split}
+\]
+along the wingspan.
+
+Analogamente, dalla figura~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels} si osservano
+i punti $B$, $C$, $C'$ e $B'$ che definiscono la porzione esterna dell'ala.
+Per il pannello esterno si ha un rapporto di rastremazione
+\[
+\lambda_2
+  =\frac{c_{\mathrm{t},2}}{c_{\mathrm{r},2}}
+  =\frac{\SI[round-precision=2]{\myChordTipWingIIMT}{\metre}}{\SI[round-precision=2]{\myChordRootWingIIMT}{\metre}}
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myTaperRatioWingII}{} }
+\]
+una superficie
+\[
+S_2 = \frac{b_2}{2} \, c_{\mathrm{r},2} \, \big( 1 + \lambda_2 \big)
+  =
+    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingIIMT}{\metre}
+      \cdot \SI[round-precision=2]{\myChordRootWingIIMT}{\metre}
+      \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWingII}{} \big) 
+    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2} }
+\]
+e un allungamento
+\[
+\AR_2 
+  = \frac{b_2^2}{S_2}
+  = \frac{\big(\SI[round-precision=1]{\mySpanWingIIMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2}}
+  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWingII} }
+\]
+
+Conseguentemente, si ha una corda media aerodinamica
+\[
+\begin{split}
+\bar{c}_2 & {}= \frac{2}{3} \, c_{\mathrm{r},2} \, \frac{1+\lambda_2 + \lambda_2^2}{1+\lambda_2} \\
+  & {}=
+    \num{0.667} \cdot \SI[round-precision=2]{\myChordRootWingIIMT}{\metre}
+      \cdot 
+        \frac{
+          1 + \SI[round-precision=2]{\myTaperRatioWingII}{} + \SI[round-precision=2]{\myTaperRatioWingII}{}^2
+        }{
+          1 + \SI[round-precision=2]{\myTaperRatioWingII}{}
+        }
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingIIMT}{\metre} }
+\end{split}
+\]
+Il bordo d'attacco del profilo di corda $\bar{c}_2$ dista dunque
+\[
+\begin{split}
+X_{\mathrm{le},\bar{c}_2} - X_B
+  & {}=
+    \frac{b_2}{6} \, \frac{1+2\lambda_2}{1+\lambda_2} \tan\Lambda_\mathrm{le,2} \\[3pt]
+  & {}=
+    \frac{\SI[round-precision=1]{\mySpanWingIIMT}{\metre}}{6}
+      \cdot 
+      \frac{
+        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWingII}{}
+      }{
+        1 + \SI[round-precision=2]{\myTaperRatioWingII}{}
+      }
+      \cdot \tan \big( \SI[round-precision=3]{\mySweepLEWingIIRAD}{\radian} \big)
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre} }
+\end{split}
+\]
+in senso longitudinale dal punto $B$. Pertanto
+\[
+\begin{split}
+X_{\mathrm{le},\bar{c}_2} & {}= X_B + \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre}
+  = \frac{b_1}{2} \tan \Lambda_{\mathrm{le},1} + \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre}
+\\
+  & {}= \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{
+          0.5 * \mySpanWingIMT
+        }{\metre}
+       \cdot \tan( \SI[round-precision=3]{\mySweepLEWingIRAD}{\radian} )
+      + \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre}
+    = \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{
+          0.5 * \mySpanWingIMT * tan( \mySweepLEWingIRAD )
+        }{\metre}
+      + \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre}
+    = \mathunderline{mydarkblue}{ 
+      \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{
+          0.5 * \mySpanWingIMT * tan( \mySweepLEWingIRAD )
+          + \myXMACLEToApexWingIIMT
+      }{\metre}
+    }
+\end{split}
+\]
+Conseguentemente, la stazione che individua lungo l'apertura il profilo del pannello
+esterno di corda $\bar{c}_2$ è
+\[
+\begin{split}
+Y_{\bar{c}_2} 
+  & {}=
+    \frac{b_1}{2} + 
+    \frac{b_2}{6} \, \frac{1+2\lambda_2}{1+\lambda_2} \\[3pt]
+  & {}=
+    \calcSI[round-precision=2]{0.5*\mySpanWingIMT}{\metre} +
+    \frac{\SI[round-precision=1]{\mySpanWingIIMT}{\metre}}{6}
+      \cdot 
+      \frac{
+        1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWingII}{}
+      }{
+        1 + \SI[round-precision=2]{\myTaperRatioWingII}{}
+      }
+    = \mathunderline{mydarkblue}{
+      \calcSI[round-precision=2]{0.5*\mySpanWingIMT}{\metre} +
+      \SI[round-precision=2]{\myYMACWingIIMT}{\metre} 
+    }
+    = \mathunderline{mydarkblue}{
+      \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT + \myYMACWingIIMT}{\metre}
+    }
+\end{split}
+\]
+
+I calcoli precedenti permettono di determinare la corda media aerodinamica $\bar{c}$ dell'ala,
+che ha superficie totale
+\[
+S = S_1 + S_2
+  = \SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2}
+    = \mathunderline{mydarkblue}{
+      \SI[round-precision=1]{\myAreaWingCrankedMTsquared}{\metre^2}
+    }
+\]
+e allungamento
+\[
+\AR = \frac{b^2}{S} 
+    = \frac{
+        \big( \SI[round-precision=2]{\mySpanWingMT}{\meter} \big)^2
+      }{
+        \SI[round-precision=1]{\myAreaWingCrankedMTsquared}{\metre^2}
+      }
+    = \mathunderline{mydarkblue}{
+      \SI[round-precision=2]{\myAspectRatioWingCranked}{}
+    }
+\]
+Il valore di $\bar{c}$ è il seguente:
+\[
+\bar{c} = \frac{S_1 \, \bar{c}_1 + S_2 \, \bar{c}_2} {S_1 + S_2}
+  =
+  \frac{\SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2} \cdot \SI[round-precision=2]{\myMACWingIMT}{\metre} + \SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2} \cdot \SI[round-precision=2]{\myMACWingIIMT}{\metre}}{\SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2} + \SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2}}
+    = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingCrankedMT}{\metre} }
+\]
+Essendo in questo caso
+$\bar{c} < c_{\mathrm{t},1}=\SI[round-precision=2]{\myMACWingIMT}{\metre}$,
+si determina la stazione
+\[
+  Y_{\bar{c}} 
+    = \frac{\bar{c} - B_{c,1}}{A_{c,1}}
+    = \frac{
+        \SI[round-precision=2]{\myMACWingCrankedMT}{\metre} 
+        - \SI[round-precision=2]{\myCoeffBChordWingIMT}{\metre}
+      }{
+        \SI[round-precision=3]{\myCoeffAChordWingI}{}
+      }
+    = \mathunderline{mydarkblue}{
+      \SI[round-precision=2]{\myYYMACWingCrankedMT}{\metre}
+    }
+\]
+lungo l'apertura corrispondente al profilo di corda $\bar{c}$. Tale profilo
+ha bordo d'attacco di ascissa
+\[
+X_{\mathrm{le},\bar{c}} 
+  % = \frac{\bar{c} - B_{c,1}}{A_{c,1}} \tan \Lambda_{\mathrm{le},1}
+  = Y_{\bar{c}} \tan \Lambda_{\mathrm{le},1}
+  =
+%	\frac{
+%	\SI[round-precision=2]{\myMACWingCrankedMT}{\metre}
+%	-
+%	\SI[round-precision=2]{\myCoeffBChordWingIMT}{\metre}
+%	}{
+%	\SI[round-precision=2]{\myCoeffAChordWingI}{}
+%	}
+   \SI[round-precision=2]{\myYYMACWingCrankedMT}{\metre}
+   \cdot
+	\tan \big( \SI[round-precision=3]{\mySweepLEWingIRAD}{\radian} \big)
+	= \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXXMACLEToApexWingCrankedMT}{\metre} }
+\]
+
+%-----------------------------------------------------------------------------------------------
+% \begin{figure}
+%   {SCfigure}[1.9]%
+%   [t]%[H]%[!htbp]
+%   %\centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_mac.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Corda media aerodinamica dell'ala proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:MAC}%
+% \end{figure}%
+
+%-----------------------------------------------------------------------------------------------
+
+Nella figura~\ref{fig:Wing:Aerodynamic:Center:Cranked:MAC}
+è riportato il disegno della forma in pianta assegnata dove sono indicate le corde $\bar{c}_1$, $\bar{c}_2$ e $\bar{c}$
+e le distanze $X_{\mathrm{le},\bar{c}}$ ed $Y_{\bar{c}}$.
+
+\medskip
+A questo punto si procede al calcolo del centro aerodinamico dell'ala assegnata.
+Il metodo grafico utilizzato nell'esempio~\ref{example:Wing:Aerodynamic:Center:A}
+per la determinazione del centro aerodinamico di un'ala a bordi dritti
+può essere applicato qui a ciascuno dei due pannelli alari.
+A differenza del caso di un'ala semplice, per un'ala \emph{cranked} bisogna ricavare 
+un pannello 
+esterno \emph{esteso} --- detto \emph{constructed outer panel} --- come mostrato nelle 
+figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels}
+e~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}. 
+Esso si costruisce prolungando i bordi d'attacco
+e d'uscita del pannello~2 verso l'interno,
+partendo, rispettivamente, dai punti $B$ e $B'$, fino a incontrare nei punti $D$ e $D'$ la retta parallela 
+all'asse $X$ di equazione $Y=\frac{1}{4}b_1$.
+Pertanto, nei calcoli che seguono si considera il pannello interno
+$\mathcal{P}_1=ABB'A'$ e,
+al posto del pannello $\mathcal{P}_2=BCC'B$,
+il pannello esterno esteso $\mathcal{P}_{2'}=DCC'D'$.
+
+Per quanto riguarda il pannello interno $\mathcal{P}_{1}$,
+dai dati e dalla figura~\ref{fig:Wing:Ac:K:One:Plots}
+si legge
+\[
+\lambda_1=\SI[round-precision=2]{\myTaperRatioWingI}{}
+%
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+K_{1,\mathcal{P}_{1}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKOneACDatcomWingI}{} }
+\]
+dalla figura~\ref{fig:Wing:Ac:K:Two:Plots}
+si legge
+\[
+\Lambda_\mathrm{le,1} = \SI[round-precision=1]{\mySweepLEWingIDEG}{\deg}\;,\;\,
+\AR_1 = \SI[round-precision=1]{\myAspectRatioWingI}{}\;,\;\,
+\lambda_1=\SI[round-precision=2]{\myTaperRatioWingI}{}
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+K_{2,\mathcal{P}_{1}} 
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKTwoACDatcomWingI}{} }
+\]
+dalla figura~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
+si legge
+\[
+\Lambda_\mathrm{le,1} = \SI[round-precision=1]{\mySweepLEWingIDEG}{\deg}\;,\;\,
+\Mach = \SI[round-precision=2]{\myMach}{}\;,\;\,
+\AR_1 = \SI[round-precision=1]{\myAspectRatioWingI}{}\;,\;\,
+\lambda_1=\SI[round-precision=2]{\myTaperRatioWingI}{}
+%
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+\left.
+\frac{X'_{\mathrm{ac}}}{c_\mathrm{r}}\right|_{\mathcal{P}_{1}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWingI}{} }
+\]
+%
+Si ottiene dunque
+\[
+\left.
+\frac{x_{\mathrm{ac}}}{\bar{c}}\right|_{\mathcal{P}_{1}} 
+  = K_{1,\mathcal{P}_{1}} 
+    \left( 
+      \left.\frac{X'_{\mathrm{ac}}}{c_\mathrm{r}}\right|_{\mathcal{P}_{1}} 
+        - K_{2,\mathcal{P}_{1}}
+    \right)
+  = \SI[round-precision=3]{\myKOneACDatcomWingI}{} \,
+    \Big(  
+      \SI[round-precision=3]{\myXACOverChordRootDatcomWingI}{} 
+        - \SI[round-precision=3]{\myKTwoACDatcomWingI}{}  
+    \Big)
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXsiACWingI}{} } 
+\]
+
+%-----------------------------------------------------------------------------------------------
+% \begin{figure}
+%   {SCfigure}[1.9]%
+%   [t]%[H]%[!htbp]
+%   %\centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels_ac.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Centri aerodinamici dei pannelli 
+%           $\mathcal{P}_1=ABB'A'$ e $\mathcal{P}_{2'}=DCC'D'$.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}%
+% \end{figure}
+
+%-----------------------------------------------------------------------------------------------
+
+Per quanto riguarda il pannello interno $\mathcal{P}_{2'}$,
+si ricava
+\[
+b_{2'} = 2 \left( \frac{1}{2}b_2 + \frac{1}{4}b_1 \right)
+  =
+    2 \big(
+    \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIIMT}{\metre}
+    +
+    \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.25*\mySpanWingIMT}{\metre}
+    \big)
+  = \SI[round-precision=2]{\mySpanWingIIPrimeMT}{m}
+\]
+\[
+c_{\mathrm{r},2'}
+  = A_{c,2} \, \bigg( - \frac{1}{4}b_1 \bigg) + B_{c,2}
+  =
+    \SI[round-precision=3]{\myCoeffAChordWingII}{} \, 
+    \big(
+      - \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.25*\mySpanWingIMT}{\metre}
+    \big)
+    + \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre}
+  = \SI[round-precision=2]{\myChordRootWingIIPrimeMT}{m}
+\]
+\[
+\lambda_{2'}
+  =\frac{c_{\mathrm{t},2}}{c_{\mathrm{r},2'}}
+  =\frac{\SI[round-precision=2]{\myChordTipWingIIMT}{\metre}}{\SI[round-precision=2]{\myChordRootWingIIPrimeMT}{\metre}}
+  =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myTaperRatioWingIIPrime}{} }
+\]
+\[
+S_{2'} 
+  = \frac{b_{2'}}{2} \, c_{\mathrm{r},{2'}} \, \big( 1 + \lambda_{2'} \big)
+  =
+    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingIIPrimeMT}{\metre}
+      \cdot \SI[round-precision=2]{\myChordRootWingIIPrimeMT}{\metre}
+      \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWingIIPrime}{} \big) 
+    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingIIPrimeMTsquared}{\metre^2} }
+\]
+\[
+\AR_{2'} 
+  = \frac{b_{2'}^2}{S_{2'}}
+  = \frac{\big(\SI[round-precision=1]{\mySpanWingIIPrimeMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingIIPrimeMTsquared}{\metre^2}}
+  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWingIIPrime} }
+\]
+
+
+Dai dati e dalla figura~\ref{fig:Wing:Ac:K:One:Plots}
+si legge
+\[
+\lambda_{2'}=\SI[round-precision=2]{\myTaperRatioWingIIPrime}{}
+%
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+K_{1,\mathcal{P}_{2'}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKOneACDatcomWingII}{} }
+\]
+dalla figura~\ref{fig:Wing:Ac:K:Two:Plots}
+si legge
+\[
+\Lambda_\mathrm{le,2} = \SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}\;,\;\,
+\AR_{2'} = \SI[round-precision=1]{\myAspectRatioWingIIPrime}{}\;,\;\,
+\lambda_{2'}=\SI[round-precision=2]{\myTaperRatioWingIIPrime}{}
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+K_{2,\mathcal{P}_{2'}} 
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKTwoACDatcomWingII}{} }
+\]
+dalla figura~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
+si legge
+\[
+\Lambda_\mathrm{le,2} = \SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}\;,\;\,
+\Mach = \SI[round-precision=2]{\myMach}{}\;,\;\,
+\AR_{2'} = \SI[round-precision=1]{\myAspectRatioWingIIPrime}{}\;,\;\,
+\lambda_{2'}=\SI[round-precision=2]{\myTaperRatioWingIIPrime}{}
+%
+%\quad \Longrightarrow \quad
+%\quad \begin{array}{@{}c@{}} \myIconGraph \\[-4pt] \Longrightarrow \end{array} \quad
+\adjustbox{center=4em}{%
+  \adjustbox{lap=\width}{\raisebox{2.2ex}[0pt][0pt]{\myIconGraph}}$\Longrightarrow$%
+}
+%
+\left.
+\frac{X'_{\mathrm{ac}}}{c_\mathrm{r}}\right|_{\mathcal{P}_{2'}}
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWingII}{} }
+\]
+
+A questo punto può calcolarsi la quantità
+\[
+\frac{X_{\mathrm{ac}}}{c_\mathrm{r}}
+  = \frac{
+    \left.\dfrac{X'_{\mathrm{ac}}}{c_\mathrm{r}}\right|_{\mathcal{P}_{1}}
+      \, S_{1} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}}
+    +
+    \left.\dfrac{X'_{\mathrm{ac}}}{c_\mathrm{r}}\right|_{\mathcal{P}_{2'}}
+      \, S_{2'} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}}
+  }{
+    S_{1} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}} 
+    + S_{2'} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}} 
+  }
+\]
+dopo aver determinato per ciascun pannello il gradiente del coefficiente 
+di portanza.
+Per le caratteristiche geometriche dei pannelli $\mathcal{P}_{1}$ e 
+$\mathcal{P}_{2'}$ si possono stimare i due gradienti come segue:
+\[
+C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}}
+  =
+  \frac{
+    a_0 \cos \Lambda_{\mathrm{le,1}}
+  }{
+    \sqrt{
+      1 - \Mach^2 \cos^2 \Lambda_{\mathrm{le,1}}
+        + \left( \dfrac{ a_0 \cos \Lambda_{\mathrm{le,1}} }{ \pi \AR_1} \right)^2
+    }
+    +
+    \dfrac{ a_0 \cos \Lambda_{\mathrm{le,1}} }{ \pi \AR_1}
+  }
+\]
+\[
+C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}}
+  =
+  \frac{
+    a_0 \cos \Lambda_{\mathrm{le,2}}
+  }{
+    \sqrt{
+      1 - \Mach^2 \cos^2 \Lambda_{\mathrm{le,2}}
+        + \left( \dfrac{ a_0 \cos \Lambda_{\mathrm{le,2}} }{ \pi \AR_{2'}} \right)^2
+    }
+    +
+    \dfrac{ a_0 \cos \Lambda_{\mathrm{le,2}} }{ \pi \AR_{2'}}
+  }
+\]
+con
+\[
+a_0 = 
+  \frac{
+    \SI[round-precision=3]{\myCLAlphaAtMACWingRAD}{\radian^{-1}}
+  }{
+    \sqrt{ 1 - \Mach^2 \cos^2 \Lambda_{\mathrm{le,1}} }
+  }
+  \qquad (\, \Lambda_{\mathrm{le,1}} = \Lambda_{\mathrm{le,2}} \,)
+\]
+Dai dati del problema è facile verificare che si ha
+\[
+C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}}
+  = \SI[round-precision=3]{\myCLAlphaPolhamusWingIRAD}{\radian^{-1}}
+  = \SI[round-precision=4]{\myCLAlphaPolhamusWingIDEG}{\deg^{-1}}
+\,,
+\qquad
+C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}}
+  = \SI[round-precision=3]{\myCLAlphaPolhamusWingIIRAD}{\radian^{-1}}
+  = \SI[round-precision=4]{\myCLAlphaPolhamusWingIIDEG}{\deg^{-1}}
+\]
+Pertanto, si ricava
+\[
+\frac{X_{\mathrm{ac}}}{c_\mathrm{r}}
+  = \frac{
+    \SI[round-precision=3]{\myXACOverChordRootDatcomWingI}{}
+    \cdot \SI[round-precision=3]{\myCLAlphaPolhamusWingIRAD}{\radian^{-1}}
+    \cdot \SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^{2}}
+    +
+    \SI[round-precision=3]{\myXACOverChordRootDatcomWingII}{}
+    \cdot \SI[round-precision=3]{\myCLAlphaPolhamusWingIIRAD}{\radian^{-1}}
+    \cdot \SI[round-precision=1]{\myAreaWingIIPrimeMTsquared}{\metre^{2}}
+  }{
+    \SI[round-precision=3]{\myCLAlphaPolhamusWingIRAD}{\radian^{-1}}
+    \cdot \SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^{2}}
+    +
+    \cdot \SI[round-precision=3]{\myCLAlphaPolhamusWingIIRAD}{\radian^{-1}}
+    \cdot \SI[round-precision=1]{\myAreaWingIIPrimeMTsquared}{\metre^{2}}  
+  }
+  = 
+  \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{} }
+\]
+
+Per un'ala \emph{cranked} questo è il risultato determinante, che permette di
+ottenere
+\[
+X_{\mathrm{ac}} = \frac{X_{\mathrm{ac}}}{c_\mathrm{r}} \, c_{\mathrm{r},1}
+  = \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{}
+    \cdot \SI[round-precision=2]{\myChordRootWingIMT}{\metre}
+  = \SI[round-precision=2]{\myACWingToApexWingMT}{\metre} 
+\]
+cioè
+\[
+\frac{x_{\mathrm{ac}}}{\bar{c}}
+  = 
+  \frac{
+    X_{\mathrm{ac}} - X_{\mathrm{le},\bar{c}}
+  }{
+    \bar{c}
+  }
+  =
+  \frac{
+    \SI[round-precision=2]{\myACWingToApexWingMT}{\metre}
+      - \SI[round-precision=2]{\myXXMACLEToApexWingCrankedMT}{\metre}
+  }{
+    \SI[round-precision=2]{\myMACWingCrankedMT}{\metre}
+  }
+  =
+  \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXsiACWing}{} }  
+\]
+
+Il centro aerodinamico di coordinate $(X_\mathrm{ac},0)$
+è rappresentato nella figura~\ref{fig:Wing:Aerodynamic:Center:Cranked:Results}.
+
+%-----------------------------------------------------------------------------------------------
+% \begin{figure}[t]%[H]%[!htbp]
+%   %\centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels_ac.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Centri aerodinamici dei pannelli 
+%           $\mathcal{P}_1=ABB'A'$ e $\mathcal{P}_{2'}=DCC'D'$.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}%
+% \end{figure}
+%-----------------------------------------------------------------------------------------------
+% \begin{figure}[t]%[H]%[!htbp]
+%   %\centering
+%   %\checkoddpage
+%   %\centering
+%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing.pdf}%
+%   \caption{\finalhyphendemerits=1000
+%           Centro aerodinamico dell'ala proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}. L'asse tratteggiato,
+%           parallelo all'asse $Y$ e passante per il centro aerodinamico alare
+%           è l'asse di beccheggio intorno al quale il coefficiente di momento
+%           dell'ala è costante al variare dell'angolo d'attacco della corrente:
+%           \smash{$\partial C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}/\partial\alpha = 0$}.
+%   }
+%   \label{fig:Wing:Aerodynamic:Center:Cranked:Results}%
+% \end{figure}
+
+\end{myExampleX}
+
+
+
+
+\end{document}

@@ -10,7 +10,7 @@
 \noindent
 Let us calculate air characteristics, based on the ISA model, at a flying altitude of $h=\SI[round-precision=0]{\myAltitudeM}{m}$.
 % 
-Moreover, it is demanded to determine the true airspeed at a Mach $M=\SI[round-precision=2]{\myMachnumber}{m}$ and the Reynolds number per unit of length $\frac{\text{\itshape Re} }{l_\text{ref}}$. The given altitude is inside the stratosphere, therefore, as the ISA model requires, we have a temperature gradient (known as Lapse Rate) $\text{\itshape LR}=\SI[round-precision=4]{\myTemperaturegradient}{K/m}$.
+Moreover, it is required to determine the true airspeed at a Mach $M=\SI[round-precision=2]{\myMachnumber}{m}$ and the Reynolds number per unit of length $\frac{\text{\itshape Re} }{l_\text{ref}}$. The given altitude is inside the stratosphere, therefore, as the ISA model requires, we have a temperature gradient (known as Lapse Rate) $\text{\itshape LR}=\SI[round-precision=4]{\myTemperaturegradient}{K/m}$.
 Consequently, the temperature at the flying altitude is:
 \[
 T = {T_\text{SL}- \text{\itshape LR} \, h   
@@ -30,7 +30,7 @@ a =\sqrt{
 \]
 \noindent
 %
-For the given flying Mach number and altitude ,we have a flight velocity:
+For the given flying Mach number and altitude ,there is the following flight velocity:
 \[
  V = {a }~{M} =\SI[round-precision=2]{\mySoundspeed}{m/s} \cdot \SI[round-precision=2]{\myMachnumber}= ~\SI[round-precision=2]{\mySpeedMs}{m/s} = \SI[round-precision=2]{\mySpeedkmh}{km/h} 
  \]
@@ -61,14 +61,14 @@ the relative density value is:
 \end{split}
 \]
 
-Therefore the air density at the flight altitude is:
+So the air density at the flight altitude is:
 \[
 \rho = \rho_\text{SL} \, \sigma 
      = \SI[round-precision=3]{\myDensitysealevel}{\si{\frac{kg}{m^{3}}}} \, \SI[round-precision=3]{\myRelativedensity} 
      = \SI[round-precision=3]{\myDensity}{\si{\frac{kg}{m^{3}}}}
 \]
 %
-This value and the flight speed value allow the calculation of the dynamic pressure of flight
+The above mentioned value and the flight speed value allow the calculation of the dynamic pressure of flight
 \[
 \bar{q}=\frac{1}{2} \rho V^{2} =\frac{1}{2}\cdot\ \SI[round-precision=3]{\myDensity}{kg~m^{-3}} \cdot\ (\SI[round-precision=2]{\mySpeedMs}{m/s})^{2} =~\SI[round-precision=2]{\myDynamicpressureNm}{N m^{-2}}=~\SI[round-precision=3]{\myDynamicpressureBar}{bar}
 \]

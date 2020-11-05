@@ -20,8 +20,7 @@
 
 Let us consider a wing with a finite wingspan equal to $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
 straight leading and trailing edges and null sweep angle that is: $\Lambda_{c/4}=\SI[round-precision=0]{\myLambdaCQuarterDeg}{\degree}$.
-Unlike the previous example, the wing assigned here is tapered, i.e.
-the chord of the different wing sections varies linearly with distance $Y$ from the center plane. The root chord is
+Unlike the previous example, the wing assigned here is tapered, i.e. the chord of the different wing sections varies linearly with distance $Y$ from the center plane. The root chord is
 $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$ and the tip chord is $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$.
 We want to calculate the following quantities:
 
@@ -62,8 +61,8 @@ c \big( Y \big) = A_c \, Y + B_c
   = \SI[round-precision=3]{\myCoefficientA}{} \, Y
     + \SI[round-precision=2]{\myCoefficientB}{\metre}
 \]
-The wing surface in this case is nothing more than the area of two trapezoids,
-each of a major base $c_\mathrm{r}$, minor base $c_\mathrm{t}$ and height $\frac{1}{2}b$, and is calculated as follows:
+The wing surface in this case is the area of two trapezoids,
+each of a major base $c_\mathrm{r}$, minor base $c_\mathrm{t}$ and height $\frac{1}{2}b$, and it is calculated as follows:
 \[
 \begin{split}
 S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) \\
@@ -111,12 +110,12 @@ At this point we can calculate the wing aspect ratio, that is:
   = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{m}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{m^2}}
   =   \num[round-precision=2]{\myAspectRatioWing} 
 \]
-It is known that the line joining the points along the individual chords $c(Y)$ distant $c(Y)/n$ from the local leading edge forms a sweep angle $\Lambda_{c/n}$ connected to that of the leading edge $\Lambda_\mathrm{le}$ from the following relationship:
+It is known that the line joining the points along the individual chords $c(Y)$ distant $c(Y)/n$ from the local leading edge forms a sweep angle $\Lambda_{c/n}$ connected to that of the leading edge $\Lambda_\mathrm{le}$ from the following relation:
 \[
 \tan\Lambda_{c/n} = \tan\Lambda_\mathrm{le}-\dfrac{(4/n)(1-\lambda)}{\AR(1+\lambda)}
 \]
 From this, for a sweep angle
-$\Lambda_\mathrm{c/4}=\SI[round-precision=1]{\myLambdaCQuarterDeg}{\degree}$
+$\Lambda_\mathrm{c/4}=\SI[round-precision=0]{\myLambdaCQuarterDeg}{\degree}$
 of the line of the quarter chords, we obtain:
 \[
 \tan
@@ -150,8 +149,8 @@ The mean aerodynamic chord in this case is:
     =  \SI[round-precision=2]{\myMACWingMT}{\metre} 
 \end{split}
 \]
-that is, an intermediate value between that of the root chord (\SI[round-precision=2]{\myChordRootWingMT}{\metre}) 
-and that of the tip chord (\SI[round-precision=2]{\myChordTipWingMT}{\metre}),
+that is, an intermediate value between that one of the root chord (\SI[round-precision=2]{\myChordRootWingMT}{\metre}) 
+and that one of the tip chord (\SI[round-precision=2]{\myChordTipWingMT}{\metre}),
 closer to the former than to the latter.
 The longitudinal distance of the leading edge of the aerodynamic middle chord from the leading edge of the root chord is :
 \[
@@ -171,7 +170,7 @@ X_{\mathrm{le},\bar{c}}
     =  \SI[round-precision=2]{\myXLEMACWingMT}{\metre} % \myXMACLEToWingRootLEMT
 \end{split}
 \]
-It is observed that the tapered wing, even if with zero sweep angle, corresponds to a $X_{\mathrm{le},\bar{c}}$ not null. This means that the projection of the wing section having chord equal to $\bar{c}$ in the middle plane it is further back than the root chord. Moreover,given the value of $\bar{c}$ previously calculated, this projection is internal to the root chord, that is:
+It is observed that the tapered wing, even if with zero sweep angle, corresponds to a $X_{\mathrm{le},\bar{c}}$ not null. This means that the projection of the wing section having chord equal to $\bar{c}$ in the middle plane it is further back than the root chord. Moreover, given the value of $\bar{c}$ previously calculated, this projection is internal to the root chord, that is:
 $X_{\mathrm{le},\bar{c}}+\bar{c}<c_\mathrm{r}$.
 The  station $Y_{\bar{c}}$ to which the law of the chords $c(Y)$ assumes value $\bar{c}$ is
 \[
@@ -190,6 +189,6 @@ Y_{\bar{c}}
     =  \SI[round-precision=2]{\myYMACWingMT}{\metre} 
 \end{split}
 \]
-The calculated value corresponds to a station along the wingspan closest to the root the to the tip.
+The calculated value corresponds to a station along the wingspan closest to the root that to the tip.
 \end{myExampleX}
 \end{document} 

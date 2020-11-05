@@ -13,14 +13,64 @@ Based on the data of the previous example, at an altitude of $h=\SI[round-precis
 \medskip
 \noindent
 {\color{red} \bf Inserire le formule di calcolo ed un esempio di calcolo, per $M=0.5$.}
-
 \pgfplotstableread[%
   header=false, col sep=space, row sep=newline, precision=6
   ]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
 
-% \pgfplotstablegetelem{1}{[index]1}\of{\myTableDataset}
-% \pgfmathsetmacro{\valueOneOne}{\pgfplotsretval}
-% \num[round-precision=2]{\valueOneOne}
+\pgfplotstablegetelem{2}{[index]0}\of{\myTableDataset}
+\pgfmathsetmacro{\valueTwoZero}{\pgfplotsretval}
+% \num[round-precision=2]{\valueTwoZero}
+
+\pgfplotstablegetelem{2}{[index]1}\of{\myTableDataset}
+\pgfmathsetmacro{\valueTwoOne}{\pgfplotsretval}
+
+\pgfplotstablegetelem{2}{[index]2}\of{\myTableDataset}
+\pgfmathsetmacro{\valueTwoTwo}{\pgfplotsretval}
+
+\pgfplotstablegetelem{2}{[index]3}\of{\myTableDataset}
+\pgfmathsetmacro{\valueTwoThree}{\pgfplotsretval}
+
+\pgfplotstablegetelem{2}{[index]4}\of{\myTableDataset}
+\pgfmathsetmacro{\valueTwoFour}{\pgfplotsretval}
+%
+
+Let's make as example, the calculation in case the Mach number is $M=\SI[round-precision=2]{\valueTwoZero}{}$.
+We know that, being the speed of sound at altitude $h=\SI[round-precision=0]{\myAltitudeM}{m}$ equal to $a=\SI[round-precision=2]{\mySoundSpeed}{\meter/\second}$ ( calculated as in example~\ref{example:Characteristics:Of:The:Air:At:A:Certain:Altitude}
+we can obtain the flight speed as:
+\[
+V = M\cdot a =        \SI[round-precision=1]{\valueTwoZero}{} \cdot \SI[round-precision=2]{\mySoundSpeed}{\meter/\second} = \SI[round-precision=2]{\valueTwoTwo}{\meter/\second} = \SI[round-precision=2]{\valueTwoThree}{\km/\hour}
+\]
+Moreover we have a dynamic flight pressure
+\[
+\begin{split}
+\bar{q} = \frac{1}{2} \rho V^2 
+  & {}=
+  \num{0.5} \cdot \SI[round-precision=3]{\myDensityKGMC}{\kilogram\,\meter^{-3}}
+    \, (\SI[round-precision=2]{\valueTwoTwo}{\meter/\second}\big)^2
+\\
+  & {}=
+    { 
+      \SI[round-precision=3,scientific-notation=true]{\valueTwoTwo}{\newton\,\meter^{-2}}
+    }
+    = 
+    { 
+      \SI[round-precision=3,scientific-notation=true]{\valueTwoFour}{ bar } 
+    }
+\end{split}
+\]
+If we take an equilibrium flight, in which lift $L$ equals weight
+$W=mg$, we have a lift coefficient
+$C_L$ that is
+\[
+C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
+  = \frac{
+      \SI[round-precision=0]{\myMassKg}{\kilogram} \cdot \SI{9.81}{\meter\,\second^{-2}}
+    }{
+      \SI[round-precision=3,scientific-notation=true]{\valueTwoTwo}{\newton\,\meter^{-2}}
+      \cdot \SI[round-precision=1]{\myWingSurfaceMTSD}{\meter^2} 
+    }
+  = { \SI[round-precision=2]{\valueTwoOne}{} }
+\]
 
 \begin{table}[H]
     \centering
@@ -70,7 +120,6 @@ Based on the data of the previous example, at an altitude of $h=\SI[round-precis
 \medskip
 \begin{figure}
 \centering
-%
 %
 %====================================== code-for-tikzpicture
 %
@@ -159,9 +208,5 @@ Based on the data of the previous example, at an altitude of $h=\SI[round-precis
     \caption{Equilibrium flight values of $C_L$ at different Mach numbers, at the altitude $h=\SI[round-precision=0]{\myAltitudeM}{m}$, for an aircraft of mass $m=\SI[round-precision=0]{\myMassKg}{kg}$.}
     \label{fig:CL:at:Various:Mach}
 \end{figure}
-
-
-
 \end{myExampleX}
-
 \end{document}

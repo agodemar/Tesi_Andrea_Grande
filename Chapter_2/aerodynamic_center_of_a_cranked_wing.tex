@@ -4,31 +4,18 @@
 %
 \input{Chapter_2/aerodynamic_center_of_a_cranked_wing/data}
 %
-% \begin{figure}[t]%[H]%[!htbp]
-%   \centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.72\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Ala \emph{cranked} proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
-%           Sono evidenziati il pannello interno $ABB'A'$, il pannello esterno $BCC'B'$ e il pannello esterno esteso $DCC'D'$ 
-%           (\emph{constructed panel}) utilizzato per il calcolo del centro aerodinamico dell'ala.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels}%
-% \end{figure}
-% %
-% \begin{figure}[t]%[H]%[!htbp]
-%   %\centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_mac.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Corda media aerodinamica dell'ala proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:MAC}%
-% \end{figure}
+\begin{figure}[t]%[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.78\textwidth]{Chapter_2/aerodynamic_center_of_a_cranked_wing/wing_ac_cranked_1_drawing_mac.pdf}
+  \caption{\finalhyphendemerits=1000
+         Aerodynamic mean chord of the wing proposed in the example~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+  }
+  \label{fig:Wing:Aerodynamic:Center:Cranked:MAC}%
+\end{figure}
 %
-\begin{myExampleX}{Centro aerodinamico di un'ala cranked}{\ding{46}\ \myIconGraph\ }% \ \Keyboard\ %
+\begin{myExampleX}{Aerodynamic center of a cranked wing}{\ding{46}\ \myIconGraph\ }% \ \Keyboard\ %
 \label{example:Wing:Aerodynamic:Center:Cranked}
 %
 \noindent
@@ -40,7 +27,7 @@ figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels},and has the following ch
 \smallskip
 \noindent
 \adjustbox{center=\textwidth}{%
- \underline{\emph{Pannello 1} (inner panel)}
+ \underline{\emph{Panel 1} (inner panel)}
 }
 
 \smallskip
@@ -106,8 +93,8 @@ figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels},and has the following ch
       =\SI[round-precision=1]{\myAlphaZeroLiftRootWingIDEG}{\deg}$,\\
     $\alpha_{0\ell,\mathrm{t},1}=\SI[round-precision=3]{\myAlphaZeroLiftTipWingIRAD}{\radian}
       =\SI[round-precision=1]{\myAlphaZeroLiftTipWingIDEG}{\deg}$,\\
-    $\epsilon_{\mathrm{g,t},1}=\SI[round-precision=3]{\myTwistWingIRAD}{\radian}
-      =\SI[round-precision=1]{\myTwistWingIDEG}{\deg}$,
+    $\epsilon_{\mathrm{g,t},1}=\SI[round-precision=0]{\myTwistWingIRAD}{\radian}
+      =\SI[round-precision=0]{\myTwistWingIDEG}{\deg}$,
   }%
 }
 
@@ -245,19 +232,18 @@ figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels},and has the following ch
 }
 
 %-----------------------------------------------------------------------------------------------
-% \begin{figure}%
-%   [t]%[H]%[!htbp]
-%   %\centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.72\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Ala \emph{cranked} proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
-%           Sono evidenziati il pannello interno $ABB'A'$, il pannello esterno $BCC'B'$ e il pannello esterno esteso $DCC'D'$ 
-%           (\emph{constructed panel}) utilizzato per il calcolo del centro aerodinamico dell'ala.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels}%
-% \end{figure}%
+\begin{figure}[t]%[H]%[!htbp]
+  \centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.72\textwidth]{Chapter_2/aerodynamic_center_of_a_cranked_wing/wing_ac_cranked_1_drawing_panels.pdf}%
+  \caption{\finalhyphendemerits=1000
+          \emph{Cranked} wing proposed in the example~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+          The inner panel $ABB'A'$, the outer panel $BCC'B'$ and the extended outer panel $DCC'D'$ are highlight
+          (\emph{constructed panel}) used for the calculation of the aerodynamic center of the wing.
+  }
+  \label{fig:Wing:Aerodynamic:Center:Cranked:Panels}%
+\end{figure}%
 %-----------------------------------------------------------------------------------------------
 
 \bigskip
@@ -315,7 +301,7 @@ c(Y)=
 c_1(Y) = 
   \SI[round-precision=3]{\myCoeffAChordWingI}{} \, Y 
     + \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} 
-  & \text{per }
+  & \text{for}
     \makebox[3.5em][r]{$\SI[round-precision=0]{0}{\metre}$} 
       \le Y \le 
       \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
@@ -327,7 +313,7 @@ c_2(Y)
       - \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
     \big)
     + \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} 
-  & \text{per }
+  & \text{for }
     \makebox[3.5em][r]{%
       $\calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}$
     }% end-of-makebox
@@ -415,16 +401,16 @@ Y_{\bar{c}_1}
 \]
 along the wingspan.
 
-Analogamente, dalla figura~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels} si osservano
-i punti $B$, $C$, $C'$ e $B'$ che definiscono la porzione esterna dell'ala.
-Per il pannello esterno si ha un rapporto di rastremazione
+Similarly, from the figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels} are observed
+the points $B$, $C$, $C'$ and $B'$ which define the outer portion of the wing.
+For the outer panel there is a taper ratio
 \[
 \lambda_2
   =\frac{c_{\mathrm{t},2}}{c_{\mathrm{r},2}}
   =\frac{\SI[round-precision=2]{\myChordTipWingIIMT}{\metre}}{\SI[round-precision=2]{\myChordRootWingIIMT}{\metre}}
   =\mathunderline{mydarkblue}{ \SI[round-precision=2]{\myTaperRatioWingII}{} }
 \]
-una superficie
+a wing surface
 \[
 S_2 = \frac{b_2}{2} \, c_{\mathrm{r},2} \, \big( 1 + \lambda_2 \big)
   =
@@ -433,7 +419,7 @@ S_2 = \frac{b_2}{2} \, c_{\mathrm{r},2} \, \big( 1 + \lambda_2 \big)
       \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWingII}{} \big) 
     = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2} }
 \]
-e un allungamento
+and an aspect ratio
 \[
 \AR_2 
   = \frac{b_2^2}{S_2}
@@ -441,7 +427,7 @@ e un allungamento
   = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWingII} }
 \]
 
-Conseguentemente, si ha una corda media aerodinamica
+Consequently, we have a mean aerodynamic  chord
 \[
 \begin{split}
 \bar{c}_2 & {}= \frac{2}{3} \, c_{\mathrm{r},2} \, \frac{1+\lambda_2 + \lambda_2^2}{1+\lambda_2} \\
@@ -456,7 +442,7 @@ Conseguentemente, si ha una corda media aerodinamica
     = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingIIMT}{\metre} }
 \end{split}
 \]
-Il bordo d'attacco del profilo di corda $\bar{c}_2$ dista dunque
+The leading edge of the chord profile $\bar{c}_2$ is far
 \[
 \begin{split}
 X_{\mathrm{le},\bar{c}_2} - X_B
@@ -474,7 +460,7 @@ X_{\mathrm{le},\bar{c}_2} - X_B
     = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre} }
 \end{split}
 \]
-in senso longitudinale dal punto $B$. Pertanto
+longitudinally from the pointo $B$. Therefore
 \[
 \begin{split}
 X_{\mathrm{le},\bar{c}_2} & {}= X_B + \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre}
@@ -497,8 +483,8 @@ X_{\mathrm{le},\bar{c}_2} & {}= X_B + \SI[round-precision=2]{\myXMACLEToApexWing
     }
 \end{split}
 \]
-Conseguentemente, la stazione che individua lungo l'apertura il profilo del pannello
-esterno di corda $\bar{c}_2$ è
+Consequently, the station identifies the panel profile along the wingspan
+chord exterior $\bar{c}_2$ is
 \[
 \begin{split}
 Y_{\bar{c}_2} 
@@ -524,8 +510,8 @@ Y_{\bar{c}_2}
 \end{split}
 \]
 
-I calcoli precedenti permettono di determinare la corda media aerodinamica $\bar{c}$ dell'ala,
-che ha superficie totale
+The previous calculations allow to determine the mean aerodynamic chord $\bar{c}$ of the wing,
+which total surface area is
 \[
 S = S_1 + S_2
   = \SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2}
@@ -533,7 +519,7 @@ S = S_1 + S_2
       \SI[round-precision=1]{\myAreaWingCrankedMTsquared}{\metre^2}
     }
 \]
-e allungamento
+and aspect ratio
 \[
 \AR = \frac{b^2}{S} 
     = \frac{
@@ -545,16 +531,16 @@ e allungamento
       \SI[round-precision=2]{\myAspectRatioWingCranked}{}
     }
 \]
-Il valore di $\bar{c}$ è il seguente:
+The value of $\bar{c}$ is the following:
 \[
 \bar{c} = \frac{S_1 \, \bar{c}_1 + S_2 \, \bar{c}_2} {S_1 + S_2}
   =
   \frac{\SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2} \cdot \SI[round-precision=2]{\myMACWingIMT}{\metre} + \SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2} \cdot \SI[round-precision=2]{\myMACWingIIMT}{\metre}}{\SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2} + \SI[round-precision=1]{\myAreaWingIIMTsquared}{\metre^2}}
     = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingCrankedMT}{\metre} }
 \]
-Essendo in questo caso
+Being in this case
 $\bar{c} < c_{\mathrm{t},1}=\SI[round-precision=2]{\myMACWingIMT}{\metre}$,
-si determina la stazione
+the station is determined
 \[
   Y_{\bar{c}} 
     = \frac{\bar{c} - B_{c,1}}{A_{c,1}}
@@ -568,8 +554,8 @@ si determina la stazione
       \SI[round-precision=2]{\myYYMACWingCrankedMT}{\metre}
     }
 \]
-lungo l'apertura corrispondente al profilo di corda $\bar{c}$. Tale profilo
-ha bordo d'attacco di ascissa
+along the wingspan corresponding to the chord profile $\bar{c}$. This profile
+has leading edge of abscissa
 \[
 X_{\mathrm{le},\bar{c}} 
   % = \frac{\bar{c} - B_{c,1}}{A_{c,1}} \tan \Lambda_{\mathrm{le},1}
@@ -587,49 +573,33 @@ X_{\mathrm{le},\bar{c}}
 	\tan \big( \SI[round-precision=3]{\mySweepLEWingIRAD}{\radian} \big)
 	= \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXXMACLEToApexWingCrankedMT}{\metre} }
 \]
-
-%-----------------------------------------------------------------------------------------------
-% \begin{figure}
-%   {SCfigure}[1.9]%
-%   [t]%[H]%[!htbp]
-%   %\centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_mac.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Corda media aerodinamica dell'ala proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:MAC}%
-% \end{figure}%
-
-%-----------------------------------------------------------------------------------------------
-
-Nella figura~\ref{fig:Wing:Aerodynamic:Center:Cranked:MAC}
-è riportato il disegno della forma in pianta assegnata dove sono indicate le corde $\bar{c}_1$, $\bar{c}_2$ e $\bar{c}$
-e le distanze $X_{\mathrm{le},\bar{c}}$ ed $Y_{\bar{c}}$.
+% 
+In the figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:MAC}
+the drawing of the assigned planform is shown where the chords are indicated $\bar{c}_1$, $\bar{c}_2$ e $\bar{c}$
+and the distances $X_{\mathrm{le},\bar{c}}$ and $Y_{\bar{c}}$.
 
 \medskip
-A questo punto si procede al calcolo del centro aerodinamico dell'ala assegnata.
-Il metodo grafico utilizzato nell'esempio~\ref{example:Wing:Aerodynamic:Center:A}
-per la determinazione del centro aerodinamico di un'ala a bordi dritti
-può essere applicato qui a ciascuno dei due pannelli alari.
-A differenza del caso di un'ala semplice, per un'ala \emph{cranked} bisogna ricavare 
-un pannello 
-esterno \emph{esteso} --- detto \emph{constructed outer panel} --- come mostrato nelle 
-figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels}
-e~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}. 
-Esso si costruisce prolungando i bordi d'attacco
-e d'uscita del pannello~2 verso l'interno,
-partendo, rispettivamente, dai punti $B$ e $B'$, fino a incontrare nei punti $D$ e $D'$ la retta parallela 
-all'asse $X$ di equazione $Y=\frac{1}{4}b_1$.
-Pertanto, nei calcoli che seguono si considera il pannello interno
-$\mathcal{P}_1=ABB'A'$ e,
-al posto del pannello $\mathcal{P}_2=BCC'B$,
-il pannello esterno esteso $\mathcal{P}_{2'}=DCC'D'$.
+At this point the aerodynamic center of the assigned wing is calculated.
+The graphical method used in the example~\ref{example:Wing:Aerodynamic:Center:Of:A:Finite:Wing}
+for determining the aerodynamic center of a straight-edged wing
+can be applied here to each of the two wing panels.
+Unlike the case of a simple wing, for a wing \emph{cranked} we have to derive
+an external panel  \emph{extended} --- said \emph{constructed outer panel} --- as shown in
+figures~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels}
+and~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}. 
+It is given by extending the leading and trailing edges
+of panel~2 towards the inside,
+starting, respectively, from the points $B$ and $B'$, until we get to the points $D$ and $D'$ the parallel line
+to the axis $X$ of equation $Y=\frac{1}{4}b_1$.
+Therefore, the inner panel is considered in the following calculations
+$\mathcal{P}_1=ABB'A'$ annd,
+instead of the panel $\mathcal{P}_2=BCC'B$,
+the extended outer panel $\mathcal{P}_{2'}=DCC'D'$.
 
-Per quanto riguarda il pannello interno $\mathcal{P}_{1}$,
-dai dati e dalla figura~\ref{fig:Wing:Ac:K:One:Plots}
-si legge
+As for the inner panel $\mathcal{P}_{1}$,
+from the data and the figure
+~\ref{fig:Wing:Ac:K:One:Plots}
+we can see
 \[
 \lambda_1=\SI[round-precision=2]{\myTaperRatioWingI}{}
 %
@@ -642,8 +612,8 @@ si legge
 K_{1,\mathcal{P}_{1}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKOneACDatcomWingI}{} }
 \]
-dalla figura~\ref{fig:Wing:Ac:K:Two:Plots}
-si legge
+from the figure~\ref{fig:Wing:Ac:K:Two:Plots}
+we can see
 \[
 \Lambda_\mathrm{le,1} = \SI[round-precision=1]{\mySweepLEWingIDEG}{\deg}\;,\;\,
 \AR_1 = \SI[round-precision=1]{\myAspectRatioWingI}{}\;,\;\,
@@ -657,8 +627,8 @@ si legge
 K_{2,\mathcal{P}_{1}} 
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKTwoACDatcomWingI}{} }
 \]
-dalla figura~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
-si legge
+from the figure~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
+we obtain
 \[
 \Lambda_\mathrm{le,1} = \SI[round-precision=1]{\mySweepLEWingIDEG}{\deg}\;,\;\,
 \Mach = \SI[round-precision=2]{\myMach}{}\;,\;\,
@@ -676,7 +646,7 @@ si legge
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWingI}{} }
 \]
 %
-Si ottiene dunque
+It is thus obtained
 \[
 \left.
 \frac{x_{\mathrm{ac}}}{\bar{c}}\right|_{\mathcal{P}_{1}} 
@@ -694,24 +664,23 @@ Si ottiene dunque
 \]
 
 %-----------------------------------------------------------------------------------------------
-% \begin{figure}
-%   {SCfigure}[1.9]%
-%   [t]%[H]%[!htbp]
-%   %\centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels_ac.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Centri aerodinamici dei pannelli 
-%           $\mathcal{P}_1=ABB'A'$ e $\mathcal{P}_{2'}=DCC'D'$.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}%
-% \end{figure}
+\begin{figure}
+  [t]%[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.78\textwidth]{Chapter_2/aerodynamic_center_of_a_cranked_wing/wing_ac_cranked_1_drawing_panels_ac}
+  \caption{\finalhyphendemerits=1000
+          Aerodynamic centers of the panels
+          $\mathcal{P}_1=ABB'A'$ and $\mathcal{P}_{2'}=DCC'D'$.
+  }
+  \label{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}%
+\end{figure}
 
 %-----------------------------------------------------------------------------------------------
 
-Per quanto riguarda il pannello interno $\mathcal{P}_{2'}$,
-si ricava
+As for the inner panel $\mathcal{P}_{2'}$,
+we get
 \[
 b_{2'} = 2 \left( \frac{1}{2}b_2 + \frac{1}{4}b_1 \right)
   =
@@ -756,8 +725,8 @@ S_{2'}
 \]
 
 
-Dai dati e dalla figura~\ref{fig:Wing:Ac:K:One:Plots}
-si legge
+From the data and the figure~\ref{fig:Wing:Ac:K:One:Plots}
+we can see
 \[
 \lambda_{2'}=\SI[round-precision=2]{\myTaperRatioWingIIPrime}{}
 %
@@ -770,8 +739,8 @@ si legge
 K_{1,\mathcal{P}_{2'}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKOneACDatcomWingII}{} }
 \]
-dalla figura~\ref{fig:Wing:Ac:K:Two:Plots}
-si legge
+from figure~\ref{fig:Wing:Ac:K:Two:Plots}
+we can obtain
 \[
 \Lambda_\mathrm{le,2} = \SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}\;,\;\,
 \AR_{2'} = \SI[round-precision=1]{\myAspectRatioWingIIPrime}{}\;,\;\,
@@ -785,8 +754,8 @@ si legge
 K_{2,\mathcal{P}_{2'}} 
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKTwoACDatcomWingII}{} }
 \]
-dalla figura~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
-si legge
+from figure~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
+we can see
 \[
 \Lambda_\mathrm{le,2} = \SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}\;,\;\,
 \Mach = \SI[round-precision=2]{\myMach}{}\;,\;\,
@@ -804,7 +773,7 @@ si legge
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWingII}{} }
 \]
 
-A questo punto può calcolarsi la quantità
+At this point we can calculate the quantity
 \[
 \frac{X_{\mathrm{ac}}}{c_\mathrm{r}}
   = \frac{
@@ -814,14 +783,13 @@ A questo punto può calcolarsi la quantità
     \left.\dfrac{X'_{\mathrm{ac}}}{c_\mathrm{r}}\right|_{\mathcal{P}_{2'}}
       \, S_{2'} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}}
   }{
-    S_{1} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}} 
+    S_{1} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}} 
     + S_{2'} \, C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}} 
   }
 \]
-dopo aver determinato per ciascun pannello il gradiente del coefficiente 
-di portanza.
-Per le caratteristiche geometriche dei pannelli $\mathcal{P}_{1}$ e 
-$\mathcal{P}_{2'}$ si possono stimare i due gradienti come segue:
+after determining the gradient of the lift coefficient for each panel.
+For the geometric characteristics of the panels $\mathcal{P}_{1}$ and
+$\mathcal{P}_{2'}$ the two gradients can be estimated as follows:
 \[
 C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}}
   =
@@ -850,7 +818,7 @@ C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}}
     \dfrac{ a_0 \cos \Lambda_{\mathrm{le,2}} }{ \pi \AR_{2'}}
   }
 \]
-con
+with
 \[
 a_0 = 
   \frac{
@@ -860,7 +828,7 @@ a_0 =
   }
   \qquad (\, \Lambda_{\mathrm{le,1}} = \Lambda_{\mathrm{le,2}} \,)
 \]
-Dai dati del problema è facile verificare che si ha
+From the data of the problem it is easy to verify that we have
 \[
 C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}}
   = \SI[round-precision=3]{\myCLAlphaPolhamusWingIRAD}{\radian^{-1}}
@@ -871,7 +839,7 @@ C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{2'}}
   = \SI[round-precision=3]{\myCLAlphaPolhamusWingIIRAD}{\radian^{-1}}
   = \SI[round-precision=4]{\myCLAlphaPolhamusWingIIDEG}{\deg^{-1}}
 \]
-Pertanto, si ricava
+Therefore, it is obtained
 \[
 \frac{X_{\mathrm{ac}}}{c_\mathrm{r}}
   = \frac{
@@ -893,15 +861,15 @@ Pertanto, si ricava
   \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{} }
 \]
 
-Per un'ala \emph{cranked} questo è il risultato determinante, che permette di
-ottenere
+For a \emph{cranked} wing this is the decisive result, which allows
+obtain
 \[
 X_{\mathrm{ac}} = \frac{X_{\mathrm{ac}}}{c_\mathrm{r}} \, c_{\mathrm{r},1}
   = \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{}
     \cdot \SI[round-precision=2]{\myChordRootWingIMT}{\metre}
   = \SI[round-precision=2]{\myACWingToApexWingMT}{\metre} 
 \]
-cioè
+i.e.
 \[
 \frac{x_{\mathrm{ac}}}{\bar{c}}
   = 
@@ -921,40 +889,23 @@ cioè
   \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXsiACWing}{} }  
 \]
 
-Il centro aerodinamico di coordinate $(X_\mathrm{ac},0)$
-è rappresentato nella figura~\ref{fig:Wing:Aerodynamic:Center:Cranked:Results}.
+The aerodynamic center of coordinates $(X_\mathrm{ac},0)$
+is represented in the figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Results}.
 
 %-----------------------------------------------------------------------------------------------
-% \begin{figure}[t]%[H]%[!htbp]
-%   %\centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing_panels_ac.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Centri aerodinamici dei pannelli 
-%           $\mathcal{P}_1=ABB'A'$ e $\mathcal{P}_{2'}=DCC'D'$.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels:AC}%
-% \end{figure}
-%-----------------------------------------------------------------------------------------------
-% \begin{figure}[t]%[H]%[!htbp]
-%   %\centering
-%   %\checkoddpage
-%   %\centering
-%     \includegraphics[width=0.78\textwidth]{exercises/wing_ac_cranked_1/wing_ac_cranked_1_drawing.pdf}%
-%   \caption{\finalhyphendemerits=1000
-%           Centro aerodinamico dell'ala proposta nell'esempio~\ref{example:Wing:Aerodynamic:Center:Cranked}. L'asse tratteggiato,
-%           parallelo all'asse $Y$ e passante per il centro aerodinamico alare
-%           è l'asse di beccheggio intorno al quale il coefficiente di momento
-%           dell'ala è costante al variare dell'angolo d'attacco della corrente:
-%           \smash{$\partial C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}/\partial\alpha = 0$}.
-%   }
-%   \label{fig:Wing:Aerodynamic:Center:Cranked:Results}%
-% \end{figure}
-
+\begin{figure}[t]%[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.78\textwidth]{Chapter_2/aerodynamic_center_of_a_cranked_wing/wing_ac_cranked_1_drawing.pdf}
+  \caption{\finalhyphendemerits=1000
+         Aerodynamic center of the wing proposed in the example~\ref{example:Wing:Aerodynamic:Center:Cranked}. The dashed axis,
+           parallel to the axis $Y$and passing through the wing aerodynamic center
+           is the pitch axis around which the moment coefficient
+           of the wing is constant as the angle of attack of the flow varies:
+          \smash{$\partial C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}/\partial\alpha = 0$}.
+  }
+  \label{fig:Wing:Aerodynamic:Center:Cranked:Results}%
+\end{figure}
 \end{myExampleX}
-
-
-
-
 \end{document}

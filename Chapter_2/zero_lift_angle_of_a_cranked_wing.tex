@@ -98,7 +98,7 @@ c_1(Y) =
   %% ZERO -> \SI[round-precision=3]{\myCoeffAChordWingI}{} \, Y 
     % + 
     \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} 
-  & \text{per }
+  & \text{for }
     \makebox[3.5em][r]{$\SI[round-precision=0]{0}{\metre}$} 
       \le Y \le 
       \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
@@ -110,7 +110,7 @@ c_2(Y)
       - \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
     \big)
     + \SI[round-precision=2]{\myCoeffBChordWingIIMT}{\metre} 
-  & \text{per }
+  & \text{for}
     \makebox[3.5em][r]{%
       $\calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}$
     }% end-of-makebox
@@ -127,9 +127,9 @@ The law of section zero lift angles is the following piecewise linear function:
 \begin{cases}
 %\left\{
 %\begin{array}{cl}
-\alpha_{0\ell,1}(Y) = A_{\alpha,1} \, Y + B_{\alpha,1} & \text{per }\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
+\alpha_{0\ell,1}(Y) = A_{\alpha,1} \, Y + B_{\alpha,1} & \text{for}\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
 \\[4pt]
-\alpha_{0\ell,2}(Y) = A_{\alpha,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{\alpha,2} & \text{per }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
+\alpha_{0\ell,2}(Y) = A_{\alpha,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{\alpha,2} & \text{for }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
 %\end{array}
 %\right.
 \end{cases}
@@ -179,7 +179,7 @@ So
   %% ZERO -> \SI[round-precision=3]{\myCoeffAAeroTwistWingIRADMT}{\radian/\metre} \, Y 
     % + 
     \SI[round-precision=0]{\myCoeffBAeroTwistWingIRAD}{\radian} 
-  & \text{per }
+  & \text{for }
     \makebox[3.5em][r]{$\SI[round-precision=0]{0}{\metre}$} 
       \le Y \le 
       \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}
@@ -197,7 +197,7 @@ So
     \hfill
     \SI[round-precision=0]{\myCoeffBAeroTwistWingIIRAD}{\radian}
 %
-  & \text{per }
+  & \text{for }
     \makebox[3.5em][r]{%
       $\calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}$
     }% end-of-makebox
@@ -214,9 +214,9 @@ Finally, the law of geometric section twist angles is the following piecewise li
 \begin{cases}
 %\left\{
 %\begin{array}{cl}
-\epsilon_{\mathrm{g},1}(Y) = A_{\epsilon,1} \, Y + B_{\epsilon,1} & \text{per }\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
+\epsilon_{\mathrm{g},1}(Y) = A_{\epsilon,1} \, Y + B_{\epsilon,1} & \text{for}\makebox[3em][r]{$0$}     \le Y \le \frac{1}{2}b_1
 \\[4pt]
-\epsilon_{\mathrm{g},2}(Y) = A_{\epsilon,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{\epsilon,2} & \text{per }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
+\epsilon_{\mathrm{g},2}(Y) = A_{\epsilon,2} \, \bigg(Y-\dfrac{b_1}{2}\bigg) + B_{\epsilon,2} & \text{for }\makebox[3em][r]{$\frac{1}{2}b_1$}< Y \le \frac{1}{2}b
 %\end{array}
 %\right.
 \end{cases}
@@ -497,7 +497,7 @@ Finally, the zero lift angle of the assigned wing is
   %\centering
     \includegraphics[width=0.78\textwidth]{Chapter_2/zero_lift_angle_of_a_cranked_wing/wing_alpha_zero_lift_1A_drawing.pdf}
   \caption{\finalhyphendemerits=1000
-           Planform of the cranked wing assigned in the example~\ref{example:Zero:Lift:Angle:Of:A:Cranked:Wing}.The linear laws of the chords, of the zero lift angle of section and geometric twist angle are also reported
+           Planform of the cranked wing assigned in the example~\ref{example:Zero:Lift:Angle:Of:A:Cranked:Wing}. The linear laws of the chords, of the zero lift angle of section and geometric twist angle are also reported
  }
   \label{fig:Zero:Lift:Cranked}%
 \end{figure}

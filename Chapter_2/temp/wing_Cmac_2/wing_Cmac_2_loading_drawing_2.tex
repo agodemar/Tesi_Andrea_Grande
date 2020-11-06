@@ -1,0 +1,203 @@
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+
+\documentclass[tikz]{standalone}
+
+\standaloneconfig{border=0mm 0cm 0cm 0cm} % left bottom right top
+
+\usepackage{_my_basic_document_style}
+
+\usepackage{tikz}
+  \usetikzlibrary{calc}
+  %\usetikzlibrary{fpu}
+  \usetikzlibrary{intersections}
+  \usetikzlibrary{positioning}
+  \usetikzlibrary{trees}
+  \usetikzlibrary{arrows}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+% \pgfkeys{
+%   /pgf/number format/.cd,
+%       use comma
+% }
+\pgfplotsset{
+  compat=newest,
+  every axis/.append style={
+      semithick,% thick
+      tick style={semithick}
+  },
+  every axis title/.append style={
+      font=\relsize{0}
+  },
+  every axis legend/.append style={
+      cells={anchor=west},%
+      fill=gray!10,
+      font=\relsize{0},
+      at={(0.03,0.97)},
+      anchor=north west,thin,draw=none
+  }
+}
+
+\begin{document}
+
+%------------------------------------------------------------------------------------------
+% RESULTS PRODUCED BY MATHCAD/MATLAB
+
+\input{data.tex}
+
+\begin{tikzpicture}[scale=1.5]
+
+\pgfmathsetmacro{\XAxisMin}{0}
+\pgfmathsetmacro{\XAxisMax}{1.1*(\mySpanWingMT/2)}
+\pgfmathsetmacro{\YAxisMin}{0}
+\pgfmathsetmacro{\YAxisMax}{3.3*((\mySpanWingMT/2)*tan(\mySweepLEWingDEG) + \myChordTipWingMT)}
+
+\begin{axis}[
+   yshift=-7.5cm,%-- CF
+   % limits
+   %xmin=\XAxisMin, xmax=\XAxisMax,
+   xmin=-0.5, xmax=8.7,
+   ymin=-0.22, ymax=0.29,
+   height=5cm,
+   width=8.44cm,
+   % special settings for axes
+   %axis equal image,
+   %y dir=reverse,
+   axis x line=bottom,
+   every axis x label/.append style={
+      font=\relsize{-1},
+      rotate=0, % -90,
+      xshift=-0.0em,yshift=0.0em
+   },
+   xlabel={$Y$ ($\si{m}$)},
+   x tick label style={
+      font=\relsize{-1},
+      /pgf/number format/.cd,
+         fixed,
+         fixed zerofill,
+         precision=0,
+      /tikz/.cd,
+   },
+   xtick={-8,-6,...,8},
+   %hide x axis,
+   %axis y line=left,
+   axis y line=left,
+   % y-axis line style
+   y tick label style={
+      font=\relsize{-1},
+      /pgf/number format/.cd,
+         fixed,
+         fixed zerofill,
+         precision=1,
+      /tikz/.cd,
+   },
+   % x-axis label and style
+   ylabel={($\si{m}$)},
+   every axis y label/.append style={
+      font=\relsize{-1},
+      rotate=0, % -90,
+      xshift=0.0em,yshift=-0.5em
+   },
+   %ytick={-3,-2,-1,0},
+   % x-/y-tick settings
+   minor x tick num = 1,
+   minor y tick num = 1,
+   %clip limits=true,
+   %enlarge x limits=3,
+   clip=false
+   ]
+
+\pgfmathsetmacro{\xT}{\mySpanWingMT/2}
+\pgfmathsetmacro{\yT}{\myTwistWingDEG}
+%\pgfmathsetmacro{\yRA}{\myAlphaZeroLiftRootWingDEG}
+%\pgfmathsetmacro{\yTA}{\myAlphaZeroLiftTipWingDEG}
+
+%\draw [gray, dash pattern=on 3pt off 1pt] (axis cs: \xT,0) -- ($(axis cs: \xT,0) + (axis cs: 0,0.70)$);
+\draw [thin,-,>=stealth,dash pattern=on 10pt off 0.5pt] 
+  (axis cs: -0.2,0) 
+  %($(axis cs: 0,0)!1.10!(axis cs: -\xT,0)$)
+  -- ($(axis cs: 0,0)!1.02!(axis cs: \xT,0)$);
+
+%\draw [thin,-,>=stealth,dash pattern=on 10pt off 0.5pt] (axis cs: 0,-0.5) -- (axis cs: 0,0.3);
+
+\addplot [
+   mydarkblue!50!red, semithick, %line width=3pt,
+   dash pattern=on 12pt off 2pt,
+   mark=,mark options={fill=mydarkblue,scale=0.5},
+   ]
+   table [x index=0, y index=6, col sep=comma,skip first n={20}] {data_loading_1.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.15,
+      pin={
+         [
+            gray,
+            pin distance=0.65cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         60%-80% angle
+         :{\relsize{-1}$\big(cC_\ell\big)_\mathrm{b,Schrenk}\big(Y\big)$}% label
+      }
+   ] {}
+;
+
+\addplot [
+   red!40!black, thick, %line width=3pt,
+   %dash pattern=on 3pt off 2pt,
+   mark=*,mark options={fill=mydarkblue,scale=0.4},
+   ]
+   table [x index=0, y index=4, col sep=comma,skip first n={20}] {data_loading_1.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.62,
+      pin={
+         [
+            gray,
+            pin distance=0.10cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         -110%-80% angle
+         :{\relsize{-1}$\big(cC_\ell\big)_\mathrm{b}\big(Y\big)$}% label
+      }
+   ] {}
+;
+
+\addplot [
+   green!40!black, semithick, %line width=3pt,
+   %dash pattern=on 3pt off 2pt,
+   mark=,mark options={fill=mydarkblue,scale=0.5},
+   ]
+   table [x index=0, y index=1, col sep=comma,skip first n={20}] {data_loading_2.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.85,
+      pin={
+         [
+            gray,
+            pin distance=0.15cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         120%-80% angle
+         :{\relsize{-1}$x_\mathrm{b}\big(Y\big)$}% label  x_1
+      }
+   ] {}
+;
+\end{axis}
+
+
+\end{tikzpicture}
+
+\end{document}

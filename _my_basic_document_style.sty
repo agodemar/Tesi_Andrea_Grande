@@ -3,6 +3,9 @@
 % packages and related macros
 \ProvidesPackage{_my_basic_document_style}
 
+\usepackage[subpreambles=false]{standalone}
+\usepackage{import}
+
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
@@ -38,7 +41,7 @@
 \usepackage{graphicx}
 
 \usepackage[%
-    %dvipsnames, % svgnames
+    %usenames,dvipsnames, % svgnames
     ]%
     {xcolor}% before tikz
 
@@ -60,7 +63,7 @@
   load=derived,
   unitsep=thin,
   valuesep=thin,
-  decimalsymbol=comma,
+  decimalsymbol={.},
   expproduct=cdot,
   % digitsep=thin,
   group-separator={},% ver. 2
@@ -106,5 +109,9 @@
 \setstretch{\mynormalstretch}
 
 \usepackage[most]{tcolorbox}% after listings package to avoid clash
+
+% MY LOCAL, USER-DEFINED MACROS
+\import{_style/}{_my_local_macros}
+
 
 %% EOF

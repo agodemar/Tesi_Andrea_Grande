@@ -1,0 +1,120 @@
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+
+\documentclass[crop=true]{standalone}
+
+\standaloneconfig{border=0mm 0cm 0cm 0cm} % left bottom right top
+
+\usepackage{_my_basic_document_style}
+
+\usepackage{tikz}
+  \usetikzlibrary{calc}
+  %\usetikzlibrary{fpu}
+  \usetikzlibrary{intersections}
+  \usetikzlibrary{positioning}
+  \usetikzlibrary{trees}
+  \usetikzlibrary{arrows}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+% \pgfkeys{
+%   /pgf/number format/.cd,
+%       use comma
+% }
+\pgfplotsset{
+  compat=newest,
+  every axis/.append style={
+      semithick,% thick
+      tick style={semithick}
+  },
+  every axis title/.append style={
+      font=\relsize{0}
+  },
+  every axis legend/.append style={
+      cells={anchor=west},%
+      fill=gray!10,
+      font=\relsize{0},
+      at={(0.03,0.97)},
+      anchor=north west,thin,draw=none
+  }
+}
+
+\usepackage{booktabs,colortbl}
+
+\begin{document}
+%
+% RESULTS PRODUCED BY MATHCAD/MATLAB
+%
+\input{data.tex}
+%
+\pgfplotstableset{
+  col sep=comma, skip first n={20},
+}
+%
+%% http://tex.stackexchange.com/questions/10284/multiple-files-input-to-one-pgfplotstable
+\pgfplotstableread{data_loading_1.csv}\myDataLoading
+%
+% read another table file
+\pgfplotstableread{data_loading_2.csv}\dataB
+%
+% add columns to the first table
+\pgfplotstablecreatecol[copy column from table={\dataB}{[index] 1}] {7} {\myDataLoading}
+\pgfplotstablecreatecol[copy column from table={\dataB}{[index] 2}] {8} {\myDataLoading}
+\pgfplotstablecreatecol[copy column from table={\dataB}{[index] 3}] {9} {\myDataLoading}
+%
+\pgfplotstabletypeset[
+  every even row/.style={
+    before row={\rowcolor[gray]{0.9}}
+  },
+  every head row/.style={
+    before row=\toprule,
+    %after row=\midrule
+    after row={
+      \rule{0pt}{1.1em}
+      (\si{m}) & (\si{m}) & (\si{m}) & (\si{m}) & (\si{m}) & (\si{m}) & (\si{m^2}) & (\si{m^2})\\
+      \midrule
+    }
+  },
+  every last row/.style={
+    after row=\bottomrule
+  },
+  col sep=comma, skip first n={20},
+  header=false,
+  columns/0/.style={column type=|c,column name=$Y$},
+  columns={0,3,5,4,6,7,8,9},
+  columns/0/.style={
+    column name=$Y$,
+    fixed, precision=2,zerofill
+  },
+  columns/3/.style={
+    column name=$\big(cC_\ell\big)_\mathrm{a1}$,
+    fixed, precision=3,zerofill
+  },
+  columns/4/.style={
+    column name=$\big(cC_\ell\big)_\mathrm{b}$,
+    fixed, precision=4,zerofill
+  },
+  columns/5/.style={
+    column name=$\big(cC_\ell\big)_\mathrm{a1,Schrenk}$,
+    fixed, precision=4,zerofill
+  },
+  columns/6/.style={
+    column name=$\big(cC_\ell\big)_\mathrm{b,Schrenk}$,
+    fixed, precision=4,zerofill
+  },
+  columns/7/.style={
+    column name=$x_\mathrm{b}$,
+    fixed, precision=4,zerofill
+  },
+  columns/8/.style={
+    column name=$\big(cC_\ell\big)_\mathrm{b} x_\mathrm{b}$,
+    fixed, precision=4,zerofill
+  },
+  columns/9/.style={
+    column name=$\big(cC_\ell\big)_\mathrm{b,Schrenk} x_\mathrm{b}$,
+    fixed, precision=4,zerofill
+  },
+]
+\myDataLoading
+%
+\end{document}

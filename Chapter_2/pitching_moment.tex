@@ -23,7 +23,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
-    $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$,
+    $c_\mathrm{t}=\SI[round-precision=0]{\myChordTipWingMT}{\metre}$,
     $\lambda = \SI[round-precision=2]{\myTaperRatioWing}{}$,
   }%
 }
@@ -35,8 +35,8 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
     \emph{apertura e superficie}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
-    $b=\SI[round-precision=2]{\mySpanWingMT}{\metre}$,
-    $S=\SI[round-precision=2]{\myAreaWingMTsquared}{\meter^2}$,
+    $b=\SI[round-precision=0]{\mySpanWingMT}{\metre}$,
+    $S=\SI[round-precision=0]{\myAreaWingMTsquared}{\meter^2}$,
     $\AR = \SI[round-precision=2]{\myAspectRatioWing}{}$,
   }%
 }
@@ -84,7 +84,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{coefficienti $C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}$ di profilo}:
+    \emph{coefficienti $C_{m_\mathlarger{\mathrm{ac}}}$ di profilo}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{r}}=\SI[round-precision=3]{\myCmZeroRootWing}{}$,
@@ -115,7 +115,7 @@ fuochi delle sezioni alari --- si calcola come segue:
 \Lambda_{c/4}
    = \tan\Lambda_\mathrm{le}-\dfrac{(4/4)(1-\lambda)}{\AR(1+\lambda)}
    & {}=
-    \tan (\SI[round-precision=3]{\mySweepLEWingRAD}{\radian})
+    \tan (\SI[round-precision=0]{\mySweepLEWingRAD}{\radian})
       - \dfrac{
          \num[round-precision=2]{1.0}
          \cdot (1-\SI[round-precision=2]{\myTaperRatioWing}{})
@@ -169,7 +169,7 @@ Y_{\bar{c}}
 
 
 Per il numero di Mach di volo assegnato
-il centro aerodinamico dell'ala si calcola come nell'esempio~\ref{example:Wing:Aerodynamic:Center:A}.
+il centro aerodinamico dell'ala si calcola come nell'esempio~\ref{example:Wing:Aerodynamic:Center:Of:A:Finite:Wing}.
 Dai dati e dalla figura~\ref{fig:Wing:Ac:K:One:Plots}
 si legge
 \[
@@ -224,7 +224,7 @@ Si ottiene dunque
   = \SI[round-precision=3]{\myKOneACDatcomWing}{} \,
     \Big(  
       \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{} 
-        - \SI[round-precision=3]{\myKTwoACDatcomWing}{}  
+        - \SI[round-precision=0]{\myKTwoACDatcomWing}{}  
     \Big)
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXsiACWing}{} } 
 \]
@@ -236,10 +236,10 @@ X_\mathrm{ac}
   =
     X_{\mathrm{le},\bar{c}} + \left( \frac{x_{\mathrm{ac}}}{\bar{c}} \right) \bar{c}
 =
-    \SI[round-precision=2]{\myXMACLEToApexWingMT}{\metre}
+    \SI[round-precision=0]{\myXMACLEToApexWingMT}{\metre}
       + \SI[round-precision=3]{\myXsiACWing}{}
         \cdot \SI[round-precision=2]{\myMACWingMT}{\metre}
-      = \SI[round-precision=2]{\myXMACLEToApexWingMT}{\metre}
+      = \SI[round-precision=0]{\myXMACLEToApexWingMT}{\metre}
         % + \calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{\myXsiACWing*\myMACWingMT}{\metre}
         + \SI[round-precision=2]{\myACWingToMACLEWingMT}{\metre} 
     = \mathunderline{mydarkblue}{ 
@@ -334,7 +334,7 @@ Questi contributi vengono integrati lungo l'apertura alare e adimensionalizzati 
 per $\bar{q}_\infty S \bar{c}$.
 
 Per quanto riguarda il termine $C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}$,
-procedendo come mostrato nell'esempio~\ref{example:Wing:Alpha:Zero:Lift:A}
+procedendo come mostrato nell'esempio~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
 si ricava
 \[
 c \big( Y \big) = A_c \, Y + B_c
@@ -407,8 +407,8 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}
         scientific-notation=fixed % engineering % 
         ]{\myCoeffCWing}{}\, Y^2
       \SI[round-mode=figures,round-precision=3,
-        %fixed-exponent=-4,
-        %scientific-notation=fixed
+        fixed-exponent=-4,
+        scientific-notation=fixed
         ]{\myCoeffDWing}{\metre^{-1}}\, Y^3
     \Big)
     \, \diff{Y}
@@ -455,7 +455,7 @@ In prima approssimazione si può porre
 $C_{\ell_\mathlarger{\alpha}} (Y)=2\pi$; in alternativa si ricava la seguente legge lineare:
 \smash{$C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}$}.
 
-Procedendo come mostrato nell'esempio~\ref{example:Wing:Alpha:Zero:Lift:A}
+Procedendo come mostrato nell'esempio~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
 si ricava
 %\[
 %c \big( Y \big) = A_c \, Y + B_c
@@ -508,11 +508,12 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}
   \frac{2}{S\,\bar{c}} \int_0^{b/2} \big(cC_{\ell}\big)_\mathrm{b}(Y) \; x_\mathrm{b}(Y)\, \diff{Y}
 \\[1pt]
   & {}=
-  \frac{1}{S\,\bar{c}} \int_0^{b/2}
+  \frac{1}{S\,\bar{c}} \int_0^{b/2} \;\;
 % \big(cC_{\ell}\big)_\mathrm{b}(Y)
 %\cancel{2}\;
 \overbrace{% needs mtp2pro
 %\frac{1}{\cancel{2}}
+\rule{0pt}{2em}
 c(Y) \, C_{\ell_\mathlarger{\alpha}}(Y) \,
     \bigg\{ \alpha_{0L} - \Big[ \alpha_{0\ell}\big(Y\big) - \epsilon_\mathrm{g}\big(Y\big) \Big] \bigg\}
 }^{ \mathlarger{ \big(cC_{\ell}\big)_\mathrm{b}(Y) } }
@@ -541,7 +542,7 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}
     % c(Y) 
     \Big( A_c Y + B_c \Big)
     \, 
-    \overcbrace{% needs mtp2pro
+    \overbrace{% needs mtp2pro
       \Big( A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}} \Big)
     }^{ \mathlarger{\approx 2\pi} }
     \bigg\{ \alpha_{0L} 
@@ -575,13 +576,13 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}
         %scientific-notation=fixed
         ]{\myCoeffFWing}{\metre}\, Y
       \SI[round-mode=figures,round-precision=3,
-        %fixed-exponent=-4,
-        %scientific-notation=fixed % engineering % 
+        fixed-exponent=-4,
+        scientific-notation=fixed % engineering % 
         ]{\myCoeffGWing}{}\, Y^2
       +
       \SI[round-mode=figures,round-precision=3,
-        %fixed-exponent=-4,
-        %scientific-notation=fixed
+        fixed-exponent=-4,
+        scientific-notation=fixed
         ]{\myCoeffHWing}{\metre^{-1}}\, Y^3
     \Big)
     \, \diff{Y}
@@ -644,30 +645,34 @@ Infine sono rappresentate la funzione $x_\mathrm{b}(Y)$ e la legge approssimata 
         ]{\myCoeffJWing}{}\, Y
       +
       \SI[round-mode=figures,round-precision=3,
-        %fixed-exponent=-4,
-        %scientific-notation=fixed % engineering % 
+        fixed-exponent=-4,
+        scientific-notation=fixed % engineering % 
         ]{\myCoeffKWing}{\metre^{-1}}\, Y^2
       % +
       \SI[round-mode=figures,round-precision=3,
-        %fixed-exponent=-4,
-        %scientific-notation=fixed
+        fixed-exponent=-4,
+        scientific-notation=fixed
         ]{\myCoeffLWing}{\metre^{-2}}\, Y^3
 \end{split}
 \]
 
 \end{myExampleX}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\end{document}
+\EnlargedFigureX% needs two latex passes
+  {p}% #1: t, b, p
+  {%
+    \makebox[\textwidth][c]{%
+      \includegraphics[width=0.90\textwidth]{Chapter_2/pitching_moment/wing_Cmac_1_loading_drawing.pdf}%
+    }% end-of-makebox
+    \vspace{0.3cm}
+  }% #2: the image file included by \includegraphics
+  {\finalhyphendemerits=1000
+    Ala assegnata nell'esempio~\ref{example:Wing:Cmac:A}.
+    Legge dello svergolamento geometrico $\epsilon_\mathrm{g}(y)$ e dello svergolamento
+    aerodinamico $\alpha_{0\ell}(Y)$.
+    Diagrammi del carico addizionale $(cC_\ell)_\mathrm{a1}$, 
+    del carico basico $(cC_\ell)_\mathrm{b}$ e del braccio $x_\mathrm{b}(Y)$.%
+  }% #3: the caption text
+  {fig:Wing:Cmac:Results:A}%% #4: the label
+  
+  \end{document}

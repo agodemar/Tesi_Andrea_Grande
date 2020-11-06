@@ -1,0 +1,762 @@
+%------------------------------------------------------------------------------------------
+% Meta-commands for the TeXworks editor
+%
+% !TEX encoding = UTF-8
+% !TEX program = pdflatex
+%
+%============================================================================================
+%
+\documentclass{standalone}
+
+%------------------------------------------------------------------------------------------
+% PREAMBLE
+%------------------------------------------------------------------------------------------
+
+\input{_preamble_figures}% all preamble settings in ./_preamble.tex
+
+%------------------------------------------------------------------------------------------
+% Advanced graphics package called here
+
+\usepackage{tikz}
+   \usetikzlibrary{calc}
+   %\usetikzlibrary{fpu}
+   \usetikzlibrary{intersections}
+   \usetikzlibrary{positioning}
+   \usetikzlibrary{trees}
+   \usetikzlibrary{arrows}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\pgfkeys{
+   /pgf/number format/.cd,
+      use comma
+}
+\pgfplotsset{
+   compat=newest,
+   every axis/.append style={
+      semithick,% thick
+      tick style={semithick}
+   },
+   every axis title/.append style={
+      font=\relsize{0}
+   },
+   every axis legend/.append style={
+      cells={anchor=west},%
+      fill=gray!10,
+      font=\relsize{0},
+      at={(0.03,0.97)},
+      anchor=north west,thin,draw=none
+  }
+}
+
+%------------------------------------------------------------------------------------------
+% LOCAL USER-DEFINED MACROS & SETTINGS
+
+\input{_local_macros}
+
+%------------------------------------------------------------------------------------------
+% RESULTS PRODUCED BY MATHCAD/MATLAB
+
+\input{data.tex}
+
+\begin{document}
+
+
+\begin{tikzpicture}[scale=1.5]
+
+\pgfmathsetmacro{\XAxisMin}{0}
+\pgfmathsetmacro{\XAxisMax}{1.1*(\mySpanWingMT/2)}
+\pgfmathsetmacro{\YAxisMin}{0}
+\pgfmathsetmacro{\YAxisMax}{3.3*((\mySpanWingMT/2)*tan(\mySweepLEWingDEG) + \myChordTipWingMT)}
+
+%\begin{axis}[
+%   % canvas dimensions
+%   % width=12cm, height=10cm,
+%   % limits
+%   xmin=\XAxisMin, xmax=\XAxisMax,
+%   ymin=\YAxisMin, ymax=\YAxisMax,
+%   % special settings for axes
+%   axis equal image,
+%   y dir=reverse,
+%   axis x line=top,
+%   axis y line=left,
+%   % x-axis line style
+%   x tick label style={
+%      /pgf/number format/.cd,
+%         fixed,
+%         fixed zerofill,
+%         precision=0,
+%      /tikz/.cd
+%   },
+%   % x-axis label and style
+%   xlabel={$Y$ (\si{\meter})},
+%   every axis x label/.append style={
+%      font=\relsize{0},
+%      rotate=0,xshift=0.0em,yshift=0.0em
+%   },
+%   % y-axis line style
+%   y tick label style={
+%      /pgf/number format/.cd,
+%         fixed,
+%         fixed zerofill,
+%         precision=0,
+%      /tikz/.cd,
+%   },
+%   % x-axis label and style
+%   ylabel={$X$ (\si{\meter})},
+%   every axis y label/.append style={
+%      font=\relsize{0},
+%      rotate=0, % -90,
+%      xshift=-0.0em,yshift=0.0em
+%   },
+%   % x-/y-tick settings
+%   minor x tick num = 1,
+%   minor y tick num = 1,
+%   %clip limits=true,
+%   %enlarge x limits=3,
+%   clip=false
+%]
+%
+%% macros for wing planform
+%\pgfmathsetmacro{\Xa}{\mySpanWingMT/2}
+%\pgfmathsetmacro{\Ya}{\Xa*tan(\mySweepLEWingDEG)}
+%\pgfmathsetmacro{\Xb}{\Xa}
+%\pgfmathsetmacro{\Yb}{\Ya + \myChordTipWingMT}
+%\pgfmathsetmacro{\Xc}{0}
+%\pgfmathsetmacro{\Yc}{\Yb - \Xb*tan(\mySweepTEWingDEG)}
+%
+%\pgfmathsetmacro{\XQuarterChordRoot}{0}
+%\pgfmathsetmacro{\YQuarterChordRoot}{\myChordRootWingMT/4}
+%\pgfmathsetmacro{\XQuarterChordTip}{\mySpanWingMT/2}
+%\pgfmathsetmacro{\YQuarterChordTip}{\Ya + \myChordTipWingMT/4}
+%
+%\pgfmathsetmacro{\XLEmac}{\myYMACWingMT}
+%\pgfmathsetmacro{\YLEmac}{\myXMACLEToApexWingMT}% \myXMACLEToWingRootLEMT
+%\pgfmathsetmacro{\XTEmac}{\myYMACWingMT}
+%\pgfmathsetmacro{\YTEmac}{\myXMACLEToApexWingMT+\myMACWingMT}
+%
+%%\draw [thick,dashed] (axis cs: \Xa , \Ya) -- (axis cs: \Xa , 0);
+%%\draw [thick,dashed] (axis cs: \Xb , \Yb) -- (axis cs: 0 , \Yb);
+%
+%%\draw [gray,thin,dash pattern=on 2pt off 1pt,] 
+%%   (axis cs: \XLEmac , \YLEmac) -- (axis cs: \XLEmac , 0);
+%%\draw [gray,thin,dash pattern=on 6pt off 2pt,->,>=stealth] 
+%%   (axis cs: \XLEmac , \YLEmac) -- (axis cs: 0 , \YLEmac);
+%%\draw [gray,thin,,dash pattern=on 6pt off 2pt,->,>=stealth] 
+%%   (axis cs: \XTEmac , \YTEmac) -- (axis cs: 0 , \YTEmac);
+%
+%\draw [red!50!black,thick] 
+%   (axis cs: \XLEmac , \YLEmac) -- (axis cs: \XTEmac , \YTEmac);
+%
+%\pgfmathsetmacro{\Yac}{\myXMACLEToApexWingMT+\myXsiACWing*\myMACWingMT}
+%\pgfmathsetmacro{\Xac}{\XLEmac}
+%
+%\fill [red] (axis cs: \Xac,\Yac) circle (1.5pt);
+%\draw [gray,thin,dash pattern=on 6pt off 2pt] 
+%   (axis cs: 0, \Yac) -- (axis cs: \Xa , \Yac);
+%
+%\draw [thick,densely dotted] 
+%   (axis cs: \XQuarterChordRoot , \YQuarterChordRoot) -- 
+%   (axis cs: \XQuarterChordTip , \YQuarterChordTip);
+%
+%\addplot [
+%   mydarkblue, very thick,
+%   mark=*,mark options={fill=mydarkblue,scale=0.5},
+%   ]
+%   coordinates
+%   {
+%      (   0 ,   0 ) % Apex
+%      ( \Xa , \Ya )
+%      ( \Xb , \Yb )
+%      ( \Xc , \Yc )
+%      (   0 ,   0 ) % Apex
+%   }
+%%   % pinned annotations
+%%   %-------------------------------------------------------------
+%%   [
+%%      inner sep=0pt,yshift=0pt     
+%%   ] % applied to all the following nodes
+%%   %-------------------------------------------------------------
+%%   node[
+%%      pos=0.95,
+%%      pin={
+%%         [
+%%            gray,
+%%            pin distance=0.8cm,
+%%            pin edge={bend right=0,thin,-,shorten <=0pt},
+%%            text=mydarkblue,align=center,font=\relsize{-1},
+%%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%%            xshift=0em,
+%%            inner sep=3pt,fill=mylightblue!50
+%%         ]
+%%         above left%-80% angle
+%%         :{corda\\ di radice}% label
+%%      }
+%%   ] {}
+%%   %-------------------------------------------------------------
+%   ;
+%
+%%\addplot [
+%%   mydarkblue!80!red, thick, %line width=3pt,
+%%   mark=*,mark options={fill=mydarkblue,scale=0.5},
+%%   ]
+%%   coordinates
+%%   {
+%%      ( \XLEmac , \YLEmac )
+%%      ( \XTEmac , \YTEmac )
+%%   }
+%%   % pinned annotations
+%%   %-------------------------------------------------------------
+%%   [
+%%      inner sep=0pt,yshift=0pt     
+%%   ] % applied to all the following nodes
+%%%   %-------------------------------------------------------------
+%%%   node[
+%%%      pos=0.25,
+%%%      pin={
+%%%         [
+%%%            gray,
+%%%            pin distance=0.8cm,
+%%%            pin edge={bend right=0,thin,-,shorten <=0pt},
+%%%            text=mydarkblue,align=center,font=\relsize{-1},
+%%%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%%%            xshift=0em,
+%%%            inner sep=3pt,fill=mylightblue!50
+%%%         ]
+%%%         above right%-80% angle
+%%%         :{corda media\\ aerodinamica}% label
+%%%      }
+%%%   ] {}
+%%   ;
+%
+%\end{axis} 
+%
+%\begin{axis}[
+%   yshift=-3.7cm,%-- CF
+%   % limits
+%   xmin=\XAxisMin, xmax=\XAxisMax,
+%   ymin=-3.2, ymax=0.2,
+%   height=5cm,
+%   width=8.44cm,
+%   % special settings for axes
+%   %axis equal image,
+%   %y dir=reverse,
+%   %axis x line=top,
+%   hide x axis,
+%   %axis y line=left,
+%   axis y line*=left,
+%   % y-axis line style
+%   y tick label style={
+%      /pgf/number format/.cd,
+%         fixed,
+%         fixed zerofill,
+%         precision=0,
+%      /tikz/.cd,
+%   },
+%   % x-axis label and style
+%   ylabel={($\si{deg}$)},
+%   every axis y label/.append style={
+%      font=\relsize{0},
+%      rotate=0, % -90,
+%      xshift=-0.0em,yshift=0.0em
+%   },
+%   ytick={-3,-2,-1,0},
+%   % x-/y-tick settings
+%   minor x tick num = 1,
+%   minor y tick num = 1,
+%   %clip limits=true,
+%   %enlarge x limits=3,
+%   clip=false
+%   ]
+%
+%\pgfmathsetmacro{\xT}{\mySpanWingMT/2}
+%\pgfmathsetmacro{\yT}{\myTwistWingDEG}
+%\pgfmathsetmacro{\yRA}{\myAlphaZeroLiftRootWingDEG}
+%\pgfmathsetmacro{\yTA}{\myAlphaZeroLiftTipWingDEG}
+%
+%\draw [dashed] (axis cs: \xT,\yTA) -- ($(axis cs: \xT,\yTA)!2.33!(axis cs: \xT,0)$);
+%
+%\addplot [
+%   mydarkblue!80!red, very thick, %line width=3pt,
+%   mark=*,mark options={fill=mydarkblue,scale=0.5},
+%   ]
+%   coordinates
+%   {
+%      (   0 ,   0 )
+%      ( \xT , \yT )
+%   }
+%   %-------------------------------------------------------------
+%   node[
+%      pos=0.45,
+%      pin={
+%         [
+%            gray,
+%            pin distance=0.35cm,
+%            pin edge={bend right=0,thin,-,shorten <=-4pt},
+%            text=mydarkblue,align=center,font=\relsize{-1},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=3pt,fill=mylightblue!50
+%         ]
+%         20%-80% angle
+%         :{$\varepsilon_\mathrm{g}\big(Y\big)$}% label
+%      }
+%   ] {}
+%;
+%
+%\addplot [
+%   mydarkblue!80!red, very thick, %line width=3pt,
+%   mark=*,mark options={fill=mydarkblue,scale=0.5},
+%   ]
+%   coordinates
+%   {
+%      (   0 , \yRA )
+%      ( \xT , \yTA )
+%   }
+%   %-------------------------------------------------------------
+%   node[
+%      pos=0.92,
+%      pin={
+%         [
+%            gray,
+%            pin distance=0.55cm,
+%            pin edge={bend right=0,thin,-,shorten <=-4pt},
+%            text=mydarkblue,align=center,font=\relsize{-1},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=3pt,fill=mylightblue!50
+%         ]
+%         -20%-80% angle
+%         :{\relsize{-1}$\alpha_{0\ell}\big(Y\big)$}% label
+%      }
+%   ] {}
+%;
+%
+%\draw [->,>=stealth] (axis cs: 0,0) -- ($(axis cs: 0,0)!1.095!(axis cs: \xT,0)$);
+%
+%%\node 
+%%   at (axis cs: \xT,\yT)
+%%   [ minimum size=0pt,
+%%      pin={
+%%         [
+%%            gray,
+%%            pin distance=0.35cm,
+%%            pin edge={solid,mydarkblue,bend right=0,thin,-,shorten <=0pt},
+%%            text=black,align=left,font=\relsize{0},
+%%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%%            xshift=0em,
+%%            inner sep=3pt,fill=none%mylightblue!50
+%%         ]
+%%         above right%-80% angle
+%%         :{$\varepsilon_\Wing=\SI[round-precision=2]{\myTwistWingDEG}{}$}% label
+%%      }
+%%   ]
+%%   {}
+%%;
+%\draw [dashed]
+%   (axis cs: 0,\yT) -- 
+%   node [ pos = 0.7, minimum size=0pt, fill=white, yshift=0.0em ]
+%   {\relsize{-1}$\varepsilon_{\mathrm{g,t}}=\SI[round-precision=2]{\myTwistWingDEG}{deg}$}% label
+%   (axis cs:  \xT,\yT)
+%;
+%
+%\draw [dashed]
+%   (axis cs: 0,\yTA) -- 
+%   node [ pos = 0.25, minimum size=0pt, fill=white, yshift=0.0em ]
+%   {\relsize{-1}$\alpha_{0\ell,\mathrm{t}}=\SI[round-precision=2]{\myAlphaZeroLiftTipWingDEG}{deg}$}% label
+%   (axis cs:  \xT,\yTA)
+%;
+%
+%\node 
+%   at (axis cs: 0,\yRA)
+%   [ minimum size=0pt,
+%      pin={
+%         [
+%            gray,
+%            pin distance=1.85cm,
+%            pin edge={solid,mydarkblue,bend right=0,thin,-,shorten <=0pt},
+%            text=black,align=left,font=\relsize{0},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=3pt,fill=none%mylightblue!50
+%         ]
+%         right%-80% angle
+%         :{\relsize{-1}$\alpha_{0\ell,\mathrm{r}}=\SI[round-precision=2]{\myAlphaZeroLiftRootWingDEG}{deg}$}% label
+%      }
+%   ]
+%   {}
+%;
+%
+%\end{axis}
+%
+%
+%\begin{scope}[xshift=-2.0cm,yshift=2.60cm,scale=2.00]
+%
+%\draw [densely dotted,thick] (0,0) -- (0.25,0);
+%\draw [densely dotted,thick] (0,-1) -- (0.25,-1);
+%
+%\pgfmathsetmacro{\AngleAZLr}{-(\myAlphaZeroLiftRootWingDEG)}
+%\draw [red,thick, rotate around={\AngleAZLr:(0,-1)}] 
+%   (0,-1) -- (0,1.1)
+%   %-------------------------------------------------------------
+%   node[
+%      pos=0.98,
+%      pin={
+%         [
+%            gray,
+%            pin distance=0.95cm,
+%            pin edge={red,bend right=0,thin,-,shorten <=-2pt},
+%            text=mydarkblue,align=center,font=\relsize{0},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=1pt,fill=none
+%         ]
+%         0%-80% angle
+%         :{retta di\\ portanza nulla}% label
+%      }
+%   ] {}
+%;
+%
+%\draw [mydarkblue,thick, rotate around={0:(0,-1)}] 
+%   (0,-1) -- (0,0.8)
+%   %-------------------------------------------------------------
+%   node[
+%      pos=0.85,
+%      pin={
+%         [
+%            gray,
+%            pin distance=0.95cm,
+%            pin edge={bend right=0,thin,-,shorten <=-4pt},
+%            text=mydarkblue,align=center,font=\relsize{-1},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=1pt,fill=none
+%         ]
+%         0%-80% angle
+%         :{\relsize{1}corda}% label
+%      }
+%   ] {}
+%;
+%
+%%------
+%
+%\pgfmathsetmacro{\radiusR}{1.7}
+%\coordinate (B) at (0,-1);
+%%\fill [red] (B) circle (0.02);
+%\coordinate (A) at ($(B)+(0,\radiusR)$);
+%%\fill [red] (A) circle (0.02);
+%
+%\draw[->,thick,rotate around={90:(0,-1)}] 
+%   (A) 
+%   arc
+%   (0:\AngleAZLr:\radiusR)
+%   node[inner sep=1.5pt,fill=none,xshift=26pt,yshift=5pt] 
+%      {\relsize{0}$\SI[round-precision=1]{\myAlphaZeroLiftRootWingDEG}{deg}$} %{$\Lambda_\mathrm{le}$}
+%;
+%%------
+%
+%% profile coordinates
+%\draw[rotate=-90,yscale=-1,very thick] node[below=3.2cm,align=center] {profilo\\ di radice}
+%            plot file {Clark_Y.dat} -- cycle;
+%\end{scope}
+%
+%\begin{scope}[xshift=7.8cm,yshift=2.6cm,scale=0.84]
+%
+%\draw [densely dotted,thick] (0,0) -- (-0.85,0);
+%\draw [densely dotted,thick] (0,-1) -- (-0.85,-1);
+%\draw [dash pattern=on 8pt off 2pt,thick] 
+%   (0,-1.5) -- (0,3.4)
+%   %-------------------------------------------------------------
+%   node[
+%      pos=0.94,
+%      pin={
+%         [
+%            gray,
+%            pin distance=1.75cm,
+%            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+%            text=mydarkblue,align=center,font=\relsize{0},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=1pt,fill=none
+%         ]
+%         180%-80% angle
+%         :{parallela alla\\ corda di radice}% label
+%      }
+%   ] {}
+%;
+%
+%\pgfmathsetmacro{\AngleTwistTip}{-(\myTwistWingDEG)}
+%   \begin{scope}[rotate around={\AngleTwistTip:(0,-1)}]
+%      \pgfmathsetmacro{\AngleAlphaZLt}{(\myAlphaZeroLiftTipWingDEG)}
+%      \draw [red,thick, rotate around={\AngleAlphaZLt:(0,-1)}] 
+%         (0,-1) -- (0,2.7)
+%         %-------------------------------------------------------------
+%         node[
+%            pos=0.97,
+%            pin={
+%               [
+%                  gray,
+%                  pin distance=4.25cm,
+%                  pin edge={red,solid,bend right=0,thin,-,shorten <=-4pt},
+%                  text=mydarkblue,align=center,font=\relsize{0},
+%                  %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%                  xshift=0em,
+%                  inner sep=1pt,fill=none
+%               ]
+%               180%-80% angle
+%               :{retta di\\ portanza nulla}% label
+%            }
+%         ] {}
+%      ;
+%      \draw [mydarkblue,thick, rotate around={0:(0,-1)}] 
+%         (0,-1) -- (0,1.9)
+%         %-------------------------------------------------------------
+%         node[
+%            pos=0.95,
+%            pin={
+%               [
+%                  gray,
+%                  pin distance=0.75cm,
+%                  pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+%                  text=mydarkblue,align=center,font=\relsize{0},
+%                  %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%                  xshift=0em,
+%                  inner sep=1pt,fill=none
+%               ]
+%               180%-80% angle
+%               :{corda}% label
+%            }
+%         ] {}
+%      ;
+%
+%      % profile coordinates
+%      \draw[rotate=-90,very thick] node[below=2.0cm,align=center] {profilo\\ d'estremità}
+%         plot file {Clark_Y.dat} -- cycle;
+%   \end{scope}
+%\end{scope}
+
+\begin{axis}[
+   yshift=-7.5cm,%-- CF
+   % limits
+   %xmin=\XAxisMin, xmax=\XAxisMax,
+   xmin=-9.5, xmax=9.7,
+   ymin=-0.7, ymax=2.8,
+   height=5cm,
+   width=8.44cm,
+   % special settings for axes
+   %axis equal image,
+   %y dir=reverse,
+   axis x line=bottom,
+   every axis x label/.append style={
+      font=\relsize{-1},
+      rotate=0, % -90,
+      xshift=-0.0em,yshift=0.0em
+   },
+   xlabel={$Y$ ($\si{m}$)},
+   x tick label style={
+      font=\relsize{-1},
+      /pgf/number format/.cd,
+         fixed,
+         fixed zerofill,
+         precision=0,
+      /tikz/.cd,
+   },
+   xtick={-8,-6,...,8},
+   %hide x axis,
+   %axis y line=left,
+   axis y line=left,
+   % y-axis line style
+   y tick label style={
+      font=\relsize{-1},
+      /pgf/number format/.cd,
+         fixed,
+         fixed zerofill,
+         precision=0,
+      /tikz/.cd,
+   },
+   % x-axis label and style
+   ylabel={($\si{m}$)},
+   every axis y label/.append style={
+      font=\relsize{-1},
+      rotate=0, % -90,
+      xshift=-0.0em,yshift=0.0em
+   },
+   %ytick={-3,-2,-1,0},
+   % x-/y-tick settings
+   minor x tick num = 1,
+   minor y tick num = 1,
+   %clip limits=true,
+   %enlarge x limits=3,
+   clip=false
+   ]
+
+\pgfmathsetmacro{\xT}{\mySpanWingMT/2}
+\pgfmathsetmacro{\yT}{\myTwistWingDEG}
+%\pgfmathsetmacro{\yRA}{\myAlphaZeroLiftRootWingDEG}
+%\pgfmathsetmacro{\yTA}{\myAlphaZeroLiftTipWingDEG}
+
+%\draw [gray, dash pattern=on 3pt off 1pt] (axis cs: \xT,0) -- ($(axis cs: \xT,0) + (axis cs: 0,0.70)$);
+\draw [thin,-,>=stealth,dash pattern=on 10pt off 0.5pt] 
+  %(axis cs: 0,0) 
+  ($(axis cs: 0,0)!1.10!(axis cs: -\xT,0)$)
+  -- ($(axis cs: 0,0)!1.10!(axis cs: \xT,0)$);
+
+\draw [thin,-,>=stealth,dash pattern=on 10pt off 0.5pt] (axis cs: 0,-0.5) -- (axis cs: 0,2.7);
+
+\addplot [
+   mydarkblue!50!red, thin, %line width=3pt,
+   dash pattern=on 12pt off 3pt,
+   mark=,mark options={fill=mydarkblue,scale=0.5},
+   ]
+   table [x index=0, y index=1, col sep=comma] {data_loading_1.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.25,
+      pin={
+         [
+            gray,
+            pin distance=0.35cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-3pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         90%-80% angle
+         :{\relsize{-1}$c_\mathrm{ell}\big(Y\big)$}% label
+      }
+   ] {}
+;
+
+\addplot [
+   mydarkblue!50!red, thin, %line width=3pt,
+   dash pattern=on 5pt off 1.5pt,
+   mark=,mark options={fill=mydarkblue,scale=0.5},
+   ]
+   table [x index=0, y index=2, col sep=comma] {data_loading_1.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.03,
+      pin={
+         [
+            gray,
+            pin distance=0.45cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         90%-80% angle
+         :{\relsize{-1}$c_\mathrm{eff}\big(Y\big)$}% label
+      }
+   ] {}
+;
+
+\addplot [
+   mydarkblue!80!red, thick, %line width=3pt,
+   %dash pattern=on 3pt off 2pt,
+   mark=*,mark options={fill=mydarkblue,scale=0.15},
+   ]
+   table [x index=0, y index=3, col sep=comma] {data_loading_1.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.96,
+      pin={
+         [
+            gray,
+            pin distance=1.01cm,
+            pin edge={
+              solid,
+              bend right=30,
+              thin,shorten <=-4pt
+            },
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         90%-80% angle
+         :{\relsize{-1}$\big(cC_\ell\big)_\mathrm{a1}\big(Y\big)$}% label
+      }
+   ] {}
+;
+
+%\node 
+%   at (Bac)
+%   [ minimum size=0pt,
+%      pin={
+%         [
+%            gray,
+%            pin distance=1.9cm,
+%            pin edge={solid,mydarkblue,bend right=0,thin,-,shorten <=-3.6pt},
+%            text=mydarkblue,align=center,font=\relsize{-1},
+%            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+%            xshift=0em,
+%            inner sep=3pt,fill=mylightblue!50
+%         ]
+%         below%-80% angle
+%         :{centro\\ aerodinamico}% label
+%      }
+%   ]
+%   {}
+%;
+
+\addplot [
+   red!40!black, thick, %line width=3pt,
+   %dash pattern=on 3pt off 2pt,
+   mark=*,mark options={fill=mydarkblue,scale=0.15},
+   ]
+   table [x index=0, y index=4, col sep=comma] {data_loading_1.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.42,
+      pin={
+         [
+            gray,
+            pin distance=0.20cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         130%-80% angle
+         :{\relsize{-1}$\big(cC_\ell\big)_\mathrm{b}\big(Y\big)$}% label
+      }
+   ] {}
+;
+
+\addplot [
+   green!40!black, thick, %line width=3pt,
+   %dash pattern=on 3pt off 2pt,
+   mark=,mark options={fill=mydarkblue,scale=0.5},
+   ]
+   table [x index=0, y index=1, col sep=comma] {data_loading_2.csv}
+   %-------------------------------------------------------------
+   node[
+      pos=0.85,
+      pin={
+         [
+            gray,
+            pin distance=0.15cm,
+            pin edge={solid,bend right=0,thin,-,shorten <=-4pt},
+            text=mydarkblue,align=center,font=\relsize{-1},
+            %label={[inner sep=3pt,fill=yellow,font=\relsize{-1},label position=below]bordo d'uscita},% label
+            xshift=0em,
+            inner sep=3pt,fill=mylightblue!50
+         ]
+         120%-80% angle
+         :{\relsize{-1}$x_\mathrm{b}\big(Y\big)$}% label  x_1
+      }
+   ] {}
+;
+
+
+\end{axis}
+
+
+\end{tikzpicture}
+
+\end{document}

@@ -9,10 +9,7 @@
 %
 \noindent
 Based on the data of the previous example, at an altitude of $h=\SI[round-precision=0]{\myAltitudeM}{m}$, for an aircraft of mass $m=\SI[round-precision=0]{\myMassKg}{kg}$, we want to calculate the lift coefficients in equilibrium level flight for different values of the flight Mach number, $M = 0.3\,,\, 0.4\,,\, 0.5\,,\, 0.6\,,\, 0.7\,,\, 0.8$. The trend of the lift coefficient as a function of Mach is observed in \figurename~\vref{fig:CL:at:Various:Mach}.
-
-\medskip
-\noindent
-{\color{red} \bf Inserire le formule di calcolo ed un esempio di calcolo, per $M=0.5$.}
+%
 \pgfplotstableread[%
   header=false, col sep=space, row sep=newline, precision=6
   ]{Chapter_1/lift_coefficient_at_various_mach/dataset.txt}\myTableDataset
@@ -136,7 +133,7 @@ C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
 %
 % axis style, ticks, etc
 \pgfplotsset{every axis/.append style={
-                    label style={font=\relsize{1}},
+                    label style={font=\relsize{0}},
                     tick label style={font=\relsize{0}}  
                     }}
 %
@@ -147,7 +144,7 @@ C_L=\frac{L}{\bar{q}S}=\frac{m g}{\bar{q}S}
 % this is the lowermost x axis
 \begin{axis}[
     xmin=80,xmax=300,
-    xshift=2.5cm, yshift=-1.2cm,
+    xshift=2.5cm, yshift=-1.6cm,
     width=0.55\linewidth,
     axis x line*=bottom,
     hide y axis,

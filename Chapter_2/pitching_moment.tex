@@ -4,22 +4,21 @@
 %
 \input{Chapter_2/pitching_moment/data}
 %
-
 %
-\begin{myExampleX}{Momento di beccheggio intorno al centro aerodinamico dell'ala}{\ding{46}}% \ \Keyboard\ %
+\begin{myExampleX}{Pitching moment around the wing aerodynamic center}{\ding{46}}% \ \Keyboard\ %
 \label{example:Wing:Cmac:A}
 %
 \noindent
-Si consideri l'ala a bordi dritti rappresentata nella figura~\ref{fig:Wing:Cmac:Results:A}
-per la quale è nullo l'angolo di freccia del bordo d'attacco, 
-cioè $\Lambda_\mathrm{le}=\SI[round-precision=0]{\mySweepLEWingDEG}{\deg}$.
-Le rimanenti caratteristiche della superficie portante sono le seguenti:
+Consider the straight-edged wing shown in the figure~\ref{fig:Wing:Cmac:Results:A}
+whose sweep angle of the leading edge is null,
+that is $\Lambda_\mathrm{le}=\SI[round-precision=0]{\mySweepLEWingDEG}{\deg}$.
+The remaining characteristics of the wing are as follows:
 
 \smallskip
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{corde}:
+    \emph{chords}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$,
@@ -32,7 +31,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{apertura e superficie}:
+    \emph{wingspan and surface}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $b=\SI[round-precision=0]{\mySpanWingMT}{\metre}$,
@@ -45,7 +44,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{gradienti $C_{\ell_\mathlarger{\alpha}}$ di profilo}:
+    \emph{gradient $C_{\ell_\mathlarger{\alpha}}$ of profile}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
     $C_{\ell_\mathlarger{\alpha},\mathrm{r}}=\SI[round-precision=2]{\myCLAlphaRootWingRAD}{\radian^{-1}}=\SI[round-precision=4]{\myCLAlphaRootWingDEG}{\deg^{-1}}$,
@@ -58,7 +57,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{angoli di portanza nulla}:
+    \emph{zero lift angles}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth,minipage=[t]{0.59\textwidth}}{%
     $\alpha_{0\ell,\mathrm{r}}=\SI[round-precision=3]{\myAlphaZeroLiftRootWingRAD}{\radian}
@@ -72,7 +71,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{centri aerodinamici di profilo}:
+    \emph{aerodynamic profile centers}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $\bar{x}_{\mathrm{ac,2D},\mathrm{r}}=\SI[round-precision=2]{\myXsiacRootWing}{}$,
@@ -84,11 +83,11 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{coefficienti $C_{m_\mathlarger{\mathrm{ac}}}$ di profilo}:
+    \emph{coefficients $C_{m_\mathlarger{\mathrm{ac}}}$ of profile}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
-    $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{r}}=\SI[round-precision=3]{\myCmZeroRootWing}{}$,
-    $C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{t}}=\SI[round-precision=3]{\myCmZeroTipWing}{}$,
+    $C_{m_\mathlarger{\mathrm{ac}},\mathrm{r}}=\SI[round-precision=3]{\myCmZeroRootWing}{}$,
+    $C_{m_\mathlarger{\mathrm{ac}},\mathrm{t}}=\SI[round-precision=3]{\myCmZeroTipWing}{}$,
   }%
 }
 
@@ -96,7 +95,7 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 \noindent
 \adjustbox{left=\textwidth}{%
   \adjustbox{right=0.39\textwidth}{%
-    \emph{condizione di volo}:
+    \emph{flight condition}:
   }\rule{0.5em}{0pt}% --> SPACER
   \adjustbox{left=0.59\textwidth}{%
     $\Mach = \SI[round-precision=2]{\myMach}{}$.
@@ -104,11 +103,10 @@ Le rimanenti caratteristiche della superficie portante sono le seguenti:
 }
 
 \smallskip
-Per l'ala assegnata si vuole calcolare il coefficiente \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$}.
+For the assigned wing we want to calculate the coefficient \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$}.
 
 \medskip
-L'angolo di freccia della linea dei quarti di corda --- linea che coincide in questo caso con la linea dei
-fuochi delle sezioni alari --- si calcola come segue:
+The sweep angle of the quarter-chord line --- line that coincides in this case with the line of aerodynamic centers of the wing sections --- it is calculated as follows:
 \[
 \begin{split}
 \tan
@@ -130,9 +128,9 @@ fuochi delle sezioni alari --- si calcola come segue:
       = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\mySweepQuarterChordWingDEG}{\deg} }
 \end{split}
 \]
-L'ala assegnata ha dunque un angolo di freccia $\Lambda_{c/4}$ piccolo e negativo.
+The assigned wing, therefore, has a small and negative sweep angle $\Lambda_{c/4}$.
 
-La corda media aerodinamica è in questo caso
+The mean aerodynamic chord is in this case
 \[
 \bar{c} = \frac{2}{3} \, c_\mathrm{r} \, \frac{1+\lambda + \lambda^2}{1+\lambda}
   =
@@ -146,18 +144,18 @@ La corda media aerodinamica è in questo caso
     = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myMACWingMT}{\metre} }
 \]
 
-La distanza longitudinale del bordo d'attacco della corda media aerodinamica dal
-bordo d'attacco della corda di radice è nulla, 
-$X_{\mathrm{le},\bar{c}} = \SI[round-precision=2]{\myXMACLEToApexWingMT}{\metre}$, 
-essendo nullo l'angolo $\Lambda_\mathrm{le}$.
+The longitudinal distance of the leading edge of the mean aerodynamic chord from the
+leading edge of the root chord is null,
+$X_{\mathrm{le},\bar{c}} = \SI[round-precision=0]{\myXMACLEToApexWingMT}{\metre}$, 
+being $\Lambda_\mathrm{le}$ null.
 
-La stazione $Y_{\bar{c}}$ alla quale la legge delle corde $c(Y)$ assume il valore $\bar{c}$ è
+The station $Y_{\bar{c}}$ to which the law of the chords $c(Y)$ assumes value$\bar{c}$ is
 \[
 Y_{\bar{c}} 
   =
     \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda}
   =
-    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+    \frac{\SI[round-precision=0]{\mySpanWingMT}{\metre}}{6}
       \cdot 
       \frac{
         1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}
@@ -168,10 +166,10 @@ Y_{\bar{c}}
 \]
 
 
-Per il numero di Mach di volo assegnato
-il centro aerodinamico dell'ala si calcola come nell'esempio~\ref{example:Wing:Aerodynamic:Center:Of:A:Finite:Wing}.
-Dai dati e dalla figura~\ref{fig:Wing:Ac:K:One:Plots}
-si legge
+For the assigned flight Mach number
+the aerodynamic center of the wing is calculated as in the example~\ref{example:Wing:Aerodynamic:Center:Of:A:Finite:Wing}.
+From the data and the figure~\ref{fig:Wing:Ac:K:One:Plots}
+we get
 \[
 \lambda=\SI[round-precision=2]{\myTaperRatioWing}{}
 %
@@ -184,10 +182,10 @@ si legge
 K_1
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKOneACDatcomWing}{} }
 \]
-dalla figura~\ref{fig:Wing:Ac:K:Two:Plots}
-si legge
+from the figure~\ref{fig:Wing:Ac:K:Two:Plots}
+we can obtain
 \[
-\Lambda_\mathrm{le} = \SI[round-precision=1]{\mySweepLEWingDEG}{\deg}\;,\;\,
+\Lambda_\mathrm{le} = \SI[round-precision=0]{\mySweepLEWingDEG}{\deg}\;,\;\,
 \AR = \SI[round-precision=1]{\myAspectRatioWing}{}\;,\;\,
 \lambda=\SI[round-precision=2]{\myTaperRatioWing}{}
 %\quad \Longrightarrow \quad
@@ -197,12 +195,12 @@ si legge
 }
 %
 K_2 
-  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myKTwoACDatcomWing}{} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=0]{\myKTwoACDatcomWing}{} }
 \]
-dalla figura~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
-si legge
+from the figure~\ref{fig:Wing:Ac:X:AC:From:Apex:Plots}
+we get
 \[
-\Lambda_\mathrm{le} = \SI[round-precision=1]{\mySweepLEWingDEG}{\deg}\;,\;\,
+\Lambda_\mathrm{le} = \SI[round-precision=0]{\mySweepLEWingDEG}{\deg}\;,\;\,
 \Mach = \SI[round-precision=2]{\myMach}{}\;,\;\,
 \AR = \SI[round-precision=1]{\myAspectRatioWing}{}\;,\;\,
 \lambda=\SI[round-precision=2]{\myTaperRatioWing}{}
@@ -217,7 +215,7 @@ si legge
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{} }
 \]
 %
-Si ottiene dunque
+It is thus obtained
 \[
 \frac{x_{\mathrm{ac}}}{\bar{c}} 
   = K_1 \left( \frac{X'_{\mathrm{ac}}}{c_\mathrm{r}} - K_2  \right)
@@ -229,7 +227,7 @@ Si ottiene dunque
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXsiACWing}{} } 
 \]
 %
-Pertanto, la posizione $X_\mathrm{ac}$ è calcolabile come
+Therefore, the location $X_\mathrm{ac}$ can be calculated as
 
 \[
 X_\mathrm{ac} 
@@ -250,31 +248,31 @@ X_\mathrm{ac}
     }%
 \]
 
-La posizione del centro aerodinamico dell'ala individua una retta normale al piano di mezzeria
-di equazione $X=X_\mathrm{ac}$ rispetto alla quale può essere calcolata la legge dei bracci
-del carico basico
+The position of the wing aerodynamic center identifies a line normal to the center plane
+equation $X=X_\mathrm{ac}$ against which the law of arms can be calculated
+of the basic load
 \[
 x_\mathrm{b}(Y) 
   = X_\mathrm{ac} 
     - \Big[ Y \tan \Lambda_\mathrm{le} + \bar{x}_{\mathrm{ac,2D}} (Y) \, c(Y) \Big]
 \]
-La funzione $\bar{x}_{\mathrm{ac,2D}}(Y)$ esprime la distanza adimensionale del centro 
-aerodinamico del profilo alla stazione $Y$ dal bordo d'attacco della corda locale. 
-Per l'ala assegnata questa funzione coincide con la legge costante
-$\bar{x}_{\mathrm{ac,2D}}(Y) = \frac{1}{4}$ e l'espressione precedente,
-essendo $\Lambda_\mathrm{le}$ nullo, si particolarizza in
+The function $\bar{x}_{\mathrm{ac,2D}}(Y)$ represents the dimensionless distance from the aerodynamic profile center
+at the station $Y$ rom the leading edge of the local chord. 
+For the assigned wing this function coincides with the constant law
+$\bar{x}_{\mathrm{ac,2D}}(Y) = \frac{1}{4}$ and the previous expression,
+being $\Lambda_\mathrm{le}$ null, in our case it becomes
 \[
 x_\mathrm{b}(Y) = X_\mathrm{ac} - \frac{1}{4} \, c(Y)
 \]
 
-Il coefficiente di momento di beccheggio $C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$ dell'ala
-intorno al suo centro aerodinamico è dato dalla formula
+The pitching moment coefficient $C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$ of the wing
+around its aerodynamic center is given by the formula
 \[
 C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}
   = 
     \underbrace{% needs mt2pro, \underbrace otherwise
       %
-      \frac{2}{S\,\bar{c}} \int_0^{b/2} C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \; c^2(Y)\, \diff{Y}
+      \frac{2}{S\,\bar{c}} \int_0^{b/2} C_{m_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \; c^2(Y)\, \diff{Y}
       %
       %\rule[-1.2em]{0pt}{2em}% --> SPACER
     }_{ \mathlarger{ C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}} } } 
@@ -287,37 +285,37 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}
     }_{ \mathlarger{ C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}} } } 
 \]
 %
-dove 
+where 
 \begin{compactenum}[{\color{gray}$\bullet$}]%[(\itshape i\upshape)]
 \item
-$C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y)$ è la legge dei coefficienti di
-momento dei profili intorno al centro aerodinamico di sezione,
+$C_{m_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y)$ is the law of the coefficients of
+moment of the profiles around the aerodynamic center of section,
 \item
-$\big(cC_{\ell}\big)_\mathrm{b}(Y) = c(Y) \, C_{\ell,\mathrm{b}} (Y)$ è il prodotto della corda locale
-$c(Y)$ e del coefficiente di portanza \emph{basico} di sezione
-$C_{\ell,\mathrm{b}}(Y)$ --- presente quando 
-l'ala è posta all'angolo di portanza nulla $\alpha_{0L}$ (angolo misurato rispetto alla corda di radice),
+$\big(cC_{\ell}\big)_\mathrm{b}(Y) = c(Y) \, C_{\ell,\mathrm{b}} (Y)$ it is the product of the local chord
+$c(Y)$ and the lift coefficient \emph{basic} of section
+$C_{\ell,\mathrm{b}}(Y)$ --- present when
+the wing is placed at the zero lift angle $\alpha_{0L}$ (angle measured with respect to the root chord),
 \item
-$x_\mathrm{b}(Y)$ è il braccio tra il punto di applicazione del carico basico locale e il centro
-aerodinamico dell'ala.
+$x_\mathrm{b}(Y)$ is the arm between the point of application of the local basic load and the center
+aerodynamic wing.
 \end{compactenum}
 
-La formula precedente mostra che il coefficiente \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$}
-è la somma dei due contributi:
+The above formula shows that the coefficient \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$}
+is the sum of the two contributions:
 \begin{compactenum}[\itshape a\normalfont)]
 \item
-$C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}$, ottenibile cumulando le coppie pure
+$C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}$, obtainable by accumulating the pure couples 
   \[
     \diff{}\mathcal{M}_{\mathrm{ac},\mathrm{a}} 
-      = C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \; \bar{q}_\infty \,
+      = C_{m_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \; \bar{q}_\infty \,
         \underbrace{% needs mt2pro, \underbrace otherwise
           c(Y)\diff{Y}
         }_{ \mathlarger{ \diff{S} } }
           \, c(Y)
-    = \bar{q}_\infty \, C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \, c^2(Y) \, \diff{Y} 
+    = \bar{q}_\infty \, C_{m_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \, c^2(Y) \, \diff{Y} 
   \]
 \item
-$C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$, ottenibile cumulando i momenti di trasporto
+$C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$,obtainable by accumulating the transport moments
   \[
     \diff{}\mathcal{M}_{\mathrm{ac},\mathrm{b}} 
       = C_{\ell,\mathrm{b}}(Y)\,x_\mathrm{b}(Y)\; \bar{q}_\infty \, 
@@ -326,31 +324,31 @@ $C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$, ottenibile cumulando i momenti di 
         }_{ \mathlarger{ \diff{S} } }
     = \bar{q}_\infty \, \big( cC_{\ell} \big)_\mathrm{b} (Y) \,x_\mathrm{b}(Y)\, \diff{Y}
   \]
-\hfill(si noti che il braccio $x_b$ ha le dimensioni di una lunghezza)
+\hfill(note that the arm $x_b$ has the dimensions of a length)
 \end{compactenum}
 
 \noindent
-Questi contributi vengono integrati lungo l'apertura alare e adimensionalizzati dividendoli
+These contributions are integrated along the wingspan and dimensionless by dividing them
 per $\bar{q}_\infty S \bar{c}$.
 
-Per quanto riguarda il termine $C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}$,
-procedendo come mostrato nell'esempio~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
-si ricava
+As for the term $C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}$,
+proceeding as shown in the example~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
+it is obtained
 \[
 c \big( Y \big) = A_c \, Y + B_c
   = \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
     + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
 \]
-e, analogamente, si pone
+and, similarly, it arises
 \[
-C_{\mathcal{m}_\mathlarger{\mathrm{ac}}} \big( Y \big) 
-  = A_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}} \, Y + B_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}}
+C_{m_\mathlarger{\mathrm{ac}}} \big( Y \big) 
+  = A_{C_{m_\mathlarger{\mathrm{ac}}}} \, Y + B_{C_{m_\mathlarger{\mathrm{ac}}}}
 \]
-con
+with
 \[
-A_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}}
-  = \frac{C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{t}} 
-    - C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{r}}}{b/2}
+A_{C_{m_\mathlarger{\mathrm{ac}}}}
+  = \frac{C_{m_\mathlarger{\mathrm{ac}},\mathrm{t}} 
+    - C_{m_\mathlarger{\mathrm{ac}},\mathrm{r}}}{b/2}
   = 
     2 \frac{
       \SI[round-precision=3]{\myCmZeroTipWing}{} 
@@ -364,30 +362,30 @@ A_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}}
     }
 \]
 \[
-B_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}}
-  = C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{r}}
+B_{C_{m_\mathlarger{\mathrm{ac}}}}
+  = C_{m_\mathlarger{\mathrm{ac}},\mathrm{r}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCoeffBCmZeroWing}{} }
 \]
-cioè
+i.e.
 \[
-C_{\mathcal{m}_\mathlarger{\mathrm{ac,2D}}} \big( Y \big) 
-  = A_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}} \, Y + B_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}}
+C_{m_\mathlarger{\mathrm{ac,2D}}} \big( Y \big) 
+  = A_{C_{m_\mathlarger{\mathrm{ac}}}} \, Y + B_{C_{m_\mathlarger{\mathrm{ac}}}}
   = \SI[round-precision=5]{\myCoeffACmZeroWingMT}{\metre^{-1}} \, Y
     % +
     \SI[round-precision=3]{\myCoeffBCmZeroWing}{}
 \]
 %
-Pertanto, la formula di calcolo del contributo dovuto alle coppie pure fornisce
+Therefore, the formula for calculating the contribution due to pure couples provides
 \[
 \begin{split}
 C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}
   & {}= \frac{2}{S\,\bar{c}} \int_0^{b/2} 
-    C_{\mathcal{m}_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \; c^2(Y)\, \diff{Y}
+    C_{m_\mathlarger{\mathrm{ac}},\mathrm{2D}}(Y) \; c^2(Y)\, \diff{Y}
 \\
   & {}= 
   \frac{2}{S\,\bar{c}} \int_0^{b/2} 
     \Big( 
-      A_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}} \, Y + B_{C_{\mathcal{m}_\mathlarger{\mathrm{ac}}}} 
+      A_{C_{m_\mathlarger{\mathrm{ac}}}} \, Y + B_{C_{m_\mathlarger{\mathrm{ac}}}} 
     \Big)
     \Big( A_c \, Y + B_c \Big)^{\! 2}
     \, \diff{Y}
@@ -416,47 +414,47 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}}
   & {}= \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCmZeroAWing}{} }
 \end{split}
 \]
-Si osservi che il valore dell'integrale definito è ottenibile sviluppando simbolicamente
-la funzione integranda che è un polinomio di grado $3$ nella variabile $Y$.
+Observe that the value of the definite integral can be obtained by developing symbolically
+the integrand function which is a degree polynomial $3$ in the variable $Y$.
 
 \smallskip
-Dall'Aerodinamica è noto che, per un generico angolo d'attacco $\alpha$ al quale l'ala produce un
-coefficiente di portanza $C_L$,
-il \emph{carico alare} $\gamma$ (\emph{wing span loading}) è esprimibile come
+From the aerodynamics it is known that for a generic angle of attack $\alpha$ to which the wing produces a lift
+coefficient $C_L$,
+the $\gamma$\emph{wing span loading} can be expressed as
 \[
 \gamma(Y) \triangleq \frac{c(Y) \, C_\ell (Y)}{2 b} = C_L \, \gamma_{\mathrm{a}1}(Y) + \gamma_\mathrm{b}(Y) 
 \]
-Il carico è la somma del carico \emph{addizionale} $C_L \, \gamma_{\mathrm{a}1}(Y)$
---- un contributo che si annulla all'angolo di portanza nulla, in cui $C_L=0$ ---
-e del carico \emph{basico} $\gamma_\mathrm{b}(Y)$.
-Quest'ultimo, in particolare, è banalmente nullo per ali non svergolate (né geometricamente né aerodinamicamente)
-e, in generale, ha una legge di variazione con la $Y$ il cui diagramma sottende un'area nulla:
+Wing loading is the sum of the  \emph{additional} loading $C_L \, \gamma_{\mathrm{a}1}(Y)$
+--- a contribution that vanishes at the zero lift angle, in which $C_L=0$ ---
+and of the \emph{basic} loading $\gamma_\mathrm{b}(Y)$.
+The latter, in particular, is trivially null for non-twisted wings (neither geometrically nor aerodynamically)
+and, in general, it has a variation law with the $Y$ whose diagram subtends a null area:
 \[
 \int_0^{1} \gamma_\mathrm{b}(\eta) \diff{\eta} = 0 \qquad \text{con $\eta \triangleq \dfrac{Y}{b/2}$}
 \]
 
-Nella formula di calcolo di \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}},b}$}
+In the calculation formula of \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}},b}$}
 compare $\big(cC_{\ell}\big)_\mathrm{b}(Y) = 2b\gamma_\mathrm{b}(Y)$.
-Questa legge di carico può essere determinata per via numerica oppure in maniera approssimata 
-dalla conoscenza delle leggi di svergolamento geometrico $\epsilon_\mathrm{g}(Y)$ e aerodinamico
-$\alpha_{0\ell}(Y)$ e dell'angolo di portanza nulla dell'ala $\alpha_{0L}$.
+This loading law can be determined numerically or in an approximate way
+from the knowledge of the laws of geometric warping $\epsilon_\mathrm{g}(Y)$ and aerodynamic
+$\alpha_{0\ell}(Y)$and the zero lift angle of the wing $\alpha_{0L}$.
 
-L'espressione approssimata del carico basico, nota dalla Teoria vorticosa delle ali finite, è la seguente:
+The approximate expression of the basic loading, known from the Vortex Theory of Finite Wings, is the following:
 \[
 \big(cC_{\ell}\big)_\mathrm{b}(Y)
   = \frac{1}{2} \, c(Y) \, C_{\ell_\mathlarger{\alpha}}(Y) \,
     \bigg\{ \alpha_{0L} - \Big[ \alpha_{0\ell}\big(Y\big) - \epsilon_\mathrm{g}\big(Y\big) \Big] \bigg\}
 \]
-nella quale il fattore $\frac{1}{2}$ tiene conto di effetti tridimensionali nella regione intorno
-alla mezzeria dell'ala.
+in which the factor $\frac{1}{2}$ consider the three-dimensional effects in the surrounding region
+at the center line of the wing.
 %
-Nella formula precedente va trovata l'espressione della legge dei gradienti di portanza.
-In prima approssimazione si può porre 
-$C_{\ell_\mathlarger{\alpha}} (Y)=2\pi$; in alternativa si ricava la seguente legge lineare:
+In the previous formula we must find the expression of the law of lift gradients.
+As a first approximation it can be posed
+$C_{\ell_\mathlarger{\alpha}} (Y)=2\pi$; alternatively we obtain the following linear law:
 \smash{$C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}$}.
 
-Procedendo come mostrato nell'esempio~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
-si ricava
+Proceeding as shown in the example~\ref{example:Zero:Lift:Angle:Of:A:Finite:Wing}
+is obtained
 %\[
 %c \big( Y \big) = A_c \, Y + B_c
 %  = \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
@@ -475,14 +473,14 @@ si ricava
 \]
 
 \noindent
-e
+and
 \[
 C_{\ell_\mathlarger{\alpha}} \big( Y \big) = A_{C_{\ell_\alpha}} \, Y + B_{C_{\ell_\alpha}}
   = \SI[round-precision=5]{\myCoeffAClalphaWingRADMT}{\big(\radian\,\metre\big)^{-1}} \, Y
     + \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}}
 \]
 
-Si ricava inoltre
+It is also obtained
 \[
 \begin{split}
 \alpha_{0L} 
@@ -499,8 +497,7 @@ Si ricava inoltre
 \end{split}
 \]
 
-La formula di calcolo di \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}},b}$} diventa dunque
-
+The calculation formula of \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}},b}$} thus becomes
 \[
 \begin{split}
 C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}} 
@@ -532,7 +529,7 @@ c(Y) \, C_{\ell_\mathlarger{\alpha}}(Y) \,
 \end{split}
 \]
 \noindent
-Sostituendo i valori precedentemente trovati si ottiene
+Replacing the previously found values is obtained
 \[
  \begin{split}
 C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}} 
@@ -580,7 +577,7 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}
         scientific-notation=fixed % engineering % 
         ]{\myCoeffGWing}{}\, Y^2
       +
-      \SI[round-mode=figures,round-precision=3,
+      \SI[round-mode=figures,round-precision=2,
         fixed-exponent=-4,
         scientific-notation=fixed
         ]{\myCoeffHWing}{\metre^{-1}}\, Y^3
@@ -590,11 +587,11 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}
   & {}= \mathunderline{mydarkblue}{ \SI[round-precision=5]{\myCmZeroBWing}{} }
 \end{split}
 \]
-Si osservi che il valore dell'integrale definito è ottenibile sviluppando simbolicamente
-la funzione integranda che è un polinomio di grado $3$ (in questo caso particolare) nella variabile $Y$.
+Observe that the value of the definite integral can be obtained by developing symbolically
+the integrand function which is a degree polynomial $3$ (in this particular case) in the variable $Y$.
 
-Infine, il valore del coefficiente di momento di beccheggio dell'ala intorno al suo centro aerodinamico
-è
+Finally, the value of the wing's pitch moment coefficient around its aerodynamic center
+is
 \[
 C_{\mathcal{M}_\mathlarger{\mathrm{ac}}} 
   = C_{\mathcal{M}_\mathlarger{\mathrm{ac,a}}} + C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}
@@ -604,25 +601,25 @@ C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}
   = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCmZeroWing}{} }
 \]
 
-Nella figura~\ref{fig:Wing:Cmac:Results:A} è rappresentata la forma in pianta dell'ala assegnata,
-la legge dello svergolamento geometrico $\epsilon_\mathrm{g}(y)$ e dello svergolamento
-aerodinamico $\alpha_{0\ell}(Y)$.
-È rappresentata inoltre la legge del carico addizionale ottenuta con il \emph{metodo ingegneristico di Schrenk}
+In the figure~\ref{fig:Wing:Cmac:Results:A} the planform of the assigned wing is represented,
+the law of geometric warping $\epsilon_\mathrm{g}(y)$ and twisting
+aerodynamic $\alpha_{0\ell}(Y)$.
+The law of the additional loading obtained with the \emph{Schrenk's engineering method}
 \[
 \big( cC_\ell \big)_\mathrm{a1} = 2b \, \gamma_\mathrm{a1}
   = \frac{1}{2} \Big[ c_\mathrm{ell}(Y) + c_\mathrm{eff}(Y) \Big]
 \]
-dove
+where
 \[
 c_\mathrm{ell}(Y) = \frac{4S}{\pi b} \sqrt{1 - \frac{2Y}{b}}
 \qquad
 c_\mathrm{eff}(Y) = \frac{ c(Y) \, C_{\ell_\mathlarger{\alpha}}(Y) }{ \bar{C}_{\ell_\mathlarger{\alpha}} }
 \]
 %
-e 
+and
 \smash{$\bar{C}_{\ell_\mathlarger{\alpha}}=\SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}}$}.
 %
-Infine sono rappresentate la funzione $x_\mathrm{b}(Y)$ e la legge approssimata del carico basico
+Finally, the function is represented $x_\mathrm{b}(Y)$ and the approximate law of basic loading
 \[
 \begin{split}
 \big( cC_\ell \big)_\mathrm{b} (Y)
@@ -667,12 +664,11 @@ Infine sono rappresentate la funzione $x_\mathrm{b}(Y)$ e la legge approssimata 
     \vspace{0.3cm}
   }% #2: the image file included by \includegraphics
   {\finalhyphendemerits=1000
-    Ala assegnata nell'esempio~\ref{example:Wing:Cmac:A}.
-    Legge dello svergolamento geometrico $\epsilon_\mathrm{g}(y)$ e dello svergolamento
-    aerodinamico $\alpha_{0\ell}(Y)$.
-    Diagrammi del carico addizionale $(cC_\ell)_\mathrm{a1}$, 
-    del carico basico $(cC_\ell)_\mathrm{b}$ e del braccio $x_\mathrm{b}(Y)$.%
+    Wing assigned in the example~\ref{example:Wing:Cmac:A}.
+    Law of geometric warping $\epsilon_\mathrm{g}(y)$ and aerodynamic twisting
+       $\alpha_{0\ell}(Y)$.
+    Additional loading diagrams $(cC_\ell)_\mathrm{a1}$, 
+    of the basic loading $(cC_\ell)_\mathrm{b}$ and  of the arm $x_\mathrm{b}(Y)$.%
   }% #3: the caption text
   {fig:Wing:Cmac:Results:A}%% #4: the label
-  
-  \end{document}
+    \end{document}

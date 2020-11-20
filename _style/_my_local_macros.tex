@@ -33,7 +33,7 @@
     colback=blue!30, boxrule=1pt,
     #1}
 %---------------------------------------
-%
+ 
 
 \newcommand{\myMathSF}[1]{\mbox{\sffamily #1}}
 
@@ -108,6 +108,7 @@
   %\mdseries\scshape b%
   B%
   }}}
+  
 \newcommand{\Fuselage}{\ensuremath{\text{%
   %\mdseries\scshape f
   F%
@@ -147,7 +148,14 @@
   }}}
 
 \newcommand{\Stab}{\ensuremath{\mathrm{S}}}
+\newcommand{\msp}{\ensuremath{\mspace{1.5mu}}}
 
+%................................ Margin notes
+\newcommand{\marginalnote}[1]%
+             {\marginpar%
+                {\color{mydarkblue}\sf\scriptsize #1}%
+             }
+%
 \newcommand{\Constr}{\ensuremath{\text{
   %\mdseries\scshape c%
   C%

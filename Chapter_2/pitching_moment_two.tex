@@ -1,0 +1,106 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\input{Chapter_2/pitching_moment_two/data}
+%
+\begin{myExampleX}{Pitching moment around the wing aerodynamic center}{\ding{46}}% \ \Keyboard\ %
+\label{example:Wing:Cmac:B}
+%
+\noindent
+The example~\ref{example:Wing:Cmac:A} (see figure~\ref{fig:Wing:Cmac:Results:A}) is taken up here considering
+a more accurate law of basic loading.
+It was obtained numerically and is plotted in the figure~\ref{fig:Wing:Cmac:Results:BA}.
+The numerical values are shown in the table~\ref{tab:Wing:Cmac:Results:B}.
+%
+In the figure~\ref{fig:Wing:Cmac:Results:BB} the function is compared
+$(cC_\ell)_\mathrm{b,Schrenk}(Y)$, obtained in conjunction with the application of the Schrenk engineering method for the additional loading (see example~\ref{example:Wing:Cmac:A}),
+with function $(cC_\ell)_\mathrm{b}(Y)$, which interpolates a sequence of discrete values
+obtained by applying Prandtl's Lifting Line Theory.
+
+\begin{table}[tb]
+\caption{%
+ Wing assigned in the examples~\ref{example:Wing:Cmac:A} e ~\ref{example:Wing:Cmac:B}.
+Numerical values with which the basic loading was calculated $(cC_\ell)_\mathrm{b}$ 
+  applying Prandtl's Lifting Line Theory..
+}
+\label{tab:Wing:Cmac:Results:B}
+\centering
+\includegraphics[width=0.95\textwidth]{Chapter_2/pitching_moment_two/wing_Cmac_2_loading_table.pdf}
+\end{table}
+
+In the case discussed here the function $x_\mathrm{b}(Y)$ and the valute of
+ $C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$ coincide with what was obtained
+in the example~\ref{example:Wing:Cmac:A}.
+As for the value of $C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$, having a more accurate trend of the basic loading, a different value is obtained
+
+\[
+C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}} 
+  =
+  \frac{2}{S\,\bar{c}} \int_0^{b/2} \big(cC_{\ell}\big)_\mathrm{b}(Y) \; x_\mathrm{b}(Y)\, \diff{Y}
+  = 
+  \mathunderline{mydarkblue}{ \SI[round-precision=5]{\myCmZeroBWing}{} }
+\]
+The integral in this formula was evaluated numerically after defining a function
+interpolating $(cC_\ell)_\mathrm{b}(Y)$ piecewise linear in the interval
+$[0,\frac{1}{2}b]$.
+The figure~\ref{fig:Wing:Cmac:Results:BC} plot the discrete values of the
+integrating function
+%$\big(cC_{\ell}\big)_\mathrm{b}(Y) \, x_\mathrm{b}(Y)$,
+$\big(cC_{\ell}\big)_\mathrm{b} \, x_\mathrm{b}$,
+already listed in the seventh column of the table~\ref{tab:Wing:Cmac:Results:B}.
+The area subtended by the graph of the function is negative as well as, obviously, the sign
+of \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$}.
+
+\end{myExampleX}
+\begin{figure}
+  [t]%[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.80\textwidth]{Chapter_2/pitching_moment_two/wing_Cmac_2_loading_drawing.pdf}%
+  \caption{\finalhyphendemerits=1000
+           Wing assigned in the examples~\ref{example:Wing:Cmac:A} and~\ref{example:Wing:Cmac:B}.
+           Additional loading diagrams $(cC_\ell)_\mathrm{a1}$ and basic loading $(cC_\ell)_\mathrm{b}$ obtained numerically
+            (from the Prandtl's Lifting Line Theory)
+            and law $x_\mathrm{b}(Y)$ of the basic loading arms.}
+  \label{fig:Wing:Cmac:Results:BA}%
+\end{figure}
+
+
+%-----------------------------------------------------------------------------------------------
+\begin{figure}[t]%[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.80\textwidth]{Chapter_2/pitching_moment_two/wing_Cmac_2_loading_drawing_2.pdf}%
+  \caption{\finalhyphendemerits=1000
+           Wing assigned in the examples~\ref{example:Wing:Cmac:A} and ~\ref{example:Wing:Cmac:B}.
+           Detail of the figure~\ref{fig:Wing:Cmac:Results:BA}.
+           Basic loading diagram$(cC_\ell)_\mathrm{b}$ obtained numerically
+            with the Lifting Line Theory
+         and approximate basic loading $(cC_\ell)_\mathrm{b,Schrenk}$ obtained concurrently
+            the application of the Schrenk engineering method for the additional loading
+           (see also the figure~\ref{fig:Wing:Cmac:Results:A}).}
+  \label{fig:Wing:Cmac:Results:BB}%
+\end{figure}
+%-----------------------------------------------------------------------------------------------
+\begin{figure}
+  [t]%[H]%[!htbp]
+  %\centering
+  %\checkoddpage
+  %\centering
+    \includegraphics[width=0.80\textwidth]{Chapter_2/pitching_moment_two/wing_Cmac_2_loading_drawing_3.pdf}%
+  \caption{\finalhyphendemerits=1000
+         Wing assigned in the examples~\ref{example:Wing:Cmac:A} and ~\ref{example:Wing:Cmac:B}.
+          Diagram of the two product functions $(cC_\ell)_\mathrm{b}(Y)\,x_\mathrm{b}(Y)$ 
+          and $(cC_\ell)_\mathrm{b,Schrenk}(Y)\,x_\mathrm{b}(Y)$
+           (see figure~\ref{fig:Wing:Cmac:Results:BC}).
+           The integral of these functions allows to estimate the contribution
+           \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac,b}}}$} to the coefficient
+            of pitching moment \smash{$C_{\mathcal{M}_\mathlarger{\mathrm{ac}}}$}
+      of the wing around its aerodynamic center.
+  }
+  \label{fig:Wing:Cmac:Results:BC}%
+\end{figure}%
+\end{document}

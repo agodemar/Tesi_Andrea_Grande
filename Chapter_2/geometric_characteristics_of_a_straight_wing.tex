@@ -22,8 +22,8 @@
 \label{example:Geometric:Characteristics:Of:A:Straight:Wing}
 %
 \noindent
-Let's consider a wing with a finite wingspan equal to $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$, with straight leading and trailing edges and null sweep angle, that is $\Lambda_{c/4}=\SI[round-precision=0]{\myLambdaCQuarter}{\degree}$.
-In addition, the wing sections at the various stations $Y$ along the wingspan have constant chord equal to $\SI[round-precision=2]{\myChordRootWingMT}{\metre}$
+Let's consider a wing with a finite wingspan equal to $b=\SI[round-precision=0]{\mySpanWingMT}{\metre}$, with straight leading and trailing edges and null sweep angle, that is $\Lambda_{c/4}=\SI[round-precision=0]{\myLambdaCQuarter}{\degree}$.
+In addition to this, the wing sections at the various stations $Y$ along the wingspan have constant chord equal to $\SI[round-precision=2]{\myChordRootWingMT}{\metre}$
 and they all have the same profile, i.e. the aerodynamic characteristics of the section are constant. We want to calculate the following quantities:
 
 \adjustbox{center=\textwidth}{%
@@ -43,7 +43,7 @@ The wing surface is calculated as follows:
 \begin{split}
 S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) = b\,c_\mathrm{r}\\
   & {}=
-    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingMT}{\metre}
+    \num{0.5} \cdot \SI[round-precision=0]{\mySpanWingMT}{\metre}
       \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
       \cdot \big( 1 + \SI[round-precision=0]{\myTaperRatioWing}{} \big) 
     = { \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} }
@@ -55,10 +55,10 @@ The elongation is therefore:
 \[
 \AR 
   = \frac{b^2}{S}
-  = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
+  = \frac{\big(\SI[round-precision=0]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2}}
   ={ \num[round-precision=2]{\myAspectRatioWing} }
 \]
-This value is greater than $\num[round-precision=0]{10}$,so that allows us to say that we are in presence of a wing with an high aspect ratio.
+This value is greater than $\num[round-precision=0]{10}$, so that allows us to say that we are in presence of a wing with an high aspect ratio.
 \noindent
 The mean aerodynamic chord is given by:
 \[
@@ -84,7 +84,7 @@ X_{\mathrm{le},\bar{c}}
   & {}=
     \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda} \tan\Lambda_\mathrm{le} \\[3pt]
   & {}=
-    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+    \frac{\SI[round-precision=0]{\mySpanWingMT}{\metre}}{6}
       \cdot 
       \frac{
         1 + 2\cdot\SI[round-precision=0]{\myTaperRatioWing}{}
@@ -104,7 +104,7 @@ Y_{\bar{c}}
   & {}=
     \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda} = \\[3pt]
   & {}=
-    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+    \frac{\SI[round-precision=0]{\mySpanWingMT}{\metre}}{6}
       \cdot 
       \frac{
         1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}
@@ -115,6 +115,6 @@ Y_{\bar{c}}
     = \frac{b}{2} \, \frac{1}{2}
 \end{split}
 \]
-The value obtained corresponds to the station along the wingspan halfway between the root chord and the tip chord. We will see later that for this type of straight wing with constant section, when twisting geometric $\epsilon_\mathrm{g}(Y)$ is identically null,the basic aerodynamic characteristics of the section profile are transferred to the finite wing. For example, the zero lift angle $\alpha_{0L}$ coincides with  zero lift angle $\alpha_{0\ell}$ of the profile; just as $C_L \big|_{\alpha = 0} $ coincides with the profile $C_{\ell 0}$. The gradient \smash{$C_{L_\mathlarger{\alpha}}$} relative to the wing must instead be corrected respect to the value of \smash{$C_{\ell_\mathlarger{\alpha}}$} relative to the profile for the finite elongation effect.
+The value obtained corresponds to the station along the wingspan halfway between the root chord and the tip chord. We will see later that for this type of straight wing with constant section, when twisting geometric $\epsilon_\mathrm{g}(Y)$ is identically null, the basic aerodynamic characteristics of the section profile are transferred to the finite wing. For example, the zero lift angle $\alpha_{0L}$ coincides with  zero lift angle $\alpha_{0\ell}$ of the profile; just as $C_L \big|_{\alpha = 0} $ coincides with the profile $C_{\ell 0}$. The gradient \smash{$C_{L_\mathlarger{\alpha}}$} relative to the wing must instead be corrected respect to the value of \smash{$C_{\ell_\mathlarger{\alpha}}$} relative to the profile for the finite elongation effect.
 \end{myExampleX}
 \end{document}

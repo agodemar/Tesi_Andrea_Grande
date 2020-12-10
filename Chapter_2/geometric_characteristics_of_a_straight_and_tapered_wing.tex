@@ -18,7 +18,7 @@
 \label{example:Geometric:Characteristics:Of:A:Straight:And:Tapered:Wing}
 %
 
-Let us consider a wing with a finite wingspan equal to $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
+Let us consider a wing with a finite wingspan equal to $b=\SI[round-precision=0]{\mySpanWingMT}{\metre}$,
 straight leading and trailing edges and null sweep angle that is: $\Lambda_{c/4}=\SI[round-precision=0]{\myLambdaCQuarterDeg}{\degree}$.
 Unlike the previous example, the wing assigned here is tapered, i.e. the chord of the different wing sections varies linearly with distance $Y$ from the center plane. The root chord is
 $c_\mathrm{r}=\SI[round-precision=2]{\myChordRootWingMT}{\metre}$ and the tip chord is $c_\mathrm{t}=\SI[round-precision=2]{\myChordTipWingMT}{\metre}$.
@@ -46,7 +46,7 @@ A_c
     2 \frac{
       \SI[round-precision=2]{\myChordTipWingMT}{\metre} - \SI[round-precision=2]{\myChordRootWingMT}{\metre}
     }{
-      \SI[round-precision=2]{\mySpanWingMT}{\metre}
+      \SI[round-precision=0]{\mySpanWingMT}{\metre}
     }
   =  \SI[round-precision=3]{\myCoefficientA}{} 
 \]
@@ -67,7 +67,7 @@ each of a major base $c_\mathrm{r}$, minor base $c_\mathrm{t}$ and height $\frac
 \begin{split}
 S & {}= \frac{b}{2} \, c_\mathrm{r} \, \big( 1 + \lambda \big) \\
   & {}=
-    \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingMT}{\metre}
+    \num{0.5} \cdot \SI[round-precision=0]{\mySpanWingMT}{\metre}
       \cdot \SI[round-precision=2]{\myChordRootWingMT}{\metre}
       \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWing}{} \big) 
     =  \SI[round-precision=1]{\myAreaWingMTsquared}{\metre^2} 
@@ -107,7 +107,7 @@ At this point we can calculate the wing aspect ratio, that is:
 \[
 \AR
   = \frac{b^2}{S}
-  = \frac{\big(\SI[round-precision=1]{\mySpanWingMT}{m}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{m^2}}
+  = \frac{\big(\SI[round-precision=0]{\mySpanWingMT}{m}\big)^2}{\SI[round-precision=1]{\myAreaWingMTsquared}{m^2}}
   =   \num[round-precision=2]{\myAspectRatioWing} 
 \]
 It is known that the line joining the points along the individual chords $c(Y)$ distant $c(Y)/n$ from the local leading edge forms a sweep angle $\Lambda_{c/n}$ connected to that of the leading edge $\Lambda_\mathrm{le}$ from the following relation:
@@ -159,7 +159,7 @@ X_{\mathrm{le},\bar{c}}
   & {}=
     \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda} \tan\Lambda_\mathrm{le} \\[3pt]
   & {}=
-    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+    \frac{\SI[round-precision=0]{\mySpanWingMT}{\metre}}{6}
       \cdot 
       \frac{
         1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}
@@ -179,7 +179,7 @@ Y_{\bar{c}}
   & {}=
     \frac{b}{6} \, \frac{1+2\lambda}{1+\lambda} = \\[3pt]
   & {}=
-    \frac{\SI[round-precision=1]{\mySpanWingMT}{\metre}}{6}
+    \frac{\SI[round-precision=0]{\mySpanWingMT}{\metre}}{6}
       \cdot 
       \frac{
         1 + 2\cdot\SI[round-precision=2]{\myTaperRatioWing}{}

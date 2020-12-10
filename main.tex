@@ -1,18 +1,13 @@
 % AUTHOR: Agostino De Marco, agostino.demarco@unina.it
-
 % LaTeX STARTING DECLARATION
-
 \documentclass[12pt,twoside]{book}
-
 \usepackage{_my_document_style}
-
+\usepackage{pdfpages}
 % BEGIN DOCUMENT
 
 \begin{document}
-%
-\frontmatter
-%
-\import{}{cover_page}
+
+\includepdf[pages={1}]{frontespizio.pdf}
 %
 \newpage
 %
@@ -24,7 +19,6 @@
 %
 \cleardoublepage
 %
-%
 % minitoc stuff -----------
 %\mtcsetpagenumbers{*}{off}
 \dominitoc \dominilof \dominilot
@@ -32,20 +26,24 @@
 \tableofcontents
 %\fakelistoffigures \fakelistoftables
 \listoffigures
+%
+%
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\import{Introduction/}{introduction_page}
 % -------------- minitoc stuff
 %
 %
 \mainmatter
-%
 %
 %?[ADJUST-HERE] PLACE THIS AS NEEDED
 \renewcommand{\thechapter}{\arabic{chapter}}
 %
 %
 \opt{final}{% <===
-   \import{Chapter_1/}{chapter_1}
-   \import{Chapter_2/}{chapter_2}
-   \import{Chapter_3/}{chapter_3}
+  \import{Chapter_1/}{chapter_1}
+  \import{Chapter_2/}{chapter_2}
+  \import{Chapter_3/}{chapter_3} \import{Chapter_4/}{chapter_4}
 }
 
 %% reset the material handled by package background
@@ -54,6 +52,7 @@
 \makeatother
 
 % -------   A P P E N D I C E S
+% some configuration commands by package appendix
 % some configuration commands by package appendix
 \clearpage \phantomsection
 \renewcommand{\chaptername}{Appendix}
@@ -71,60 +70,64 @@
 \import{appendices/}{appendices}
 
 \end{appendices}
-%
-%
+%Here we include the appendix material of the book
+
 % ---  B I B L I O G R A P H Y
 \clearpage \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \pagestyle{myBibliographyPageStyle}
-\nocite{*}
+\nocite{*}  
 %\printbibheading[title={Bibliography}]
 \printbibliography[heading=myBibliography]% needs biblatex
-
+ 
 % ---  P R I N T   G L O S S A R Y   and   A C R O N Y M S
-%
 % add all the entries to the glossaries without referencing each one explicitly
 \glsaddall
-%
+% 
 \glossarystyle{list}%    can choose other style for displaying glossaries
 % styles -->   list, listdotted, long, longragged, super, tree
 %
 %\printglossaries
 %%%
-%%%  other possible uses:
-%%%
+%%  other possible uses:
 
-\markboth{}{}
-\clearpage
-\pagestyle{myGlossaryPageStyle}
-\printglossary[type=main]% the default glossary is printed
-%
+
+% \markboth{}{}
+% \clearpage
+% \pagestyle{myGlossaryPageStyle}
+%  \printglossary[type=main]% the default glossary is printed
+
 \markboth{}{}
 \clearpage
 \pagestyle{myListOfSymbolsPageStyle}
 \printglossary[type=symbols]
 
 % ---   I N D E X
-%\markboth{}{}
-%\cleardoublepage
-%\pagestyle{myIndexPageStyle}
+% \markboth{}{}
+% \cleardoublepage
+% \pagestyle{myIndexPageStyle}
 %
-%\indexnote{%
-%In the index we have many voices, of various types. The page number on the right
-%reveals where those terms appear in the book.%{\parfillskip=0pt\par}
-%
-%\medskip\noindent
-%\blindtext% this is just some dummy text
-%
-%\medskip
-%{\color{red}
-%The index---and index entries---should be the very last thing to work at when writing a book!
-%So, do not worry about what you see below. These items are going to change many times before
-%the final version of the document is released.}
-%}% end-of-indexnote
-%
-%\phantomsection
-%\printindex
+% \markboth{}{}
+% \clearpage
+% \pagestyle{myAcronymsPageStyle}
+% \printglossary[type=\acronymtype]
+% %
+% \indexnote{%
+% In the index we have many voices, of various types. The page number on the right
+% reveals where those terms appear in the book.%{\parfillskip=0pt\par}
+
+% \medskip\noindent
+% \blindtext% this is just some dummy text
+
+% \medskip
+% {\color{red}
+% The index---and index entries---should be the very last thing to work at when writing a book!
+% So, do not worry about what you see below. These items are going to change many times before
+% the final version of the document is released.}
+% }% end-of-indexnote
+
+% \phantomsection
+% \printindex
 %
 %\markboth{}{}
 %\cleardoublepage
@@ -133,8 +136,11 @@
 %
 %\listoftodos[List of TO-DOs and comments]
 %
-
-% ------------------------------------------------------ the end
+% ------------------------------------------------------ 
+\chapter*{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+\import{Acknowledgments/}{acknowledgments}
+%
 \end{document}
 
 %% Notes

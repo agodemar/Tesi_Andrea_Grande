@@ -18,8 +18,8 @@
 \label{example:Geometric:Characteristics:Of:A:Cranked:Wing}
 %
 \noindent
-A wing with a finite wingspan has the leading and trailing edges corresponding to two segments. In particular, the planform of the right wing is the union of two panels labeled as " panel ~ 1 " (inner panel) and " panel ~ 2 " (outer panel),
-This type of planform is also called \emph{cranked wing}.
+A wing with a finite wingspan has the leading and trailing edges corresponding to two segments. In particular, the planform of the right wing is the union of two panels labeled as "panel~1" (inner panel) and "panel~2" (outer panel),
+this type of planform is also called \emph{cranked wing}.
 The total wingspan is $b=\SI[round-precision=1]{\mySpanWingMT}{\metre}$,
 the inner panel has extension  $\frac{1}{2}b_1=\calcSI[round-precision=2,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingIMT}{\metre}$,
 the outer panel has extension
@@ -36,7 +36,7 @@ The wing section $BB'$ has chord
 $c_{\mathrm{t},1}=c_{\mathrm{r},2}=\SI[round-precision=2]{\myChordRootWingIIMT}{\metre}$.
 The sweep angles of the leading edges of each panel are
 $\Lambda_\mathrm{le,1}=\SI[round-precision=1]{\mySweepLEWingIDEG}{\deg}$
-e $\Lambda_\mathrm{le,2}=\SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}$.
+and $\Lambda_\mathrm{le,2}=\SI[round-precision=1]{\mySweepLEWingIIDEG}{\deg}$.
 
 For the given \emph{cranked} wing we want to calculate the following quantities:
 \noindent
@@ -340,7 +340,7 @@ From the general formula for calculating the mean aerodynamic chord written for 
   = \frac{1}{S} \int_0^{b_1/2} c_1^2(Y) \diff{Y} 
     + \frac{1}{S} \int_{b_1/2}^{b/2} c_2^2(Y) \diff{Y}
 \]
-being the two integrals on the second side equal to $S_1 \, \bar{c}_1$ e $S_2 \, \bar{c}_2$, respectively, we have that $\bar{c}$ of the given wing is given by the following weighted average:
+being the two integrals on the second side equal to $S_1 \, \bar{c}_1$ and $S_2 \, \bar{c}_2$, respectively, we have that $\bar{c}$ of the given wing is given by the following weighted average:
 \[
 \bar{c} = \frac{S_1 \, \bar{c}_1 + S_2 \, \bar{c}_2} {S_1 + S_2}
   =
@@ -379,7 +379,7 @@ X_{\mathrm{le},\bar{c}}
     \includegraphics[width=0.78\textwidth]{Chapter_2/geometric_characteristics_of_a_cranked_wing/wing_planform_basic_2_drawing.pdf}%
   \caption{\finalhyphendemerits=1000
            Planform of the  \emph{cranked} wing assigned in the example~\ref{example:Geometric:Characteristics:Of:A:Cranked:Wing}.
-         it is also reported thee piecewise linear chord law .
+         It is also reported the piecewise linear chord law .
   }
   \label{fig:Cranked:Wing:Planform:Results}%
 \end{figure}

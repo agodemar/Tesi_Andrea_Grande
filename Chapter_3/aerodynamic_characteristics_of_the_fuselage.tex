@@ -12,7 +12,7 @@
 We want to calculate the coefficients \smash{$C_{\mathcal{M}_\mathlarger{0,\Body}}$}
 and \smash{$C_{\mathcal{M}_\mathlarger{\alpha},\Body}$}
 of a fuselage with the \emph{Strip Integration Method} of Multhopp.
-For this purpose a \emph{Wing-Body} configuration is considered similar to that of a Boeing~747.
+For this purpose a \emph{Wing-Body} configuration is considered similar to that one of a Boeing~747.
 %
 Here are some of its features that will be used for the fuselage calculations:
 \[
@@ -45,7 +45,7 @@ flight Mach number $M=\SI[round-precision=2]{\myMach}{}$
 and a flight altitude $h_\mathrm{ASL}=\SI[round-precision=2]{\myAltitudeMT}{\metre}$.
 
 The side view and the top view of the fuselage are shown in the
-figures~\ref{fig:Fuselage:Multhopp:Results:AA:A} e~\ref{fig:Fuselage:Multhopp:Results:AA:B}.
+figures~\ref{fig:Fuselage:Multhopp:Results:AA:A} and~\ref{fig:Fuselage:Multhopp:Results:AA:B}.
 Said $X$ the longitudinal coordinate running aft along
 the \emph{Fuselage Reference Line}, FRL,
 with origin at the front end, and $Z$ the coordinate normal to it
@@ -57,10 +57,8 @@ the function $w_\mathrm{f}(X)$, width of the plan view of the fuselage to the st
 the pair of functions
 $\big(X_\mathrm{cl,f}(X),Z_\mathrm{cl,f}(X)\big)$, which describe the \emph{camber line} of the side view,
 \item
-the function $i_\mathrm{cl,f}(X)$,representing the angle, with changed sign, formed
-of the local tangent to the mean line with the FRL.
+the function $i_\mathrm{cl,f}(X)$, representing the angle, with changed sign, formed of the local tangent to the mean line with the FRL.
 \end{compactitem}
-
 A discretization for fuselage strips --- visually represented in the
 figure~\ref{fig:Fuselage:Multhopp:Results:AA} 
 with  $N_{\mathrm{f}0}=\num[round-precision=0]{\myNoStripCMZeroBody}$ stripes
@@ -70,19 +68,19 @@ led to the numerical values listed in the table~\ref{tab:Fuselage:Multhopp:Resul
 In it, for $k=1,\ldots,\num[round-precision=0]{\myNoStripCMZeroBody}$, the coordinates
 $\big(X_{\mathrm{cl,f}_\mathlarger{k}},Z_{\mathrm{cl,f}_\mathlarger{k}}\big)$ of the centroids
 of each strip, the widths $w_{\mathrm{f}_\mathlarger{k}}$ 
-and angles $i_{\mathrm{cl,f}_\mathlarger{k}}$ are observed.
+and angles $i_{\mathrm{cl,f}_\mathlarger{k}}$, are observed.
 
 \EnlargedFigureX% needs two latex passes
   {p}% #1: t, b, p
   {%
     \begin{tabular}{@{}c@{}}
-    \subfloat[Vista laterale\label{fig:Fuselage:Multhopp:Results:AA:A}]{%
+    \subfloat[Side view \label{fig:Fuselage:Multhopp:Results:AA:A}]{%
     \makebox[\textwidth][c]{%
       \includegraphics[width=0.90\textwidth]{Chapter_3/aerodynamic_characteristics_of_the_fuselage/fuselage_sideview_1.pdf}%
     }% end-of-makebox
     }% end-of-subfloat
     \\
-    \subfloat[Vista dall'alto\label{fig:Fuselage:Multhopp:Results:AA:B}]{%
+    \subfloat[Top view \label{fig:Fuselage:Multhopp:Results:AA:B}]{%
     \makebox[\textwidth][c]{%
       \rule{2.2mm}{0pt}% --> hack
       \includegraphics[width=0.88\textwidth]{Chapter_3/aerodynamic_characteristics_of_the_fuselage/fuselage_topview_1.pdf}%
@@ -103,7 +101,7 @@ and angles $i_{\mathrm{cl,f}_\mathlarger{k}}$ are observed.
     Discretization of the lateral projection for the approximate calculation of the coefficient
     \smash{$C_{\mathcal{M}0,\Body}$}
     with Multhopp's strip integration method.
-   Below is the angle $i_\mathrm{cl}$ formed by the local tangent to the \emph{camber line}
+   Below there is the angle $i_\mathrm{cl}$ formed by the local tangent to the \emph{camber line}
    of the fuselage with the FRL.
   }% #3: the caption text
   {fig:Fuselage:Multhopp:Results:AA}%% #4: the label
@@ -122,8 +120,8 @@ C_{\mathcal{M}_\mathlarger{0,\Body}} \equiv C_{\mathcal{M}_\mathlarger{0L,\Body(
 \]
 in which the angles are expressed in \si{rad}.
 To evaluate the final result --- being known the following quantities 
-$S$, $\bar{c}$, $i_{\Wing}$ e $\alpha_{0L,\Wing}$, related to the wing ---
-the laws of $w_\mathrm{f}\msp(X)$ e $i_{\mathrm{cl,f\msp}}(X)$ must be determined 
+$S$, $\bar{c}$, $i_{\Wing}$ and $\alpha_{0L,\Wing}$, related to the wing ---
+the laws of $w_\mathrm{f}\msp(X)$ and $i_{\mathrm{cl,f\msp}}(X)$ must be determined 
 and the apparent mass coefficient must be calculated $k_2-k_1$.
 The latter is derived from the figure~\ref{fig:Fuselage:Munch:Mass:Factor} obtaining
 \[
@@ -133,8 +131,8 @@ corresponding to the \emph{Fuselage Fineness Ratio}, FFR.
 % $\text{\itshape FFR}=l_\Body/d_\Body=\SI[round-precision=2]{\myFuselageFinenessRatio}{}$.
 $l_\Body/d_\Body=\SI[round-precision=1]{\myFuselageFinenessRatio}{}$.
 
-The calculation formula of the \smash{$C_{\mathcal{M}_\mathlarger{0,\Body}}$} is approximated by substituting for the definite integral
-a summation. This approximation is based on the discretization of the aforementioned fuselage shape.
+The calculation formula of the \smash{$C_{\mathcal{M}_\mathlarger{0,\Body}}$} is approximated by substituting the definite integral
+for a summation. This approximation is based on the discretization of the aforementioned fuselage shape.
 With reference to the values in the table~\ref{tab:Fuselage:Multhopp:Results:A:A} we get
 \[
 %\begin{equation}\label{eq:Aero:CMBW:Zero}
@@ -194,7 +192,7 @@ C_{\mathcal{M}_\mathlarger{\alpha},\Body}
       \bigg(1+\frac{\partial\epsilon_\mathrm{u}(X)}{\partial\alpha}\bigg) \diff{X}
 %\end{equation}
 \]
-where $\epsilon_\mathrm{u}(X)$ is the angle of \emph{upwash}induced by the main lifting surface
+where $\epsilon_\mathrm{u}(X)$ is the angle of \emph{upwash} induced by the main lifting surface
 to the generic longitudinal station $X$
 (note that downstream of the wing $\epsilon_\mathrm{u}=-\epsilon_\mathrm{u}<0$, where \emph{downwash} $\epsilon >0$). 
 
@@ -202,7 +200,7 @@ It is convenient to decompose the integral of the right side into the sum of thr
 They will be extended to the front of the fuselage, respectively
 (\emph{forebody}), running from the bow to the leading edge of the root chord
 of the wing, to the part of the fuselage subtended by the wing root (\emph{wing trunk})
-and to the rear of the aircraft(\emph{afterbody}),running from the trailing edge of the root chord
+and to the rear of the aircraft(\emph{afterbody}), running from the trailing edge of the root chord
 wing up to the stern.
 %
 \begin{figure} [t]%[H]%[!htbp]
@@ -220,7 +218,7 @@ wing up to the stern.
   \label{fig:Fuselage:Sideview:Forebody}%
 \end{figure}
 %
-With reference to the figures~\ref{fig:Fuselage:Sideview:Forebody} e~\ref{fig:Fuselage:Sideview:Afterbody}
+With reference to the figures~\ref{fig:Fuselage:Sideview:Forebody} and~\ref{fig:Fuselage:Sideview:Afterbody}
 three new longitudinal coordinates are introduced along the FRL:
 \begin{compactitem}[{\color{gray}$\circ$}]% needs paralist package
 \item
@@ -252,7 +250,7 @@ C_{\mathcal{M}_\mathlarger{\alpha},\Body}
 \end{split}
 %\end{equation}
 \]
-where $l_1$, $l_\Wing=c_{\Wing,\mathrm{r}}$ ed $l_2=l_\Body - l_1 - c_{\Wing,\mathrm{r}}$
+where $l_1$, $l_\Wing=c_{\Wing,\mathrm{r}}$ and $l_2=l_\Body - l_1 - c_{\Wing,\mathrm{r}}$
 are the lengths, respectively, of the anterior trunk (\emph{nose}) of the fuselage,
 of the central trunk of the fuselage affected by the wing (\emph{wing trunk})
 and of the posterior trunk (\emph{tail trunk}).
@@ -285,8 +283,7 @@ l'_\Htail=\SI[round-precision=1]{\myXWingTEToHTailACMT}{m}
 %
 %
 The second integral to the second member of the above formula can be overlooked
-compared to the other two in the sense that the central trunk of the fuselage does not contribute in
-significantly to the final result.
+compared to the other two in the sense that the central trunk of the fuselage does not contribute significantly to the final result.
 Therefore, we obtain the formula
 \[
 %\begin{equation}\label{eq:Aero:CMBW:Alpha:Multhopp}
@@ -302,7 +299,7 @@ C_{\mathcal{M}_\mathlarger{\alpha},\Body}
 
 The previous result can be approximated by substituting integrals for summations
 after having appropriately discretized the front and rear parts of the fuselage.
-An example of discretization is given by the figure~\ref{fig:Fuselage:Sideview:Forebody} e~\ref{fig:Fuselage:Sideview:Afterbody}.
+An example of discretization is given by the figure~\ref{fig:Fuselage:Sideview:Forebody} and~\ref{fig:Fuselage:Sideview:Afterbody}.
 The three fuselage trunks--- front, middle and rear --- are divided,
 respectively, in
 $N_{\mathrm{f}1}=\num[round-precision=0]{\myNoStripForebodyCMAlphaBody}$,
@@ -310,7 +307,7 @@ $N_{\mathrm{f}\Wing}=\num[round-precision=0]{\myNoStripWingCMAlphaBody}$,
 and
 $N_{\mathrm{f}2}=\num[round-precision=0]{\myNoStripAfterbodyCMAlphaBody}$ stripes.
 The strips that count in the calculation of \smash{$C_{\mathcal{M}_\mathlarger{\alpha},\Body}$}
-are those numbered from $1$ to $\num[round-precision=0]{\myNoStripForebodyCMAlphaBody}$
+are those ones numbered from $1$ to $\num[round-precision=0]{\myNoStripForebodyCMAlphaBody}$
 and from
 \calcSI[round-precision=0,fixed-exponent=0,scientific-notation=fixed]{\myNoStripForebodyCMAlphaBody+\myNoStripWingCMAlphaBody+1}{}
 to
@@ -329,11 +326,10 @@ are obtained by multiplying $(\partial\epsilon_\mathrm{u}/\partial\alpha)_0$ for
 $C_{L_\mathlarger{\alpha},\Wing}/\SI[round-precision=3]{4.498}{rad^{-1}}$
 with $C_{L_\mathlarger{\alpha},\Wing}=\SI[round-precision=3]{\myCLAlphaPolhamusWingRAD}{rad^{-1}}$.
 These values are plotted in the figure~\ref{fig:Fuselage:Upwash:Gradient}
-as a function of the dimensionless coordinate $x_1/c_\mathrm{r}$and are reported in
-table~\ref{tab:Fuselage:Multhopp:Results:A:B} (\emph{forebody strips}).
+as a function of the dimensionless coordinate $x_1/c_\mathrm{r}$  and are reported in table~\ref{tab:Fuselage:Multhopp:Results:A:B} (\emph{forebody strips}).
 
 In engineering practice the two strips closest to the wing are associated with the curve
-at the top of the diagram considered (coordinate $\tilde{x}_1$), being in an area with a
+at the top of the diagram considered (coordinate $\tilde{x}_1$), being in an area with an
 higher gradient of \emph{upwash}.
 The remaining strips that discretize the \emph{forebody} are associated with the diagram below
 (coordinate $x_1$).
@@ -346,10 +342,10 @@ The remaining strips that discretize the \emph{forebody} are associated with the
   \caption{\finalhyphendemerits=1000
           Gradient of \emph{upwash} at the different stations
            located in front of the wing. The stations named $\tilde{x}_1$ are the closest ones while
-            those named $x_1$ these are the stations which are gradually farthest and closest to the bow.
+            those ones named $x_1$ are the stations which are gradually farthest and closest to the bow.
             The two original curves $(\partial\epsilon_\mathrm{u}/\partial\alpha)_0$ are related to a wing of
             lift gradient equal to \SI[round-precision=3]{4.498}{rad^{-1}}. 
-           Therefore the desired values are obtained by multiplying by a factor
+           Therefore the desired values are obtained by multiplying for a factor
            $C_{L_\mathlarger{\alpha},\Wing}/\SI[round-precision=3]{4.498}{rad^{-1}}$
            with $C_{L_\mathlarger{\alpha},\Wing}=\SI[round-precision=3]{\myCLAlphaPolhamusWingRAD}{rad^{-1}}$.
   }
@@ -390,7 +386,7 @@ the following analytical formula is used:
 \]
 %valida anche per ali a freccia, 
 The multiplying factors
-$K_{\AR}$, $K_{\lambda}$ e $K_{\Wing\Htail}$ take into account, respectively,
+$K_{\AR}$, $K_{\lambda}$ and $K_{\Wing\Htail}$ take into account, respectively,
 of the wing aspect ratio $\AR$, wing taper ratio $\lambda$ and of positioning of the plane
 of horizontal tail.
 They are expressed by the formulas
@@ -416,7 +412,7 @@ and point at $\frac{1}{4}$ of the mean aerodynamic chord of the wing,
 $h_{\Wing\Htail}$ is the distance from point at $\frac{1}{4}$ of the mean aerodynamic chord of the horizontal tail
 from the normal plane to the plane of symmetry of the aircraft
 and passing through the root chord of the wing
-(conventionally $h_{\Wing\Htail}$is positive if the tailplane is located at
+(conventionally $h_{\Wing\Htail}$ is positive if the tailplane is located at
 above the root chord).
 \end{compactitem}
 
@@ -430,8 +426,8 @@ above the root chord).
           Gradient of \emph{downwash} to the different stations
             placed behind the wing. The coordinates $x_\Wing$ and $x_2$ originate, respectively,
             at the leading edge and trailing edge of the wing root chord.
-           The length $l'_\Htail$ is the distance of the aerodynamic center of the tail
-            horizontal from the origin of the coordinate $x_2$.
+           The length $l'_\Htail$ is the distance of the aerodynamic center of the horizontal tail
+             from the origin of the coordinate $x_2$.
   }
   \label{fig:Fuselage:Downwash:Gradient}%
 \end{figure}%
@@ -477,7 +473,7 @@ Summary of the discrete values used in the gradient calculation formula  \smash{
   and
   $N_{\mathrm{f}2}=\num[round-precision=0]{\myNoStripAfterbodyCMAlphaBody}$ stripes.
   The strips that count in the calculation of \smash{$C_{\mathcal{M}_\mathlarger{\alpha},\Body}$}
-  are those numbered from $1$ to $\num[round-precision=0]{\myNoStripForebodyCMAlphaBody}$
+  are those ones numbered from $1$ to $\num[round-precision=0]{\myNoStripForebodyCMAlphaBody}$
   and from
   \calcSI[round-precision=0,fixed-exponent=0,scientific-notation=fixed]{\myNoStripForebodyCMAlphaBody+\myNoStripWingCMAlphaBody+1}{}
   to
@@ -573,13 +569,13 @@ C_{\mathcal{M}_\mathlarger{\alpha},\Body}
 \end{split}
 %\end{equation}
 \]
-The index values $k$ in the previous formula correspond to those reported
+The index values $k$ in the previous formula correspond to those  ones reported
 in the summary table~\ref{tab:Fuselage:Multhopp:Results:A:C}.
 
-Note the coefficients
+Knowing the coefficients
 \smash{$C_{\mathcal{M}_\mathlarger{0,\Body}}$} and
 \smash{$C_{\mathcal{M}_\mathlarger{\alpha},\Body}$}
-we can obtai the graph of the \smash{$C_{\mathcal{M}_\mathlarger{\Body}}$}
+we can obtain the graph of the \smash{$C_{\mathcal{M}_\mathlarger{\Body}}$}
 as a function of the angle $\alpha_\Body$. It corresponds to the line
 drawn in the figure~\ref{fig:Fuselage:Cm:Plot}.
 Observe the value \smash{$C_{\mathcal{M}_\mathlarger{0,\Body}}$}, for definition,
@@ -638,7 +634,7 @@ in the figure~\ref{fig:Fuselage:Multhopp:Results:A:CA:Shift}.
     Effect of the presence of the fuselage on the aerodynamic center.
    For clarity the coordinates have been highlighted $(X_\mathrm{c},Y_\mathrm{c})$ of the reference system \emph{constructive}
     of the aircraft, using the symbol `$X$'for the longitudinal distances referred to the apex of the wing
-    is `$x$' for those referring to the leading edge of the medium aerodynamic rope.
+    is `$x$' for those referring to the leading edge of the mean aerodynamic chord.
      The aerodynamic center of the wing, in the transition to the wing-fuselage configuration,
      typically moves forward.
      In the example proposed, we pass by a value 

@@ -1,0 +1,107 @@
+\documentclass[[12pt,twoside]{book}
+\usepackage{_my_document_style}
+\begin{document}
+%
+\input{Chapter_4/wing_downwash_1/data}
+%
+%
+\begin{myExampleX}{Gradient of the downwash angle}{\ding{46}}% \ \Keyboard\ %
+\label{example:Wing:Downwash:A}
+%
+\noindent
+We want to calculate the gradient \smash{$\diff{\epsilon}/\diff{\alpha}$} of a finite wing
+which has an aspect ratio
+\[
+\AR 
+  = \frac{b^2}{S}
+  = \frac{\big(\SI[round-precision=0]{\mySpanWingMT}{\metre}\big)^2}{\SI[round-precision=0]{\myAreaWingMTsquared}{\metre^2}}
+  = \mathunderline{mydarkblue}{ \num[round-precision=2]{\myAspectRatioWing} }
+\]
+
+The characteristics of the lifting surface and section profiles allow
+to obtain an average value of the gradient
+\begin{multline}
+\nonumber
+\bar{C}_{\ell_\mathlarger{\alpha}}
+  = \frac{2}{S} \int_0^{b/2} 
+      c\big(Y\big) \, C_{\ell_\mathlarger{\alpha}} \big(Y\big) \diff{Y}
+\\
+  = \frac{2}{ \SI[round-precision=0]{\myAreaWingMTsquared}{\metre^{2}} } 
+    \int_0^{ \calcSI[round-precision=1,fixed-exponent=0,scientific-notation=fixed]{0.5*\mySpanWingMT}{\metre} } 
+    \big[
+      \SI[round-precision=5]{\myCoeffAClalphaWingRADMT}{\big(\radian\,\metre\big)^{-1}} \, Y
+      + \SI[round-precision=3]{\myCoeffBClalphaWingRAD}{\radian^{-1}}
+    \big]
+    \rule{5em}{0pt}% <-- SPACER
+\\
+    \rule{5em}{0pt}% <-- SPACER
+    \cdot \big[
+      \SI[round-precision=3]{\myCoeffAChordWing}{} \, Y
+      + \SI[round-precision=2]{\myCoeffBChordWingMT}{\metre}
+    \big]
+    \diff{Y}
+\\
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCLAlphaMeanWingDEG}{\deg^{-1}} }
+\end{multline}
+%
+It can be used for the calculation of the lift gradient of the finished wing
+\[
+C_{L_\mathlarger{\alpha}}
+  = 
+    \frac{
+      \bar{C}_{\ell_\mathlarger{\alpha}}
+    }{
+      1 + \dfrac{\bar{C}_{\ell_\mathlarger{\alpha}}}{\pi \AR \, e_\Wing}
+    }
+  =
+    \frac{
+      \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}}
+    }{
+      1 + 
+        \dfrac{ \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}} }{
+          \num[round-precision=2]{3.14} 
+          \cdot \SI[round-precision=2]{\myAspectRatioWing}{}
+          \cdot \SI[round-precision=2]{\myInducedDragFactorWing}{}
+        }
+    }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myCLAlphaWingRAD}{\radian^{-1}} }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=4]{\myCLAlphaWingDEG}{\deg^{-1}} }
+\]
+having assumed a \emph{span efficiency factor} 
+%$e_\Wing=\SI[round-precision=2]{\myInducedDragFactorWing}{}$.
+given by the empirical formula%
+\[
+e_\Wing = \frac{2}{2-\AR+\sqrt{4+\AR^2\big(1+\tan^2\Lambda_{t_\mathrm{max}}\big)}}
+  = \SI[round-precision=2]{\myInducedDragFactorWing}{}
+\]
+with $\Lambda_{t_\mathrm{max}}$ the sweep angle of the point line of percentage thickness
+maximum of profiles. In this case, all the percentage thicknesses are found
+at $30\%$ of chords and 
+$\Lambda_{t_\mathrm{max}} = \SI[round-precision=2]{\mySweepTmaxWingDEG}{\deg}$
+and $\tan \Lambda_{t_\mathrm{max}} = \calcSI[round-precision=3,fixed-exponent=0,scientific-notation=fixed]{tan(\mySweepTmaxWingRAD)}{}$.
+
+It is therefore obtained
+\[
+\left.\frac{ \diff{\epsilon} }{ \diff{\alpha} }\right|_{\Mach=0}
+  = 2\, \dfrac{\bar{C}_{\ell_\mathlarger{\alpha}}}{\pi \AR \, e_\Wing}
+  = 2\,
+  \dfrac{ \SI[round-precision=3]{\myCLAlphaMeanWingRAD}{\radian^{-1}} }{
+    \num[round-precision=2]{3.14} 
+      \cdot \SI[round-precision=2]{\myAspectRatioWing}{}
+      \cdot \SI[round-precision=2]{\myInducedDragFactorWing}{}
+  }
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myDownwashGradientLLTAtMachZeroWing}{} }
+\]
+and finally
+\[
+\frac{ \diff{\epsilon} }{ \diff{\alpha} }
+  =
+  \sqrt{1-\Mach^2} \,
+  \left.\frac{ \diff{\epsilon} }{ \diff{\alpha} }\right|_{\Mach=0}
+  = \sqrt{1-\SI[round-precision=2]{\myMach}{}^2} \,
+    \cdot \SI[round-precision=2]{\myDownwashGradientLLTAtMachZeroWing}{}      
+  = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myDownwashGradientLLTWing}{} }
+\]
+\end{myExampleX}
+\end{document}

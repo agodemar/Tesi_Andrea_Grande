@@ -10,7 +10,7 @@
   %\centering
     \includegraphics[width=0.78\textwidth]{Chapter_2/aerodynamic_center_of_a_cranked_wing/wing_ac_cranked_1_drawing_mac.pdf}
   \caption{\finalhyphendemerits=1000
-         Aerodynamic mean chord of the wing proposed in the example~\ref{example:Wing:Aerodynamic:Center:Cranked}.
+         Mean aerodynamic chord of the wing proposed in the example~\ref{example:Wing:Aerodynamic:Center:Cranked}.
   }
   \label{fig:Wing:Aerodynamic:Center:Cranked:MAC}%
 \end{figure}
@@ -22,7 +22,7 @@
 In this example the position of the aerodynamic center will be calculated
 of a wing similar to that of a Boeing~787.
 The wing considered is of type \emph{cranked}, as can be seen from the planform shown in
-figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels}, and has the following characteristics:
+figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels}, and has the following features:
 
 \smallskip
 \noindent
@@ -239,15 +239,14 @@ figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:Panels}, and has the following c
     \includegraphics[width=0.72\textwidth]{Chapter_2/aerodynamic_center_of_a_cranked_wing/wing_ac_cranked_1_drawing_panels.pdf}%
   \caption{\finalhyphendemerits=1000
           \emph{Cranked} wing proposed in the example~\ref{example:Wing:Aerodynamic:Center:Cranked}.
-          The inner panel $ABB'A'$, the outer panel $BCC'B'$ and the extended outer panel $DCC'D'$ are highlight
-          (\emph{constructed panel}) used for the calculation of the aerodynamic center of the wing.
+          The inner panel $ABB'A'$, the outer panel $BCC'B'$ and the extended outer panel $DCC'D'$ are highlighted. The \emph{constructed panel} is used for the calculation of the aerodynamic center of the wing.
   }
   \label{fig:Wing:Aerodynamic:Center:Cranked:Panels}%
 \end{figure}%
 %-----------------------------------------------------------------------------------------------
 
 \bigskip
-From the data it is easy to obtain the law of the chords:
+From the data we obtain the law of the chords:
 \[
 c(Y)=
 \begin{cases}
@@ -339,7 +338,7 @@ S_1 = \frac{b_1}{2} \, c_{\mathrm{r},1} \, \big( 1 + \lambda_1 \big)
     \num{0.5} \cdot \SI[round-precision=1]{\mySpanWingIMT}{\metre}
       \cdot \SI[round-precision=2]{\myChordRootWingIMT}{\metre}
       \cdot \big( 1 + \SI[round-precision=2]{\myTaperRatioWingI}{} \big) 
-    = \mathunderline{mydarkblue}{ \SI[round-precision=1]{\myAreaWingIMTsquared}{\metre^2} }
+    = \mathunderline{mydarkblue}{ \SI[round-precision=0]{\myAreaWingIMTsquared}{\metre^2} }
 \]
 an aspect ratio
 \[
@@ -460,7 +459,7 @@ X_{\mathrm{le},\bar{c}_2} - X_B
     = \mathunderline{mydarkblue}{ \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre} }
 \end{split}
 \]
-longitudinally from the pointo $B$. Therefore
+longitudinally from the point $B$. Therefore
 \[
 \begin{split}
 X_{\mathrm{le},\bar{c}_2} & {}= X_B + \SI[round-precision=2]{\myXMACLEToApexWingIIMT}{\metre}
@@ -575,7 +574,7 @@ X_{\mathrm{le},\bar{c}}
 \]
 % 
 In the figure~\ref{fig:Wing:Aerodynamic:Center:Cranked:MAC}
-the drawing of the assigned planform is shown where the chords are indicated $\bar{c}_1$, $\bar{c}_2$ e $\bar{c}$
+the drawing of the assigned planform is shown where the chords are indicated $\bar{c}_1$, $\bar{c}_2$ and $\bar{c}$
 and the distances $X_{\mathrm{le},\bar{c}}$ and $Y_{\bar{c}}$.
 
 \medskip
@@ -592,7 +591,7 @@ of panel~2 towards the inside,
 starting, respectively, from the points $B$ and $B'$, until we get to the points $D$ and $D'$ the parallel line
 to the axis $X$ of equation $Y=\frac{1}{4}b_1$.
 Therefore, the inner panel is considered in the following calculations
-$\mathcal{P}_1=ABB'A'$ annd,
+$\mathcal{P}_1=ABB'A'$ and,
 instead of the panel $\mathcal{P}_2=BCC'B$,
 the extended outer panel $\mathcal{P}_{2'}=DCC'D'$.
 
@@ -828,7 +827,7 @@ a_0 =
   }
   \qquad (\, \Lambda_{\mathrm{le,1}} = \Lambda_{\mathrm{le,2}} \,)
 \]
-From the data of the problem it is easy to verify that we have
+From the data of the problem it is possible to verify that we have
 \[
 C_{L_\mathlarger{\alpha}}\Big|_{\mathcal{P}_{1}}
   = \SI[round-precision=3]{\myCLAlphaPolhamusWingIRAD}{\radian^{-1}}
@@ -861,7 +860,7 @@ Therefore, it is obtained
   \mathunderline{mydarkblue}{ \SI[round-precision=3]{\myXACOverChordRootDatcomWing}{} }
 \]
 
-For a \emph{cranked} wing this is the decisive result, which allows
+For a \emph{cranked} wing this is the decisive result, which allows to
 obtain
 \[
 X_{\mathrm{ac}} = \frac{X_{\mathrm{ac}}}{c_\mathrm{r}} \, c_{\mathrm{r},1}
